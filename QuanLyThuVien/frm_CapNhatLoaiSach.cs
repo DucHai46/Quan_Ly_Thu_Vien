@@ -45,13 +45,18 @@ namespace QuanLyThuVien
         private void Add_lsv(List<LoaiSach> saches)
         {
             KhoiTaoLsv_LoaiSach();
-            foreach (LoaiSach  loaiSach in saches)
+            foreach (LoaiSach loaiSach in saches)
             {
                 ListViewItem item = new ListViewItem(loaiSach.maLoaiSach);
                 item.SubItems.Add(loaiSach.tenLoaiSach);
                 item.SubItems.Add(loaiSach.kieuSach);
                 lsv_DanhSachLoaiSach.Items.Add(item);
             }
+        }
+
+        private void bntThoat_Click(object sender, EventArgs e)
+        {
+            this.Close();
         }
     }
 }

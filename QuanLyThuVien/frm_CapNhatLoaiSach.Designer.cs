@@ -136,6 +136,7 @@
             this.bntThoat.TabIndex = 1;
             this.bntThoat.Text = "Thoát";
             this.bntThoat.UseVisualStyleBackColor = true;
+            this.bntThoat.Click += new System.EventHandler(this.bntThoat_Click);
             // 
             // btnLuu
             // 
@@ -182,6 +183,7 @@
             // 
             this.lsv_DanhSachLoaiSach.Dock = System.Windows.Forms.DockStyle.Fill;
             this.lsv_DanhSachLoaiSach.Font = new System.Drawing.Font("Times New Roman", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lsv_DanhSachLoaiSach.FullRowSelect = true;
             this.lsv_DanhSachLoaiSach.HideSelection = false;
             this.lsv_DanhSachLoaiSach.Location = new System.Drawing.Point(3, 25);
             this.lsv_DanhSachLoaiSach.Name = "lsv_DanhSachLoaiSach";
