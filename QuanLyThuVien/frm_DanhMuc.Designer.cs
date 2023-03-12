@@ -28,30 +28,31 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.Windows.Forms.ListViewItem listViewItem2 = new System.Windows.Forms.ListViewItem("");
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.label1 = new System.Windows.Forms.Label();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
-            this.groupBox5 = new System.Windows.Forms.GroupBox();
-            this.groupBox4 = new System.Windows.Forms.GroupBox();
-            this.groupBox3 = new System.Windows.Forms.GroupBox();
-            this.listBox1 = new System.Windows.Forms.ListBox();
-            this.listBox3 = new System.Windows.Forms.ListBox();
-            this.button1 = new System.Windows.Forms.Button();
-            this.button2 = new System.Windows.Forms.Button();
-            this.button3 = new System.Windows.Forms.Button();
-            this.button4 = new System.Windows.Forms.Button();
             this.button6 = new System.Windows.Forms.Button();
-            this.label2 = new System.Windows.Forms.Label();
-            this.label3 = new System.Windows.Forms.Label();
-            this.label4 = new System.Windows.Forms.Label();
-            this.label5 = new System.Windows.Forms.Label();
-            this.label6 = new System.Windows.Forms.Label();
-            this.txtMaSach = new System.Windows.Forms.TextBox();
-            this.txtTenSach = new System.Windows.Forms.TextBox();
-            this.txtMaLoai = new System.Windows.Forms.TextBox();
-            this.txtSoLuong = new System.Windows.Forms.TextBox();
-            this.txtMaTacGia = new System.Windows.Forms.TextBox();
             this.button5 = new System.Windows.Forms.Button();
+            this.button4 = new System.Windows.Forms.Button();
+            this.button3 = new System.Windows.Forms.Button();
+            this.button2 = new System.Windows.Forms.Button();
+            this.button1 = new System.Windows.Forms.Button();
+            this.groupBox5 = new System.Windows.Forms.GroupBox();
+            this.lsvDanhSach = new System.Windows.Forms.ListView();
+            this.groupBox4 = new System.Windows.Forms.GroupBox();
+            this.txtMaTacGia = new System.Windows.Forms.TextBox();
+            this.txtSoLuong = new System.Windows.Forms.TextBox();
+            this.txtMaLoai = new System.Windows.Forms.TextBox();
+            this.txtTenSach = new System.Windows.Forms.TextBox();
+            this.txtMaSach = new System.Windows.Forms.TextBox();
+            this.label6 = new System.Windows.Forms.Label();
+            this.label5 = new System.Windows.Forms.Label();
+            this.label4 = new System.Windows.Forms.Label();
+            this.label3 = new System.Windows.Forms.Label();
+            this.label2 = new System.Windows.Forms.Label();
+            this.groupBox3 = new System.Windows.Forms.GroupBox();
+            this.lsbLoaiSach = new System.Windows.Forms.ListBox();
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
             this.groupBox5.SuspendLayout();
@@ -66,7 +67,7 @@
             this.groupBox1.Controls.Add(this.groupBox2);
             this.groupBox1.Location = new System.Drawing.Point(2, 12);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(803, 437);
+            this.groupBox1.Size = new System.Drawing.Size(803, 454);
             this.groupBox1.TabIndex = 0;
             this.groupBox1.TabStop = false;
             // 
@@ -94,21 +95,103 @@
             this.groupBox2.Controls.Add(this.groupBox3);
             this.groupBox2.Location = new System.Drawing.Point(0, 73);
             this.groupBox2.Name = "groupBox2";
-            this.groupBox2.Size = new System.Drawing.Size(797, 364);
+            this.groupBox2.Size = new System.Drawing.Size(797, 381);
             this.groupBox2.TabIndex = 0;
             this.groupBox2.TabStop = false;
+            // 
+            // button6
+            // 
+            this.button6.BackColor = System.Drawing.SystemColors.Control;
+            this.button6.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.button6.Location = new System.Drawing.Point(591, 282);
+            this.button6.Name = "button6";
+            this.button6.Size = new System.Drawing.Size(195, 46);
+            this.button6.TabIndex = 1;
+            this.button6.Text = "Kết Thúc";
+            this.button6.UseVisualStyleBackColor = false;
+            // 
+            // button5
+            // 
+            this.button5.BackColor = System.Drawing.SystemColors.Control;
+            this.button5.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.button5.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.button5.Location = new System.Drawing.Point(591, 230);
+            this.button5.Name = "button5";
+            this.button5.Size = new System.Drawing.Size(195, 46);
+            this.button5.TabIndex = 1;
+            this.button5.Text = "Tìm Kiếm";
+            this.button5.UseVisualStyleBackColor = false;
+            // 
+            // button4
+            // 
+            this.button4.BackColor = System.Drawing.SystemColors.Control;
+            this.button4.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.button4.Location = new System.Drawing.Point(591, 178);
+            this.button4.Name = "button4";
+            this.button4.Size = new System.Drawing.Size(195, 46);
+            this.button4.TabIndex = 1;
+            this.button4.Text = "Quản Lý Mượn Trả";
+            this.button4.UseVisualStyleBackColor = false;
+            // 
+            // button3
+            // 
+            this.button3.BackColor = System.Drawing.SystemColors.Control;
+            this.button3.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.button3.Location = new System.Drawing.Point(591, 126);
+            this.button3.Name = "button3";
+            this.button3.Size = new System.Drawing.Size(195, 46);
+            this.button3.TabIndex = 1;
+            this.button3.Text = "Quản Lý Tác Giả";
+            this.button3.UseVisualStyleBackColor = false;
+            // 
+            // button2
+            // 
+            this.button2.BackColor = System.Drawing.SystemColors.Control;
+            this.button2.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.button2.Location = new System.Drawing.Point(591, 74);
+            this.button2.Name = "button2";
+            this.button2.Size = new System.Drawing.Size(195, 46);
+            this.button2.TabIndex = 1;
+            this.button2.Text = "Quản Lý Độc Giả";
+            this.button2.UseVisualStyleBackColor = false;
+            // 
+            // button1
+            // 
+            this.button1.BackColor = System.Drawing.SystemColors.Control;
+            this.button1.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.button1.Location = new System.Drawing.Point(591, 22);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(195, 46);
+            this.button1.TabIndex = 1;
+            this.button1.Text = "Cập Nhật";
+            this.button1.UseVisualStyleBackColor = false;
+            this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
             // groupBox5
             // 
             this.groupBox5.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(192)))), ((int)(((byte)(0)))));
-            this.groupBox5.Controls.Add(this.listBox3);
+            this.groupBox5.Controls.Add(this.lsvDanhSach);
             this.groupBox5.Font = new System.Drawing.Font("Times New Roman", 15.75F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.groupBox5.Location = new System.Drawing.Point(6, 213);
             this.groupBox5.Name = "groupBox5";
-            this.groupBox5.Size = new System.Drawing.Size(561, 140);
+            this.groupBox5.Size = new System.Drawing.Size(561, 145);
             this.groupBox5.TabIndex = 0;
             this.groupBox5.TabStop = false;
             this.groupBox5.Text = "Danh Sách";
+            // 
+            // lsvDanhSach
+            // 
+            this.lsvDanhSach.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lsvDanhSach.FullRowSelect = true;
+            this.lsvDanhSach.HideSelection = false;
+            this.lsvDanhSach.Items.AddRange(new System.Windows.Forms.ListViewItem[] {
+            listViewItem2});
+            this.lsvDanhSach.Location = new System.Drawing.Point(0, 22);
+            this.lsvDanhSach.Name = "lsvDanhSach";
+            this.lsvDanhSach.Size = new System.Drawing.Size(561, 123);
+            this.lsvDanhSach.TabIndex = 0;
+            this.lsvDanhSach.UseCompatibleStateImageBehavior = false;
+            this.lsvDanhSach.SelectedIndexChanged += new System.EventHandler(this.lsvDanhSach_SelectedIndexChanged);
             // 
             // groupBox4
             // 
@@ -131,132 +214,45 @@
             this.groupBox4.TabStop = false;
             this.groupBox4.Text = "Thông Tin Chi Tiết";
             // 
-            // groupBox3
+            // txtMaTacGia
             // 
-            this.groupBox3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(192)))), ((int)(((byte)(0)))));
-            this.groupBox3.Controls.Add(this.listBox1);
-            this.groupBox3.Font = new System.Drawing.Font("Times New Roman", 15.75F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.groupBox3.Location = new System.Drawing.Point(6, 10);
-            this.groupBox3.Name = "groupBox3";
-            this.groupBox3.Size = new System.Drawing.Size(198, 197);
-            this.groupBox3.TabIndex = 0;
-            this.groupBox3.TabStop = false;
-            this.groupBox3.Text = "Loại Sách";
+            this.txtMaTacGia.Location = new System.Drawing.Point(139, 157);
+            this.txtMaTacGia.Multiline = true;
+            this.txtMaTacGia.Name = "txtMaTacGia";
+            this.txtMaTacGia.Size = new System.Drawing.Size(202, 25);
+            this.txtMaTacGia.TabIndex = 1;
             // 
-            // listBox1
+            // txtSoLuong
             // 
-            this.listBox1.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.listBox1.FormattingEnabled = true;
-            this.listBox1.ItemHeight = 19;
-            this.listBox1.Location = new System.Drawing.Point(0, 25);
-            this.listBox1.Name = "listBox1";
-            this.listBox1.Size = new System.Drawing.Size(198, 175);
-            this.listBox1.TabIndex = 0;
+            this.txtSoLuong.Location = new System.Drawing.Point(139, 126);
+            this.txtSoLuong.Multiline = true;
+            this.txtSoLuong.Name = "txtSoLuong";
+            this.txtSoLuong.Size = new System.Drawing.Size(202, 25);
+            this.txtSoLuong.TabIndex = 1;
             // 
-            // listBox3
+            // txtMaLoai
             // 
-            this.listBox3.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.listBox3.FormattingEnabled = true;
-            this.listBox3.ItemHeight = 19;
-            this.listBox3.Location = new System.Drawing.Point(0, 21);
-            this.listBox3.Name = "listBox3";
-            this.listBox3.Size = new System.Drawing.Size(561, 118);
-            this.listBox3.TabIndex = 0;
+            this.txtMaLoai.Location = new System.Drawing.Point(139, 95);
+            this.txtMaLoai.Multiline = true;
+            this.txtMaLoai.Name = "txtMaLoai";
+            this.txtMaLoai.Size = new System.Drawing.Size(202, 25);
+            this.txtMaLoai.TabIndex = 1;
             // 
-            // button1
+            // txtTenSach
             // 
-            this.button1.BackColor = System.Drawing.SystemColors.Control;
-            this.button1.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button1.Location = new System.Drawing.Point(591, 22);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(195, 46);
-            this.button1.TabIndex = 1;
-            this.button1.Text = "Cập Nhật";
-            this.button1.UseVisualStyleBackColor = false;
+            this.txtTenSach.Location = new System.Drawing.Point(139, 64);
+            this.txtTenSach.Multiline = true;
+            this.txtTenSach.Name = "txtTenSach";
+            this.txtTenSach.Size = new System.Drawing.Size(202, 25);
+            this.txtTenSach.TabIndex = 1;
             // 
-            // button2
+            // txtMaSach
             // 
-            this.button2.BackColor = System.Drawing.SystemColors.Control;
-            this.button2.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button2.Location = new System.Drawing.Point(591, 74);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(195, 46);
-            this.button2.TabIndex = 1;
-            this.button2.Text = "Quản Lý Độc Giả";
-            this.button2.UseVisualStyleBackColor = false;
-            // 
-            // button3
-            // 
-            this.button3.BackColor = System.Drawing.SystemColors.Control;
-            this.button3.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button3.Location = new System.Drawing.Point(591, 126);
-            this.button3.Name = "button3";
-            this.button3.Size = new System.Drawing.Size(195, 46);
-            this.button3.TabIndex = 1;
-            this.button3.Text = "Quản Lý Tác Giả";
-            this.button3.UseVisualStyleBackColor = false;
-            // 
-            // button4
-            // 
-            this.button4.BackColor = System.Drawing.SystemColors.Control;
-            this.button4.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button4.Location = new System.Drawing.Point(591, 178);
-            this.button4.Name = "button4";
-            this.button4.Size = new System.Drawing.Size(195, 46);
-            this.button4.TabIndex = 1;
-            this.button4.Text = "Quản Lý Mượn Trả";
-            this.button4.UseVisualStyleBackColor = false;
-            // 
-            // button6
-            // 
-            this.button6.BackColor = System.Drawing.SystemColors.Control;
-            this.button6.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button6.Location = new System.Drawing.Point(591, 282);
-            this.button6.Name = "button6";
-            this.button6.Size = new System.Drawing.Size(195, 46);
-            this.button6.TabIndex = 1;
-            this.button6.Text = "Kết Thúc";
-            this.button6.UseVisualStyleBackColor = false;
-            // 
-            // label2
-            // 
-            this.label2.AutoSize = true;
-            this.label2.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.Location = new System.Drawing.Point(24, 71);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(76, 19);
-            this.label2.TabIndex = 0;
-            this.label2.Text = "Tên Sách:";
-            // 
-            // label3
-            // 
-            this.label3.AutoSize = true;
-            this.label3.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label3.Location = new System.Drawing.Point(24, 40);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(74, 19);
-            this.label3.TabIndex = 0;
-            this.label3.Text = "Mã Sách:";
-            // 
-            // label4
-            // 
-            this.label4.AutoSize = true;
-            this.label4.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label4.Location = new System.Drawing.Point(24, 102);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(108, 19);
-            this.label4.TabIndex = 0;
-            this.label4.Text = "Mã Loại Sách:";
-            // 
-            // label5
-            // 
-            this.label5.AutoSize = true;
-            this.label5.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label5.Location = new System.Drawing.Point(24, 133);
-            this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(80, 19);
-            this.label5.TabIndex = 0;
-            this.label5.Text = "Số Lượng:";
+            this.txtMaSach.Location = new System.Drawing.Point(139, 33);
+            this.txtMaSach.Multiline = true;
+            this.txtMaSach.Name = "txtMaSach";
+            this.txtMaSach.Size = new System.Drawing.Size(202, 25);
+            this.txtMaSach.TabIndex = 1;
             // 
             // label6
             // 
@@ -268,66 +264,78 @@
             this.label6.TabIndex = 0;
             this.label6.Text = "Mã Tác Giả:";
             // 
-            // txtMaSach
+            // label5
             // 
-            this.txtMaSach.Location = new System.Drawing.Point(139, 33);
-            this.txtMaSach.Multiline = true;
-            this.txtMaSach.Name = "txtMaSach";
-            this.txtMaSach.Size = new System.Drawing.Size(202, 25);
-            this.txtMaSach.TabIndex = 1;
+            this.label5.AutoSize = true;
+            this.label5.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label5.Location = new System.Drawing.Point(24, 133);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(80, 19);
+            this.label5.TabIndex = 0;
+            this.label5.Text = "Số Lượng:";
             // 
-            // txtTenSach
+            // label4
             // 
-            this.txtTenSach.Location = new System.Drawing.Point(139, 64);
-            this.txtTenSach.Multiline = true;
-            this.txtTenSach.Name = "txtTenSach";
-            this.txtTenSach.Size = new System.Drawing.Size(202, 25);
-            this.txtTenSach.TabIndex = 1;
+            this.label4.AutoSize = true;
+            this.label4.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label4.Location = new System.Drawing.Point(24, 102);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(108, 19);
+            this.label4.TabIndex = 0;
+            this.label4.Text = "Mã Loại Sách:";
             // 
-            // txtMaLoai
+            // label3
             // 
-            this.txtMaLoai.Location = new System.Drawing.Point(139, 95);
-            this.txtMaLoai.Multiline = true;
-            this.txtMaLoai.Name = "txtMaLoai";
-            this.txtMaLoai.Size = new System.Drawing.Size(202, 25);
-            this.txtMaLoai.TabIndex = 1;
+            this.label3.AutoSize = true;
+            this.label3.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label3.Location = new System.Drawing.Point(24, 40);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(74, 19);
+            this.label3.TabIndex = 0;
+            this.label3.Text = "Mã Sách:";
             // 
-            // txtSoLuong
+            // label2
             // 
-            this.txtSoLuong.Location = new System.Drawing.Point(139, 126);
-            this.txtSoLuong.Multiline = true;
-            this.txtSoLuong.Name = "txtSoLuong";
-            this.txtSoLuong.Size = new System.Drawing.Size(202, 25);
-            this.txtSoLuong.TabIndex = 1;
+            this.label2.AutoSize = true;
+            this.label2.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label2.Location = new System.Drawing.Point(24, 71);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(76, 19);
+            this.label2.TabIndex = 0;
+            this.label2.Text = "Tên Sách:";
             // 
-            // txtMaTacGia
+            // groupBox3
             // 
-            this.txtMaTacGia.Location = new System.Drawing.Point(139, 157);
-            this.txtMaTacGia.Multiline = true;
-            this.txtMaTacGia.Name = "txtMaTacGia";
-            this.txtMaTacGia.Size = new System.Drawing.Size(202, 25);
-            this.txtMaTacGia.TabIndex = 1;
+            this.groupBox3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(192)))), ((int)(((byte)(0)))));
+            this.groupBox3.Controls.Add(this.lsbLoaiSach);
+            this.groupBox3.Font = new System.Drawing.Font("Times New Roman", 15.75F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.groupBox3.Location = new System.Drawing.Point(6, 10);
+            this.groupBox3.Name = "groupBox3";
+            this.groupBox3.Size = new System.Drawing.Size(198, 197);
+            this.groupBox3.TabIndex = 0;
+            this.groupBox3.TabStop = false;
+            this.groupBox3.Text = "Loại Sách";
             // 
-            // button5
+            // lsbLoaiSach
             // 
-            this.button5.BackColor = System.Drawing.SystemColors.Control;
-            this.button5.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button5.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.button5.Location = new System.Drawing.Point(591, 230);
-            this.button5.Name = "button5";
-            this.button5.Size = new System.Drawing.Size(195, 46);
-            this.button5.TabIndex = 1;
-            this.button5.Text = "Tìm Kiếm";
-            this.button5.UseVisualStyleBackColor = false;
+            this.lsbLoaiSach.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lsbLoaiSach.FormattingEnabled = true;
+            this.lsbLoaiSach.ItemHeight = 19;
+            this.lsbLoaiSach.Location = new System.Drawing.Point(-6, 31);
+            this.lsbLoaiSach.Name = "lsbLoaiSach";
+            this.lsbLoaiSach.Size = new System.Drawing.Size(198, 175);
+            this.lsbLoaiSach.TabIndex = 0;
+            this.lsbLoaiSach.SelectedIndexChanged += new System.EventHandler(this.lsbLoaiSach_SelectedIndexChanged);
             // 
             // frm_DanhMuc
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(800, 450);
+            this.ClientSize = new System.Drawing.Size(800, 455);
             this.Controls.Add(this.groupBox1);
             this.Name = "frm_DanhMuc";
             this.Text = "Danh Mục Sách";
+            this.Load += new System.EventHandler(this.frm_DanhMuc_Load);
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
             this.groupBox2.ResumeLayout(false);
@@ -347,14 +355,13 @@
         private System.Windows.Forms.GroupBox groupBox5;
         private System.Windows.Forms.GroupBox groupBox4;
         private System.Windows.Forms.GroupBox groupBox3;
-        private System.Windows.Forms.ListBox listBox1;
+        private System.Windows.Forms.ListBox lsbLoaiSach;
         private System.Windows.Forms.Button button6;
         private System.Windows.Forms.Button button5;
         private System.Windows.Forms.Button button4;
         private System.Windows.Forms.Button button3;
         private System.Windows.Forms.Button button2;
         private System.Windows.Forms.Button button1;
-        private System.Windows.Forms.ListBox listBox3;
         private System.Windows.Forms.TextBox txtMaTacGia;
         private System.Windows.Forms.TextBox txtSoLuong;
         private System.Windows.Forms.TextBox txtMaLoai;
@@ -365,6 +372,7 @@
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.ListView lsvDanhSach;
     }
 }
 
