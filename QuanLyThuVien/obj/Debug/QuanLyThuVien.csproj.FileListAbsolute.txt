@@ -13,3 +13,18 @@ E:\tailieu\winform\baitap\QuanLyThuVien\QuanLyThuVien\obj\Debug\QuanLyThuVien.fr
 E:\tailieu\winform\baitap\QuanLyThuVien\QuanLyThuVien\obj\Debug\QuanLyThuVien.frm_CapNhatLoaiSach.resources
 E:\tailieu\winform\baitap\QuanLyThuVien\QuanLyThuVien\obj\Debug\QuanLyThuVien.frm_CapNhatSach.resources
 E:\tailieu\winform\baitap\QuanLyThuVien\QuanLyThuVien\obj\Debug\QuanLyThuVien.Form_MuonTra.resources
+D:\Visual Studio\BaiTapLon\Quan_Ly_Thu_Vien\QuanLyThuVien\bin\Debug\QuanLyThuVien.exe.config
+D:\Visual Studio\BaiTapLon\Quan_Ly_Thu_Vien\QuanLyThuVien\bin\Debug\QuanLyThuVien.exe
+D:\Visual Studio\BaiTapLon\Quan_Ly_Thu_Vien\QuanLyThuVien\bin\Debug\QuanLyThuVien.pdb
+D:\Visual Studio\BaiTapLon\Quan_Ly_Thu_Vien\QuanLyThuVien\obj\Debug\QuanLyThuVien.csproj.AssemblyReference.cache
+D:\Visual Studio\BaiTapLon\Quan_Ly_Thu_Vien\QuanLyThuVien\obj\Debug\QuanLyThuVien.csproj.SuggestedBindingRedirects.cache
+D:\Visual Studio\BaiTapLon\Quan_Ly_Thu_Vien\QuanLyThuVien\obj\Debug\QuanLyThuVien.Form_MuonTra.resources
+D:\Visual Studio\BaiTapLon\Quan_Ly_Thu_Vien\QuanLyThuVien\obj\Debug\QuanLyThuVien.frm_CapNhat.resources
+D:\Visual Studio\BaiTapLon\Quan_Ly_Thu_Vien\QuanLyThuVien\obj\Debug\QuanLyThuVien.frm_CapNhatLoaiSach.resources
+D:\Visual Studio\BaiTapLon\Quan_Ly_Thu_Vien\QuanLyThuVien\obj\Debug\QuanLyThuVien.frm_CapNhatSach.resources
+D:\Visual Studio\BaiTapLon\Quan_Ly_Thu_Vien\QuanLyThuVien\obj\Debug\QuanLyThuVien.frm_DanhMuc.resources
+D:\Visual Studio\BaiTapLon\Quan_Ly_Thu_Vien\QuanLyThuVien\obj\Debug\QuanLyThuVien.Properties.Resources.resources
+D:\Visual Studio\BaiTapLon\Quan_Ly_Thu_Vien\QuanLyThuVien\obj\Debug\QuanLyThuVien.csproj.GenerateResource.cache
+D:\Visual Studio\BaiTapLon\Quan_Ly_Thu_Vien\QuanLyThuVien\obj\Debug\QuanLyThuVien.csproj.CoreCompileInputs.cache
+D:\Visual Studio\BaiTapLon\Quan_Ly_Thu_Vien\QuanLyThuVien\obj\Debug\QuanLyThuVien.exe
+D:\Visual Studio\BaiTapLon\Quan_Ly_Thu_Vien\QuanLyThuVien\obj\Debug\QuanLyThuVien.pdb
