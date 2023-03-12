@@ -21,7 +21,7 @@ namespace QuanLyThuVien
         {
             KhoiTaoLsv_DanhSach();
             KhoiTao_Sach();
-            lsbLoaiSach.DataSource = KhoiTaoLsb_LoaiSach();
+            lsbLoaiSach.DataSource = loaiSach;
             lsbLoaiSach.DisplayMember = "tenLoaiSach";
             lsbLoaiSach.ValueMember = "maLoaiSach";
         }
@@ -31,11 +31,12 @@ namespace QuanLyThuVien
         private List<Sach> sachGK = new List<Sach>();
         private List<Sach> sachTT = new List<Sach>();
         private List<Sach> sachKT = new List<Sach>();
-        public List<LoaiSach> KhoiTaoLsb_LoaiSach()
+
+        private List<LoaiSach> loaiSach = new List<LoaiSach>();
+        public void KhoiTaoLsv_LoaiSach()
         {
-            List<LoaiSach> loaiSach = new List<LoaiSach>();
-            FileText ft = new FileText();
             string currentDirectory = System.IO.Directory.GetCurrentDirectory() + "/Data";
+            FileText ft = new FileText();
             ft.FileName = currentDirectory + "/LoaiSach.txt";
             String[] str = ft.ReadLoaiSach();
             for (int i = 0; i < str.Length; i++)
@@ -43,7 +44,6 @@ namespace QuanLyThuVien
                 String[] parts = str[i].Split(',');
                 loaiSach.Add(new LoaiSach() { maLoaiSach = parts[0], tenLoaiSach = parts[1], kieuSach = parts[2] });
             }
-            return loaiSach;
         }
         public void KhoiTaoLsv_DanhSach()
         {

@@ -21,6 +21,8 @@ namespace QuanLyThuVien
             KhoiTaoLsv_DanhSachLoaiSach();
             Add_lsv(loaiSach);
         }
+        private List<LoaiSach> loaiSach = new List<LoaiSach>();
+
         public void KhoiTaoLsv_DanhSachLoaiSach()
         {
             lsv_DanhSachLoaiSach.Columns.Add("Mã Loại Sách", 120);
@@ -30,7 +32,6 @@ namespace QuanLyThuVien
             lsv_DanhSachLoaiSach.View = View.Details;
         }
         
-        private List<LoaiSach> loaiSach = new List<LoaiSach>();
         public void KhoiTaoLsv_LoaiSach()
         {
             string currentDirectory = System.IO.Directory.GetCurrentDirectory() + "/Data";
@@ -76,15 +77,21 @@ namespace QuanLyThuVien
             {
                 if (MessageBox.Show("Bạn có chắc muốn xóa không?", "Thông báo", MessageBoxButtons.YesNo, MessageBoxIcon.Error) == DialogResult.Yes)
                 {
+                    for (int i = 0; i <= lsv_DanhSachLoaiSach.Items.Count; i++)
+                    {
+                        LoaiSach item = loaiSach[i];
+                        if(item.maLoaiSach == lsv_DanhSachLoaiSach.SelectedItems[0].SubItems[0].Text)
+                        {
+                            loaiSach.Remove(item);
+                        }
+                    }
                     lsv_DanhSachLoaiSach.Items.Remove(lsv_DanhSachLoaiSach.SelectedItems[0]);
                 }
-            }
-            foreach(LoaiSach another in loaiSach)
-            {
-                if(another.maLoaiSach == lsv_DanhSachLoaiSach.SelectedItems[0].SubItems[0].Text)
+               /* loaiSach.Clear();
+                for (int i = 0; i < lsv_DanhSachLoaiSach.Items.Count; i++)
                 {
-                    loaiSach.Remove(another);
-                }
+                    loaiSach.Add(new LoaiSach() { maLoaiSach = lsv_DanhSachLoaiSach.Items[i].SubItems[0].Text, tenLoaiSach = lsv_DanhSachLoaiSach.Items[i].SubItems[1].Text, kieuSach = lsv_DanhSachLoaiSach.Items[i].SubItems[2].Text });
+                }*/
             }
         }
 
