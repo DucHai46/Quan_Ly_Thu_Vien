@@ -30,7 +30,6 @@ namespace QuanLyThuVien
             frmCapNhatLoaiSach.Show();
             btnCapNhatLoaiSach.BackColor = Color.White;
             btnCapNhatSach.BackColor = Color.FromArgb(224,224,224);
-
         }
 
         private void frm_CapNhat_Load(object sender, EventArgs e)
