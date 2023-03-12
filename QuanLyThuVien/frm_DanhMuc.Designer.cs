@@ -132,6 +132,7 @@
             this.btnMuonTra.TabIndex = 1;
             this.btnMuonTra.Text = "Quản Lý Mượn Trả";
             this.btnMuonTra.UseVisualStyleBackColor = false;
+            this.btnMuonTra.Click += new System.EventHandler(this.btnMuonTra_Click);
             // 
             // btnQlTacGia
             // 

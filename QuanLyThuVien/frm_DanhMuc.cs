@@ -131,5 +131,11 @@ namespace QuanLyThuVien
             frm_CapNhat frmCapNhat = new frm_CapNhat();
             frmCapNhat.ShowDialog();
         }
+
+        private void btnMuonTra_Click(object sender, EventArgs e)
+        {
+            Form_MuonTra frmMuonTra = new Form_MuonTra();
+            frmMuonTra.ShowDialog();
+        }
     }
 }
