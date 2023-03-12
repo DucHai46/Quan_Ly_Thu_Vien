@@ -38,7 +38,7 @@ namespace QuanLyThuVien
         public String[] ReadSach()
         {
             int i = 0;
-            fs = new System.IO.FileStream(_fileName, FileMode.Open, FileAccess.Read, FileShare.None);
+            fs = new System.IO.FileStream(_fileName, FileMode.Open, FileAccess.Read);
             StreamReader sr = new StreamReader(fs);
             String str;
             String[] parts = new string[15];

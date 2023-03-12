@@ -65,6 +65,7 @@
             // 
             // txtTenLoaiSach
             // 
+            this.txtTenLoaiSach.Font = new System.Drawing.Font("Times New Roman", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtTenLoaiSach.Location = new System.Drawing.Point(179, 116);
             this.txtTenLoaiSach.Multiline = true;
             this.txtTenLoaiSach.Name = "txtTenLoaiSach";
@@ -73,6 +74,7 @@
             // 
             // txtKieuSach
             // 
+            this.txtKieuSach.Font = new System.Drawing.Font("Times New Roman", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtKieuSach.Location = new System.Drawing.Point(514, 49);
             this.txtKieuSach.Multiline = true;
             this.txtKieuSach.Name = "txtKieuSach";
@@ -81,6 +83,7 @@
             // 
             // txtMaLoaiSach
             // 
+            this.txtMaLoaiSach.Font = new System.Drawing.Font("Times New Roman", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtMaLoaiSach.Location = new System.Drawing.Point(179, 49);
             this.txtMaLoaiSach.Multiline = true;
             this.txtMaLoaiSach.Name = "txtMaLoaiSach";
@@ -167,6 +170,7 @@
             this.btnXoa.TabIndex = 1;
             this.btnXoa.Text = "Xóa";
             this.btnXoa.UseVisualStyleBackColor = true;
+            this.btnXoa.Click += new System.EventHandler(this.btnXoa_Click);
             // 
             // groupBox2
             // 
@@ -186,10 +190,12 @@
             this.lsv_DanhSachLoaiSach.FullRowSelect = true;
             this.lsv_DanhSachLoaiSach.HideSelection = false;
             this.lsv_DanhSachLoaiSach.Location = new System.Drawing.Point(3, 25);
+            this.lsv_DanhSachLoaiSach.MultiSelect = false;
             this.lsv_DanhSachLoaiSach.Name = "lsv_DanhSachLoaiSach";
             this.lsv_DanhSachLoaiSach.Size = new System.Drawing.Size(790, 188);
             this.lsv_DanhSachLoaiSach.TabIndex = 0;
             this.lsv_DanhSachLoaiSach.UseCompatibleStateImageBehavior = false;
+            this.lsv_DanhSachLoaiSach.SelectedIndexChanged += new System.EventHandler(this.lsv_DanhSachLoaiSach_SelectedIndexChanged);
             // 
             // frm_CapNhatLoaiSach
             // 

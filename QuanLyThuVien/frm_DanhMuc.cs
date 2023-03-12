@@ -35,7 +35,8 @@ namespace QuanLyThuVien
         {
             List<LoaiSach> loaiSach = new List<LoaiSach>();
             FileText ft = new FileText();
-            ft.FileName = @"E:\tailieu\winform\baitap\QuanLyThuVien\LoaiSach.txt";
+            string currentDirectory = System.IO.Directory.GetCurrentDirectory() + "/Data";
+            ft.FileName = currentDirectory + "/LoaiSach.txt";
             String[] str = ft.ReadLoaiSach();
             for (int i = 0; i < str.Length; i++)
             {
@@ -57,7 +58,8 @@ namespace QuanLyThuVien
         {
 
             FileText ft = new FileText();
-            ft.FileName = @"E:\tailieu\winform\baitap\QuanLyThuVien\Sach.txt";
+            string currentDirectory = System.IO.Directory.GetCurrentDirectory() + "/Data";
+            ft.FileName = currentDirectory + "/Sach.txt";
             String[] str = ft.ReadSach();
             for (int i = 0; i < str.Length; i++)
             {

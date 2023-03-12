@@ -33,8 +33,9 @@ namespace QuanLyThuVien
         private List<LoaiSach> loaiSach = new List<LoaiSach>();
         public void KhoiTaoLsv_LoaiSach()
         {
+            string currentDirectory = System.IO.Directory.GetCurrentDirectory() + "/Data";
             FileText ft = new FileText();
-            ft.FileName = @"E:\tailieu\winform\baitap\QuanLyThuVien\LoaiSach.txt";
+            ft.FileName = currentDirectory + "/LoaiSach.txt";
             String[] str = ft.ReadLoaiSach();
             for (int i = 0; i < str.Length; i++)
             {
@@ -57,6 +58,28 @@ namespace QuanLyThuVien
         private void bntThoat_Click(object sender, EventArgs e)
         {
             this.Close();
+        }
+
+        private void btnXoa_Click(object sender, EventArgs e)
+        {
+
+            if (lsv_DanhSachLoaiSach.SelectedItems.Count > 0)
+            {
+                if (MessageBox.Show("Bạn có chắc muốn xóa không?", "Thông báo", MessageBoxButtons.YesNo, MessageBoxIcon.Error) == DialogResult.Yes)
+                {
+                    lsv_DanhSachLoaiSach.Items.Remove(lsv_DanhSachLoaiSach.SelectedItems[0]);
+                }
+            }
+        }
+
+        private void lsv_DanhSachLoaiSach_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            if (lsv_DanhSachLoaiSach.SelectedItems.Count > 0)
+            {
+                txtMaLoaiSach.Text = lsv_DanhSachLoaiSach.SelectedItems[0].SubItems[0].Text;
+                txtTenLoaiSach.Text = lsv_DanhSachLoaiSach.SelectedItems[0].SubItems[1].Text;
+                txtKieuSach.Text = lsv_DanhSachLoaiSach.SelectedItems[0].SubItems[2].Text;
+            }
         }
     }
 }
