@@ -16,5 +16,19 @@ namespace QuanLyThuVien
         {
             InitializeComponent();
         }
+        public void KhoiTaoLsv_DanhSachCacLoaiSach()
+        {
+            lsvCacLoaiSach.Columns.Add("Mã Sách", 120);
+            lsvCacLoaiSach.Columns.Add("Tên Sách", 200);
+            lsvCacLoaiSach.Columns.Add("Mã Loại Sách", 120);
+            lsvCacLoaiSach.Columns.Add("Số Lượng", 100);
+            lsvCacLoaiSach.Columns.Add("Mã Tác Giả", 120);
+            lsvCacLoaiSach.View = View.Details;
+        }
+
+        private void frm_CapNhatSach_Load(object sender, EventArgs e)
+        {
+            KhoiTaoLsv_DanhSachCacLoaiSach();
+        }
     }
 }

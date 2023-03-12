@@ -11,3 +11,4 @@ E:\tailieu\winform\baitap\QuanLyThuVien\QuanLyThuVien\obj\Debug\QuanLyThuVien.ex
 E:\tailieu\winform\baitap\QuanLyThuVien\QuanLyThuVien\obj\Debug\QuanLyThuVien.pdb
 E:\tailieu\winform\baitap\QuanLyThuVien\QuanLyThuVien\obj\Debug\QuanLyThuVien.frm_CapNhat.resources
 E:\tailieu\winform\baitap\QuanLyThuVien\QuanLyThuVien\obj\Debug\QuanLyThuVien.frm_CapNhatLoaiSach.resources
+E:\tailieu\winform\baitap\QuanLyThuVien\QuanLyThuVien\obj\Debug\QuanLyThuVien.frm_CapNhatSach.resources

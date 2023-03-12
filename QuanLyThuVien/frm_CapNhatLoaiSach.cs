@@ -22,16 +22,12 @@ namespace QuanLyThuVien
         }
         public void KhoiTaoLsv_DanhSachLoaiSach()
         {
-            lsv_DanhSachLoaiSach.Columns.Add("Mã Loại Sách", 150);
-            lsv_DanhSachLoaiSach.Columns.Add("Tên Loại Sách", 150);
-            lsv_DanhSachLoaiSach.Columns.Add("Kiểu Sách");
+            lsv_DanhSachLoaiSach.Columns.Add("Mã Loại Sách", 120);
+            lsv_DanhSachLoaiSach.Columns.Add("Tên Loại Sách", 200);
+            lsv_DanhSachLoaiSach.Columns.Add("Kiểu Sách", 450);
 
             lsv_DanhSachLoaiSach.View = View.Details;
         }
 
-        private void groupBox1_Enter(object sender, EventArgs e)
-        {
-
-        }
     }
 }

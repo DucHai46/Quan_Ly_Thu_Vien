@@ -28,16 +28,16 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.ListViewItem listViewItem2 = new System.Windows.Forms.ListViewItem("");
+            System.Windows.Forms.ListViewItem listViewItem1 = new System.Windows.Forms.ListViewItem("");
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.label1 = new System.Windows.Forms.Label();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
-            this.button6 = new System.Windows.Forms.Button();
-            this.button5 = new System.Windows.Forms.Button();
-            this.button4 = new System.Windows.Forms.Button();
-            this.button3 = new System.Windows.Forms.Button();
-            this.button2 = new System.Windows.Forms.Button();
-            this.button1 = new System.Windows.Forms.Button();
+            this.btnKetThuc = new System.Windows.Forms.Button();
+            this.btnTimKiem = new System.Windows.Forms.Button();
+            this.btnMuonTra = new System.Windows.Forms.Button();
+            this.btnQlTacGia = new System.Windows.Forms.Button();
+            this.btnQlDocGia = new System.Windows.Forms.Button();
+            this.btnCapNhap = new System.Windows.Forms.Button();
             this.groupBox5 = new System.Windows.Forms.GroupBox();
             this.lsvDanhSach = new System.Windows.Forms.ListView();
             this.groupBox4 = new System.Windows.Forms.GroupBox();
@@ -84,12 +84,12 @@
             // groupBox2
             // 
             this.groupBox2.BackColor = System.Drawing.Color.Silver;
-            this.groupBox2.Controls.Add(this.button6);
-            this.groupBox2.Controls.Add(this.button5);
-            this.groupBox2.Controls.Add(this.button4);
-            this.groupBox2.Controls.Add(this.button3);
-            this.groupBox2.Controls.Add(this.button2);
-            this.groupBox2.Controls.Add(this.button1);
+            this.groupBox2.Controls.Add(this.btnKetThuc);
+            this.groupBox2.Controls.Add(this.btnTimKiem);
+            this.groupBox2.Controls.Add(this.btnMuonTra);
+            this.groupBox2.Controls.Add(this.btnQlTacGia);
+            this.groupBox2.Controls.Add(this.btnQlDocGia);
+            this.groupBox2.Controls.Add(this.btnCapNhap);
             this.groupBox2.Controls.Add(this.groupBox5);
             this.groupBox2.Controls.Add(this.groupBox4);
             this.groupBox2.Controls.Add(this.groupBox3);
@@ -99,73 +99,73 @@
             this.groupBox2.TabIndex = 0;
             this.groupBox2.TabStop = false;
             // 
-            // button6
+            // btnKetThuc
             // 
-            this.button6.BackColor = System.Drawing.SystemColors.Control;
-            this.button6.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button6.Location = new System.Drawing.Point(591, 282);
-            this.button6.Name = "button6";
-            this.button6.Size = new System.Drawing.Size(195, 46);
-            this.button6.TabIndex = 1;
-            this.button6.Text = "Kết Thúc";
-            this.button6.UseVisualStyleBackColor = false;
+            this.btnKetThuc.BackColor = System.Drawing.SystemColors.Control;
+            this.btnKetThuc.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnKetThuc.Location = new System.Drawing.Point(591, 282);
+            this.btnKetThuc.Name = "btnKetThuc";
+            this.btnKetThuc.Size = new System.Drawing.Size(195, 46);
+            this.btnKetThuc.TabIndex = 1;
+            this.btnKetThuc.Text = "Kết Thúc";
+            this.btnKetThuc.UseVisualStyleBackColor = false;
             // 
-            // button5
+            // btnTimKiem
             // 
-            this.button5.BackColor = System.Drawing.SystemColors.Control;
-            this.button5.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button5.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.button5.Location = new System.Drawing.Point(591, 230);
-            this.button5.Name = "button5";
-            this.button5.Size = new System.Drawing.Size(195, 46);
-            this.button5.TabIndex = 1;
-            this.button5.Text = "Tìm Kiếm";
-            this.button5.UseVisualStyleBackColor = false;
+            this.btnTimKiem.BackColor = System.Drawing.SystemColors.Control;
+            this.btnTimKiem.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnTimKiem.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnTimKiem.Location = new System.Drawing.Point(591, 230);
+            this.btnTimKiem.Name = "btnTimKiem";
+            this.btnTimKiem.Size = new System.Drawing.Size(195, 46);
+            this.btnTimKiem.TabIndex = 1;
+            this.btnTimKiem.Text = "Tìm Kiếm";
+            this.btnTimKiem.UseVisualStyleBackColor = false;
             // 
-            // button4
+            // btnMuonTra
             // 
-            this.button4.BackColor = System.Drawing.SystemColors.Control;
-            this.button4.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button4.Location = new System.Drawing.Point(591, 178);
-            this.button4.Name = "button4";
-            this.button4.Size = new System.Drawing.Size(195, 46);
-            this.button4.TabIndex = 1;
-            this.button4.Text = "Quản Lý Mượn Trả";
-            this.button4.UseVisualStyleBackColor = false;
+            this.btnMuonTra.BackColor = System.Drawing.SystemColors.Control;
+            this.btnMuonTra.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnMuonTra.Location = new System.Drawing.Point(591, 178);
+            this.btnMuonTra.Name = "btnMuonTra";
+            this.btnMuonTra.Size = new System.Drawing.Size(195, 46);
+            this.btnMuonTra.TabIndex = 1;
+            this.btnMuonTra.Text = "Quản Lý Mượn Trả";
+            this.btnMuonTra.UseVisualStyleBackColor = false;
             // 
-            // button3
+            // btnQlTacGia
             // 
-            this.button3.BackColor = System.Drawing.SystemColors.Control;
-            this.button3.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button3.Location = new System.Drawing.Point(591, 126);
-            this.button3.Name = "button3";
-            this.button3.Size = new System.Drawing.Size(195, 46);
-            this.button3.TabIndex = 1;
-            this.button3.Text = "Quản Lý Tác Giả";
-            this.button3.UseVisualStyleBackColor = false;
+            this.btnQlTacGia.BackColor = System.Drawing.SystemColors.Control;
+            this.btnQlTacGia.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnQlTacGia.Location = new System.Drawing.Point(591, 126);
+            this.btnQlTacGia.Name = "btnQlTacGia";
+            this.btnQlTacGia.Size = new System.Drawing.Size(195, 46);
+            this.btnQlTacGia.TabIndex = 1;
+            this.btnQlTacGia.Text = "Quản Lý Tác Giả";
+            this.btnQlTacGia.UseVisualStyleBackColor = false;
             // 
-            // button2
+            // btnQlDocGia
             // 
-            this.button2.BackColor = System.Drawing.SystemColors.Control;
-            this.button2.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button2.Location = new System.Drawing.Point(591, 74);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(195, 46);
-            this.button2.TabIndex = 1;
-            this.button2.Text = "Quản Lý Độc Giả";
-            this.button2.UseVisualStyleBackColor = false;
+            this.btnQlDocGia.BackColor = System.Drawing.SystemColors.Control;
+            this.btnQlDocGia.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnQlDocGia.Location = new System.Drawing.Point(591, 74);
+            this.btnQlDocGia.Name = "btnQlDocGia";
+            this.btnQlDocGia.Size = new System.Drawing.Size(195, 46);
+            this.btnQlDocGia.TabIndex = 1;
+            this.btnQlDocGia.Text = "Quản Lý Độc Giả";
+            this.btnQlDocGia.UseVisualStyleBackColor = false;
             // 
-            // button1
+            // btnCapNhap
             // 
-            this.button1.BackColor = System.Drawing.SystemColors.Control;
-            this.button1.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button1.Location = new System.Drawing.Point(591, 22);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(195, 46);
-            this.button1.TabIndex = 1;
-            this.button1.Text = "Cập Nhật";
-            this.button1.UseVisualStyleBackColor = false;
-            this.button1.Click += new System.EventHandler(this.button1_Click);
+            this.btnCapNhap.BackColor = System.Drawing.SystemColors.Control;
+            this.btnCapNhap.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnCapNhap.Location = new System.Drawing.Point(591, 22);
+            this.btnCapNhap.Name = "btnCapNhap";
+            this.btnCapNhap.Size = new System.Drawing.Size(195, 46);
+            this.btnCapNhap.TabIndex = 1;
+            this.btnCapNhap.Text = "Cập Nhật";
+            this.btnCapNhap.UseVisualStyleBackColor = false;
+            this.btnCapNhap.Click += new System.EventHandler(this.btnCapNhat_Click);
             // 
             // groupBox5
             // 
@@ -185,7 +185,7 @@
             this.lsvDanhSach.FullRowSelect = true;
             this.lsvDanhSach.HideSelection = false;
             this.lsvDanhSach.Items.AddRange(new System.Windows.Forms.ListViewItem[] {
-            listViewItem2});
+            listViewItem1});
             this.lsvDanhSach.Location = new System.Drawing.Point(0, 22);
             this.lsvDanhSach.Name = "lsvDanhSach";
             this.lsvDanhSach.Size = new System.Drawing.Size(561, 123);
@@ -216,6 +216,7 @@
             // 
             // txtMaTacGia
             // 
+            this.txtMaTacGia.Font = new System.Drawing.Font("Times New Roman", 11.25F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtMaTacGia.Location = new System.Drawing.Point(139, 157);
             this.txtMaTacGia.Multiline = true;
             this.txtMaTacGia.Name = "txtMaTacGia";
@@ -224,6 +225,7 @@
             // 
             // txtSoLuong
             // 
+            this.txtSoLuong.Font = new System.Drawing.Font("Times New Roman", 11.25F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtSoLuong.Location = new System.Drawing.Point(139, 126);
             this.txtSoLuong.Multiline = true;
             this.txtSoLuong.Name = "txtSoLuong";
@@ -232,6 +234,7 @@
             // 
             // txtMaLoai
             // 
+            this.txtMaLoai.Font = new System.Drawing.Font("Times New Roman", 11.25F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtMaLoai.Location = new System.Drawing.Point(139, 95);
             this.txtMaLoai.Multiline = true;
             this.txtMaLoai.Name = "txtMaLoai";
@@ -240,6 +243,7 @@
             // 
             // txtTenSach
             // 
+            this.txtTenSach.Font = new System.Drawing.Font("Times New Roman", 11.25F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtTenSach.Location = new System.Drawing.Point(139, 64);
             this.txtTenSach.Multiline = true;
             this.txtTenSach.Name = "txtTenSach";
@@ -248,6 +252,7 @@
             // 
             // txtMaSach
             // 
+            this.txtMaSach.Font = new System.Drawing.Font("Times New Roman", 11.25F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtMaSach.Location = new System.Drawing.Point(139, 33);
             this.txtMaSach.Multiline = true;
             this.txtMaSach.Name = "txtMaSach";
@@ -356,12 +361,12 @@
         private System.Windows.Forms.GroupBox groupBox4;
         private System.Windows.Forms.GroupBox groupBox3;
         private System.Windows.Forms.ListBox lsbLoaiSach;
-        private System.Windows.Forms.Button button6;
-        private System.Windows.Forms.Button button5;
-        private System.Windows.Forms.Button button4;
-        private System.Windows.Forms.Button button3;
-        private System.Windows.Forms.Button button2;
-        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.Button btnKetThuc;
+        private System.Windows.Forms.Button btnTimKiem;
+        private System.Windows.Forms.Button btnMuonTra;
+        private System.Windows.Forms.Button btnQlTacGia;
+        private System.Windows.Forms.Button btnQlDocGia;
+        private System.Windows.Forms.Button btnCapNhap;
         private System.Windows.Forms.TextBox txtMaTacGia;
         private System.Windows.Forms.TextBox txtSoLuong;
         private System.Windows.Forms.TextBox txtMaLoai;

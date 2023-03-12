@@ -124,7 +124,7 @@ namespace QuanLyThuVien
             }
         }
 
-        private void button1_Click(object sender, EventArgs e)
+        private void btnCapNhat_Click(object sender, EventArgs e)
         {
             frm_CapNhat frmCapNhat = new frm_CapNhat();
             frmCapNhat.ShowDialog();
