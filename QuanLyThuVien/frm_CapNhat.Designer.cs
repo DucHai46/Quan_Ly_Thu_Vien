@@ -28,20 +28,26 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.pnlCapNhatSach = new System.Windows.Forms.Panel();
             this.pnlLoaiSach = new System.Windows.Forms.Panel();
             this.btnCapNhatLoaiSach = new System.Windows.Forms.Button();
             this.btnCapNhatSach = new System.Windows.Forms.Button();
-            this.pnlCapNhatSach = new System.Windows.Forms.Panel();
-            this.pnlLoaiSach.SuspendLayout();
             this.SuspendLayout();
+            // 
+            // pnlCapNhatSach
+            // 
+            this.pnlCapNhatSach.Location = new System.Drawing.Point(1, 26);
+            this.pnlCapNhatSach.Name = "pnlCapNhatSach";
+            this.pnlCapNhatSach.Size = new System.Drawing.Size(798, 421);
+            this.pnlCapNhatSach.TabIndex = 1;
             // 
             // pnlLoaiSach
             // 
-            this.pnlLoaiSach.Controls.Add(this.pnlCapNhatSach);
+            this.pnlLoaiSach.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(192)))), ((int)(((byte)(0)))));
             this.pnlLoaiSach.Location = new System.Drawing.Point(1, 26);
             this.pnlLoaiSach.Name = "pnlLoaiSach";
             this.pnlLoaiSach.Size = new System.Drawing.Size(798, 421);
-            this.pnlLoaiSach.TabIndex = 1;
+            this.pnlLoaiSach.TabIndex = 2;
             // 
             // btnCapNhatLoaiSach
             // 
@@ -67,36 +73,28 @@
             this.btnCapNhatSach.UseVisualStyleBackColor = false;
             this.btnCapNhatSach.Click += new System.EventHandler(this.btnCapNhatSach_Click);
             // 
-            // pnlCapNhatSach
-            // 
-            this.pnlCapNhatSach.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(192)))), ((int)(((byte)(0)))));
-            this.pnlCapNhatSach.Location = new System.Drawing.Point(0, 0);
-            this.pnlCapNhatSach.Name = "pnlCapNhatSach";
-            this.pnlCapNhatSach.Size = new System.Drawing.Size(795, 421);
-            this.pnlCapNhatSach.TabIndex = 2;
-            // 
             // frm_CapNhat
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(192)))), ((int)(((byte)(0)))));
             this.ClientSize = new System.Drawing.Size(800, 450);
+            this.Controls.Add(this.pnlLoaiSach);
             this.Controls.Add(this.btnCapNhatLoaiSach);
             this.Controls.Add(this.btnCapNhatSach);
-            this.Controls.Add(this.pnlLoaiSach);
+            this.Controls.Add(this.pnlCapNhatSach);
             this.Name = "frm_CapNhat";
             this.Text = "Cập Nhật Thông Tin Sách";
             this.Load += new System.EventHandler(this.frm_CapNhat_Load);
-            this.pnlLoaiSach.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }
 
         #endregion
 
-        private System.Windows.Forms.Panel pnlLoaiSach;
+        private System.Windows.Forms.Panel pnlCapNhatSach;
         private System.Windows.Forms.Button btnCapNhatLoaiSach;
         private System.Windows.Forms.Button btnCapNhatSach;
-        private System.Windows.Forms.Panel pnlCapNhatSach;
+        private System.Windows.Forms.Panel pnlLoaiSach;
     }
 }

@@ -176,6 +176,7 @@
             // lsvCacLoaiSach
             // 
             this.lsvCacLoaiSach.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.lsvCacLoaiSach.Font = new System.Drawing.Font("Times New Roman", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lsvCacLoaiSach.HideSelection = false;
             this.lsvCacLoaiSach.Location = new System.Drawing.Point(3, 25);
             this.lsvCacLoaiSach.Name = "lsvCacLoaiSach";
