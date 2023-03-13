@@ -137,5 +137,11 @@ namespace QuanLyThuVien
             Form_MuonTra frmMuonTra = new Form_MuonTra();
             frmMuonTra.ShowDialog();
         }
+
+        private void btnQlDocGia_Click(object sender, EventArgs e)
+        {
+            Form_Doc_Gia frmMuonTra = new Form_Doc_Gia();
+            frmMuonTra.ShowDialog();
+        }
     }
 }
