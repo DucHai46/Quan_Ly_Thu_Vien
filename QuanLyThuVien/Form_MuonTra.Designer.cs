@@ -68,7 +68,6 @@ namespace QuanLyThuVien
             this.label2 = new System.Windows.Forms.Label();
             this.tabControl1 = new System.Windows.Forms.TabControl();
             this.tabmuon = new System.Windows.Forms.TabPage();
-            this.check = new System.Windows.Forms.TextBox();
             this.groupBox3 = new System.Windows.Forms.GroupBox();
             this.lvwDanhSach = new System.Windows.Forms.ListView();
             this.columnHeader1 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
@@ -94,7 +93,6 @@ namespace QuanLyThuVien
             this.cbChonMaSach = new System.Windows.Forms.ComboBox();
             this.label1 = new System.Windows.Forms.Label();
             this.tabtra = new System.Windows.Forms.TabPage();
-            this.textBox1 = new System.Windows.Forms.TextBox();
             this.groupBox5.SuspendLayout();
             this.groupBox4.SuspendLayout();
             this.tabControl1.SuspendLayout();
@@ -107,7 +105,8 @@ namespace QuanLyThuVien
             // 
             // lblTinhTrangTraSach
             // 
-            this.lblTinhTrangTraSach.Location = new System.Drawing.Point(895, 240);
+            this.lblTinhTrangTraSach.Font = new System.Drawing.Font("Times New Roman", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblTinhTrangTraSach.Location = new System.Drawing.Point(855, 240);
             this.lblTinhTrangTraSach.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lblTinhTrangTraSach.Name = "lblTinhTrangTraSach";
             this.lblTinhTrangTraSach.Size = new System.Drawing.Size(233, 30);
@@ -124,6 +123,7 @@ namespace QuanLyThuVien
             this.btnThoat.TabIndex = 7;
             this.btnThoat.Text = "Thoát";
             this.btnThoat.UseVisualStyleBackColor = true;
+            this.btnThoat.Click += new System.EventHandler(this.btnThoat_Click);
             // 
             // lblMaTG
             // 
@@ -206,6 +206,7 @@ namespace QuanLyThuVien
             this.btnLuu.TabIndex = 7;
             this.btnLuu.Text = "Lưu";
             this.btnLuu.UseVisualStyleBackColor = true;
+            this.btnLuu.Click += new System.EventHandler(this.btnLuu_Click);
             // 
             // btnTraSach
             // 
@@ -218,6 +219,7 @@ namespace QuanLyThuVien
             this.btnTraSach.TabIndex = 7;
             this.btnTraSach.Text = "Trả Sách";
             this.btnTraSach.UseVisualStyleBackColor = true;
+            this.btnTraSach.Click += new System.EventHandler(this.btnTraSach_Click);
             // 
             // groupBox5
             // 
@@ -500,7 +502,6 @@ namespace QuanLyThuVien
             // tabmuon
             // 
             this.tabmuon.BackColor = System.Drawing.Color.DarkSeaGreen;
-            this.tabmuon.Controls.Add(this.check);
             this.tabmuon.Controls.Add(this.groupBox3);
             this.tabmuon.Controls.Add(this.btnKetThuc);
             this.tabmuon.Controls.Add(this.btnChoMuon);
@@ -515,15 +516,6 @@ namespace QuanLyThuVien
             this.tabmuon.Size = new System.Drawing.Size(1126, 562);
             this.tabmuon.TabIndex = 0;
             this.tabmuon.Text = "Quản Lý Mượn Sách";
-            // 
-            // check
-            // 
-            this.check.Location = new System.Drawing.Point(972, 238);
-            this.check.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.check.Name = "check";
-            this.check.Size = new System.Drawing.Size(125, 35);
-            this.check.TabIndex = 6;
-            this.check.Text = "ádsadsad";
             // 
             // groupBox3
             // 
@@ -778,7 +770,6 @@ namespace QuanLyThuVien
             // tabtra
             // 
             this.tabtra.BackColor = System.Drawing.Color.DarkSeaGreen;
-            this.tabtra.Controls.Add(this.textBox1);
             this.tabtra.Controls.Add(this.lblTinhTrangTraSach);
             this.tabtra.Controls.Add(this.label18);
             this.tabtra.Controls.Add(this.btnThoat);
@@ -794,15 +785,6 @@ namespace QuanLyThuVien
             this.tabtra.Size = new System.Drawing.Size(1126, 562);
             this.tabtra.TabIndex = 1;
             this.tabtra.Text = "Quản Lý Trả Sách";
-            // 
-            // textBox1
-            // 
-            this.textBox1.Location = new System.Drawing.Point(891, 236);
-            this.textBox1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(125, 35);
-            this.textBox1.TabIndex = 10;
-            this.textBox1.Text = "check";
             // 
             // Form_MuonTra
             // 
@@ -820,7 +802,6 @@ namespace QuanLyThuVien
             this.groupBox4.PerformLayout();
             this.tabControl1.ResumeLayout(false);
             this.tabmuon.ResumeLayout(false);
-            this.tabmuon.PerformLayout();
             this.groupBox3.ResumeLayout(false);
             this.groupBox2.ResumeLayout(false);
             this.groupBox2.PerformLayout();
@@ -896,8 +877,6 @@ namespace QuanLyThuVien
         private ComboBox cbChonMaSach;
         private Label label1;
         private TabPage tabtra;
-        private TextBox check;
-        private TextBox textBox1;
         private ComboBox txtMaSach_TraSach;
     }
 }

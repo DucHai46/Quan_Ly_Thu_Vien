@@ -3,8 +3,10 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Drawing;
+using System.Globalization;
 using System.IO;
 using System.Linq;
+using System.Reflection;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
@@ -126,7 +128,7 @@ namespace QuanLyThuVien
 
         }
 
-
+        //============= Cho Mượn button ============//
         private void btnChoMuon_Click(object sender, EventArgs e)
         {
             bool exists = false;
@@ -190,7 +192,6 @@ namespace QuanLyThuVien
                 txtSoLuong.Focus();
                 return;
             }
-
             File.AppendAllText(File_Muon_Sach, noiDung);
             lvwDanhSach.Items.Clear();
             Load_lvwDanhSach();
@@ -226,6 +227,7 @@ namespace QuanLyThuVien
             txtMaSach_TraSach.SelectedIndex = -1;
             txtMaSach_TraSach.Items.Clear();
             txtSoLuong_TraSach.Text = "";
+            lblTinhTrangTraSach.Text = "";
             
             // Add all infor 
             foreach (string line in lines_Muon_Sach)
@@ -263,6 +265,7 @@ namespace QuanLyThuVien
                 {
 
                     txtSoLuong_TraSach.Text = line.Split(',')[2];
+
                     string ngaymuontra = Convert.ToDateTime(line.Split(',')[3]).ToShortDateString();
                     dtNgayMuon_TraSach.Text = ngaymuontra;
 
@@ -270,6 +273,81 @@ namespace QuanLyThuVien
                     dtNgayHenTra_TraSach.Text = ngayhentra;
                 }
             }
+        }
+
+        private void btnTraSach_Click(object sender, EventArgs e)
+        {
+            dtNgayTra.Text = Convert.ToDateTime(dtNgayTra.Text).ToShortDateString();
+            DateTime ngayhentra = dtNgayHenTra_TraSach.Value;
+            DateTime ngaytra = dtNgayTra.Value;
+            //lblTinhTrangTraSach.Text = ngayhentra.ToString();
+
+            if (ngaytra <= ngayhentra)
+            {
+                lblTinhTrangTraSach.Text = "Đúng hạn";
+                lblTinhTrangTraSach.ForeColor = Color.Green;
+            }
+            else
+            {
+                lblTinhTrangTraSach.Text = "Quá hạn";
+                lblTinhTrangTraSach.ForeColor = Color.Red;
+            }
+        }
+
+        private void btnLuu_Click(object sender, EventArgs e)
+        {
+            int index = -1;
+            string File_Tra_Sach = currentDirectory + "/Tra_Sach.txt";
+            string File_Muon_Sach = currentDirectory + "/Muon_Sach.txt";
+            
+            string[] lines_Muon_Sach = File.ReadAllLines(File_Muon_Sach);
+
+            string noiDung = cbMaDG_TraSach.Text + ","
+                                + txtMaSach_TraSach.Text + ","
+                                + txtSoLuong_TraSach.Text + ","
+                                + dtNgayMuon_TraSach.Text + ","
+                                + dtNgayHenTra_TraSach.Text + ","
+                                + dtNgayTra.Text + "\n";
+
+            for (int i = 0; i < lines_Muon_Sach.Length; i++)
+            {
+                if (lines_Muon_Sach[i].Split(',')[0] == cbMaDG_TraSach.Text 
+                    && lines_Muon_Sach[i].Split(',')[1] == txtMaSach_TraSach.Text)
+                {
+                    index = i; break;
+                }
+            }
+
+            if(index != -1)
+            {
+                int index_line = Array.IndexOf(lines_Muon_Sach, lines_Muon_Sach[index]);
+                if (index_line >= 0)
+                {
+                    // xóa dòng
+                    string[] newLines = new string[lines_Muon_Sach.Length - 1];
+                    Array.Copy(lines_Muon_Sach, 0, newLines, 0, index_line);
+                    Array.Copy(lines_Muon_Sach, index_line + 1, newLines, index_line, lines_Muon_Sach.Length - index - 1);
+
+                    // ghi lại mảng các chuỗi đã xóa vào tập tin văn bản
+                    File.WriteAllLines(File_Muon_Sach, newLines);
+                    File.AppendAllText(File_Tra_Sach, noiDung);
+
+                    lvwDanhSachTra.Items.Clear();
+                    lvwDanhSach.Items.Clear();
+
+                    Load_lvwDanhSach();
+                    Load_lvwDanhSachTra();
+
+                    MessageBox.Show("Đã trả!");
+                }
+            }
+            
+            
+        }
+
+        private void btnThoat_Click(object sender, EventArgs e)
+        {
+            this.Close();
         }
     }
 }
