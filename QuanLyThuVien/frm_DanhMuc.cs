@@ -58,26 +58,23 @@ namespace QuanLyThuVien
         }
         public void KhoiTao_Sach()
         {
+            String File_Sach = currentDirectory + "/Sach.txt";
 
-            FileText ft = new FileText();
-            string currentDirectory = System.IO.Directory.GetCurrentDirectory() + "/Data";
-            ft.FileName = currentDirectory + "/Sach.txt";
-            String[] str = ft.ReadSach();
-            for (int i = 0; i < str.Length; i++)
+            String[] str = File.ReadAllLines(File_Sach);
+            foreach (String str1 in str)
             {
-                String[] parts = str[i].Split(',');
-                switch (parts[2])
+                switch (str1.Split(',')[2])
                 {
                     case "TH":
-                        sachTH.Add(new Sach() { maSach = parts[0], tenSach = parts[1], maLoaiSach = parts[2], soLuong = Convert.ToInt32(parts[3]), maTacGia = parts[4] }); break;
+                        sachTH.Add(new Sach() { maSach = str1.Split(',')[0], tenSach = str1.Split(',')[1], maLoaiSach = str1.Split(',')[2], soLuong = Convert.ToInt32(str1.Split(',')[3]), maTacGia = str1.Split(',')[4] }); break;
                     case "TC":
-                        sachTC.Add(new Sach() { maSach = parts[0], tenSach = parts[1], maLoaiSach = parts[2], soLuong = Convert.ToInt32(parts[3]), maTacGia = parts[4] }); break;
+                        sachTC.Add(new Sach() { maSach = str1.Split(',')[0], tenSach = str1.Split(',')[1], maLoaiSach = str1.Split(',')[2], soLuong = Convert.ToInt32(str1.Split(',')[3]), maTacGia = str1.Split(',')[4] }); break;
                     case "SGK":
-                        sachGK.Add(new Sach() { maSach = parts[0], tenSach = parts[1], maLoaiSach = parts[2], soLuong = Convert.ToInt32(parts[3]), maTacGia = parts[4] }); break;
+                        sachGK.Add(new Sach() { maSach = str1.Split(',')[0], tenSach = str1.Split(',')[1], maLoaiSach = str1.Split(',')[2], soLuong = Convert.ToInt32(str1.Split(',')[3]), maTacGia = str1.Split(',')[4] }); break;
                     case "TT":
-                        sachTT.Add(new Sach() { maSach = parts[0], tenSach = parts[1], maLoaiSach = parts[2], soLuong = Convert.ToInt32(parts[3]), maTacGia = parts[4] }); break;
+                        sachTT.Add(new Sach() {maSach = str1.Split(',')[0], tenSach = str1.Split(',')[1], maLoaiSach = str1.Split(',')[2], soLuong = Convert.ToInt32(str1.Split(',')[3]), maTacGia = str1.Split(',')[4] }); break;
                     case "KT":
-                        sachKT.Add(new Sach() { maSach = parts[0], tenSach = parts[1], maLoaiSach = parts[2], soLuong = Convert.ToInt32(parts[3]), maTacGia = parts[4] }); break;
+                        sachKT.Add(new Sach() { maSach = str1.Split(',')[0], tenSach = str1.Split(',')[1], maLoaiSach = str1.Split(',')[2], soLuong = Convert.ToInt32(str1.Split(',')[3]), maTacGia = str1.Split(',')[4] }); break;
                 }
             }
         }

@@ -46,7 +46,6 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="FileText.cs" />
     <Compile Include="frm_DocGia.cs">
       <SubType>Form</SubType>
     </Compile>

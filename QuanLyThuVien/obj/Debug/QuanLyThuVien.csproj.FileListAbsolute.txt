@@ -29,3 +29,4 @@ D:\Visual Studio\BaiTapLon\Quan_Ly_Thu_Vien\QuanLyThuVien\obj\Debug\QuanLyThuVie
 D:\Visual Studio\BaiTapLon\Quan_Ly_Thu_Vien\QuanLyThuVien\obj\Debug\QuanLyThuVien.exe
 D:\Visual Studio\BaiTapLon\Quan_Ly_Thu_Vien\QuanLyThuVien\obj\Debug\QuanLyThuVien.pdb
 D:\Visual Studio\BaiTapLon\Quan_Ly_Thu_Vien\QuanLyThuVien\obj\Debug\QuanLyThuVien.Form_Doc_Gia.resources
+E:\tailieu\winform\baitap\QuanLyThuVien\QuanLyThuVien\obj\Debug\QuanLyThuVien.Form_Doc_Gia.resources
