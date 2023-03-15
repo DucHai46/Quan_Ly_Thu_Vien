@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Drawing;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -12,6 +13,7 @@ namespace QuanLyThuVien
 {
     public partial class frm_CapNhatLoaiSach : Form
     {
+        string currentDirectory = System.IO.Directory.GetCurrentDirectory() + "/Data";
         public frm_CapNhatLoaiSach()
         {
             InitializeComponent();
@@ -34,14 +36,11 @@ namespace QuanLyThuVien
         
         public void KhoiTaoLsv_LoaiSach()
         {
-            string currentDirectory = System.IO.Directory.GetCurrentDirectory() + "/Data";
-            FileText ft = new FileText();
-            ft.FileName = currentDirectory + "/LoaiSach.txt";
-            String[] str = ft.ReadLoaiSach();
-            for (int i = 0; i < str.Length; i++)
+            String File_LoaiSach = currentDirectory + "/LoaiSach.txt";
+            String[] str = File.ReadAllLines(File_LoaiSach);
+            foreach(String str2 in str)
             {
-                String[] parts = str[i].Split(',');
-                loaiSach.Add(new LoaiSach() { maLoaiSach = parts[0], tenLoaiSach = parts[1], kieuSach = parts[2] });
+                loaiSach.Add(new LoaiSach() { maLoaiSach = str2.Split(',')[0], tenLoaiSach = str2.Split(',')[1], kieuSach = str2.Split(',')[2] });
             }
         }
         private void Add_lsv(List<LoaiSach> saches)
@@ -72,27 +71,25 @@ namespace QuanLyThuVien
 
         private void btnXoa_Click(object sender, EventArgs e)
         {
-
+            String File_LoaiSach = currentDirectory + "/LoaiSach.txt";
             if (lsv_DanhSachLoaiSach.SelectedItems.Count > 0)
             {
                 if (MessageBox.Show("Bạn có chắc muốn xóa không?", "Thông báo", MessageBoxButtons.YesNo, MessageBoxIcon.Error) == DialogResult.Yes)
                 {
-                    for (int i = 0; i <= lsv_DanhSachLoaiSach.Items.Count; i++)
-                    {
-                        LoaiSach item = loaiSach[i];
-                        if(item.maLoaiSach == lsv_DanhSachLoaiSach.SelectedItems[0].SubItems[0].Text)
-                        {
-                            loaiSach.Remove(item);
-                        }
-                    }
                     lsv_DanhSachLoaiSach.Items.Remove(lsv_DanhSachLoaiSach.SelectedItems[0]);
                 }
-               /* loaiSach.Clear();
+                loaiSach.Clear();
                 for (int i = 0; i < lsv_DanhSachLoaiSach.Items.Count; i++)
                 {
                     loaiSach.Add(new LoaiSach() { maLoaiSach = lsv_DanhSachLoaiSach.Items[i].SubItems[0].Text, tenLoaiSach = lsv_DanhSachLoaiSach.Items[i].SubItems[1].Text, kieuSach = lsv_DanhSachLoaiSach.Items[i].SubItems[2].Text });
-                }*/
+                }
             }
+            String[] str = new string[loaiSach.Count];
+            for (int i = 0; i < loaiSach.Count; i++)
+            {
+                str[i] = lsv_DanhSachLoaiSach.Items[i].SubItems[0].Text + "," + lsv_DanhSachLoaiSach.Items[i].SubItems[1].Text + "," + lsv_DanhSachLoaiSach.Items[i].SubItems[2].Text;
+            }
+            File.WriteAllLines(File_LoaiSach, str);
         }
 
     }
