@@ -72,7 +72,11 @@ namespace QuanLyThuVien
                     case "SGK":
                         sachGK.Add(new Sach() { maSach = str1.Split(',')[0], tenSach = str1.Split(',')[1], maLoaiSach = str1.Split(',')[2], soLuong = Convert.ToInt32(str1.Split(',')[3]), maTacGia = str1.Split(',')[4] }); break;
                     case "TT":
+<<<<<<< HEAD
                         sachTT.Add(new Sach() { maSach = str1.Split(',')[0], tenSach = str1.Split(',')[1], maLoaiSach = str1.Split(',')[2], soLuong = Convert.ToInt32(str1.Split(',')[3]), maTacGia = str1.Split(',')[4] }); break;
+=======
+                        sachTT.Add(new Sach() {maSach = str1.Split(',')[0], tenSach = str1.Split(',')[1], maLoaiSach = str1.Split(',')[2], soLuong = Convert.ToInt32(str1.Split(',')[3]), maTacGia = str1.Split(',')[4] }); break;
+>>>>>>> main
                     case "KT":
                         sachKT.Add(new Sach() { maSach = str1.Split(',')[0], tenSach = str1.Split(',')[1], maLoaiSach = str1.Split(',')[2], soLuong = Convert.ToInt32(str1.Split(',')[3]), maTacGia = str1.Split(',')[4] }); break;
                 }
@@ -136,6 +140,17 @@ namespace QuanLyThuVien
         {
             Form_MuonTra frmMuonTra = new Form_MuonTra();
             frmMuonTra.ShowDialog();
+        }
+
+        private void btnQlDocGia_Click(object sender, EventArgs e)
+        {
+            Form_Doc_Gia frmDocGia = new Form_Doc_Gia();
+            frmDocGia.ShowDialog();
+        }
+
+        private void btnKetThuc_Click(object sender, EventArgs e)
+        {
+            this.Close();
         }
     }
 }
