@@ -72,11 +72,7 @@ namespace QuanLyThuVien
                     case "SGK":
                         sachGK.Add(new Sach() { maSach = str1.Split(',')[0], tenSach = str1.Split(',')[1], maLoaiSach = str1.Split(',')[2], soLuong = Convert.ToInt32(str1.Split(',')[3]), maTacGia = str1.Split(',')[4] }); break;
                     case "TT":
-<<<<<<< HEAD
                         sachTT.Add(new Sach() { maSach = str1.Split(',')[0], tenSach = str1.Split(',')[1], maLoaiSach = str1.Split(',')[2], soLuong = Convert.ToInt32(str1.Split(',')[3]), maTacGia = str1.Split(',')[4] }); break;
-=======
-                        sachTT.Add(new Sach() {maSach = str1.Split(',')[0], tenSach = str1.Split(',')[1], maLoaiSach = str1.Split(',')[2], soLuong = Convert.ToInt32(str1.Split(',')[3]), maTacGia = str1.Split(',')[4] }); break;
->>>>>>> main
                     case "KT":
                         sachKT.Add(new Sach() { maSach = str1.Split(',')[0], tenSach = str1.Split(',')[1], maLoaiSach = str1.Split(',')[2], soLuong = Convert.ToInt32(str1.Split(',')[3]), maTacGia = str1.Split(',')[4] }); break;
                 }
