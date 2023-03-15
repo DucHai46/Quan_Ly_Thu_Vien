@@ -13,6 +13,7 @@ namespace QuanLyThuVien
 {
     public partial class frm_DanhMuc : Form
     {
+        string currentDirectory = System.IO.Directory.GetCurrentDirectory() + "/Data";
         public frm_DanhMuc()
         {
             InitializeComponent();
@@ -21,7 +22,7 @@ namespace QuanLyThuVien
         {
             KhoiTaoLsv_DanhSach();
             KhoiTao_Sach();
-            lsbLoaiSach.DataSource = loaiSach;
+            lsbLoaiSach.DataSource = KhoiTaoLsv_LoaiSach();
             lsbLoaiSach.DisplayMember = "tenLoaiSach";
             lsbLoaiSach.ValueMember = "maLoaiSach";
         }
@@ -33,18 +34,19 @@ namespace QuanLyThuVien
         private List<Sach> sachKT = new List<Sach>();
 
         private List<LoaiSach> loaiSach = new List<LoaiSach>();
-        public void KhoiTaoLsv_LoaiSach()
+        public List<LoaiSach> KhoiTaoLsv_LoaiSach()
         {
-            string currentDirectory = System.IO.Directory.GetCurrentDirectory() + "/Data";
-            FileText ft = new FileText();
-            ft.FileName = currentDirectory + "/LoaiSach.txt";
-            String[] str = ft.ReadLoaiSach();
-            for (int i = 0; i < str.Length; i++)
+            List<LoaiSach> loaiSach = new List<LoaiSach>();
+            String File_LoaiSach = currentDirectory + "/LoaiSach.txt";
+            String[] str = File.ReadAllLines(File_LoaiSach);
+            foreach (String str2 in str)
             {
-                String[] parts = str[i].Split(',');
-                loaiSach.Add(new LoaiSach() { maLoaiSach = parts[0], tenLoaiSach = parts[1], kieuSach = parts[2] });
+                loaiSach.Add(new LoaiSach() { maLoaiSach = str2.Split(',')[0], tenLoaiSach = str2.Split(',')[1], kieuSach = str2.Split(',')[2] });
             }
+            this.loaiSach = loaiSach;
+            return loaiSach;
         }
+ 
         public void KhoiTaoLsv_DanhSach()
         {
             lsvDanhSach.Columns.Add("Mã Sách", 100);
@@ -64,16 +66,17 @@ namespace QuanLyThuVien
             for (int i = 0; i < str.Length; i++)
             {
                 String[] parts = str[i].Split(',');
-                switch (parts[2]) { 
-                case "TH":
+                switch (parts[2])
+                {
+                    case "TH":
                         sachTH.Add(new Sach() { maSach = parts[0], tenSach = parts[1], maLoaiSach = parts[2], soLuong = Convert.ToInt32(parts[3]), maTacGia = parts[4] }); break;
-                case "TC":
+                    case "TC":
                         sachTC.Add(new Sach() { maSach = parts[0], tenSach = parts[1], maLoaiSach = parts[2], soLuong = Convert.ToInt32(parts[3]), maTacGia = parts[4] }); break;
-                case "SGK":
+                    case "SGK":
                         sachGK.Add(new Sach() { maSach = parts[0], tenSach = parts[1], maLoaiSach = parts[2], soLuong = Convert.ToInt32(parts[3]), maTacGia = parts[4] }); break;
-                case "TT":
+                    case "TT":
                         sachTT.Add(new Sach() { maSach = parts[0], tenSach = parts[1], maLoaiSach = parts[2], soLuong = Convert.ToInt32(parts[3]), maTacGia = parts[4] }); break;
-                case "KT":
+                    case "KT":
                         sachKT.Add(new Sach() { maSach = parts[0], tenSach = parts[1], maLoaiSach = parts[2], soLuong = Convert.ToInt32(parts[3]), maTacGia = parts[4] }); break;
                 }
             }
