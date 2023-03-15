@@ -71,7 +71,7 @@ namespace QuanLyThuVien
 
         private void btnXoa_Click(object sender, EventArgs e)
         {
-
+            String File_LoaiSach = currentDirectory + "/LoaiSach.txt";
             if (lsv_DanhSachLoaiSach.SelectedItems.Count > 0)
             {
                 if (MessageBox.Show("Bạn có chắc muốn xóa không?", "Thông báo", MessageBoxButtons.YesNo, MessageBoxIcon.Error) == DialogResult.Yes)
@@ -84,6 +84,12 @@ namespace QuanLyThuVien
                     loaiSach.Add(new LoaiSach() { maLoaiSach = lsv_DanhSachLoaiSach.Items[i].SubItems[0].Text, tenLoaiSach = lsv_DanhSachLoaiSach.Items[i].SubItems[1].Text, kieuSach = lsv_DanhSachLoaiSach.Items[i].SubItems[2].Text });
                 }
             }
+            String[] str = new string[loaiSach.Count];
+            for (int i = 0; i < loaiSach.Count; i++)
+            {
+                str[i] = lsv_DanhSachLoaiSach.Items[i].SubItems[0].Text + "," + lsv_DanhSachLoaiSach.Items[i].SubItems[1].Text + "," + lsv_DanhSachLoaiSach.Items[i].SubItems[2].Text;
+            }
+            File.WriteAllLines(File_LoaiSach, str);
         }
 
     }
