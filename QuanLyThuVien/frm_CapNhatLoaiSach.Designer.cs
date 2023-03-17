@@ -58,7 +58,7 @@
             this.groupBox1.Font = new System.Drawing.Font("Times New Roman", 14.25F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.groupBox1.Location = new System.Drawing.Point(2, 2);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(796, 174);
+            this.groupBox1.Size = new System.Drawing.Size(778, 156);
             this.groupBox1.TabIndex = 0;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Chi Tiết Loại Sách";
@@ -135,7 +135,7 @@
             this.bntThoat.Font = new System.Drawing.Font("Times New Roman", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.bntThoat.Location = new System.Drawing.Point(658, 182);
             this.bntThoat.Name = "bntThoat";
-            this.bntThoat.Size = new System.Drawing.Size(130, 50);
+            this.bntThoat.Size = new System.Drawing.Size(112, 50);
             this.bntThoat.TabIndex = 1;
             this.bntThoat.Text = "Thoát";
             this.bntThoat.UseVisualStyleBackColor = true;
@@ -178,7 +178,7 @@
             this.groupBox2.Font = new System.Drawing.Font("Times New Roman", 14.25F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.groupBox2.Location = new System.Drawing.Point(2, 238);
             this.groupBox2.Name = "groupBox2";
-            this.groupBox2.Size = new System.Drawing.Size(796, 216);
+            this.groupBox2.Size = new System.Drawing.Size(778, 207);
             this.groupBox2.TabIndex = 2;
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "Danh Sách Loại Sách";
@@ -192,7 +192,7 @@
             this.lsv_DanhSachLoaiSach.Location = new System.Drawing.Point(3, 25);
             this.lsv_DanhSachLoaiSach.MultiSelect = false;
             this.lsv_DanhSachLoaiSach.Name = "lsv_DanhSachLoaiSach";
-            this.lsv_DanhSachLoaiSach.Size = new System.Drawing.Size(790, 188);
+            this.lsv_DanhSachLoaiSach.Size = new System.Drawing.Size(772, 179);
             this.lsv_DanhSachLoaiSach.TabIndex = 0;
             this.lsv_DanhSachLoaiSach.UseCompatibleStateImageBehavior = false;
             this.lsv_DanhSachLoaiSach.SelectedIndexChanged += new System.EventHandler(this.lsv_DanhSachLoaiSach_SelectedIndexChanged);

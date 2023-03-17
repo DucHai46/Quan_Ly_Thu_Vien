@@ -67,6 +67,7 @@ namespace QuanLyThuVien
         private void bntThoat_Click(object sender, EventArgs e)
         {
             this.Close();
+            
         }
 
         private void btnXoa_Click(object sender, EventArgs e)
