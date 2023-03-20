@@ -28,7 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.ListViewItem listViewItem2 = new System.Windows.Forms.ListViewItem("");
+            System.Windows.Forms.ListViewItem listViewItem1 = new System.Windows.Forms.ListViewItem("");
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.label1 = new System.Windows.Forms.Label();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
@@ -65,9 +65,10 @@
             this.groupBox1.BackColor = System.Drawing.Color.Teal;
             this.groupBox1.Controls.Add(this.label1);
             this.groupBox1.Controls.Add(this.groupBox2);
-            this.groupBox1.Location = new System.Drawing.Point(2, 12);
+            this.groupBox1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.groupBox1.Location = new System.Drawing.Point(0, 0);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(803, 454);
+            this.groupBox1.Size = new System.Drawing.Size(800, 455);
             this.groupBox1.TabIndex = 0;
             this.groupBox1.TabStop = false;
             // 
@@ -177,7 +178,7 @@
             this.groupBox5.Font = new System.Drawing.Font("Times New Roman", 15.75F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.groupBox5.Location = new System.Drawing.Point(6, 213);
             this.groupBox5.Name = "groupBox5";
-            this.groupBox5.Size = new System.Drawing.Size(561, 145);
+            this.groupBox5.Size = new System.Drawing.Size(561, 163);
             this.groupBox5.TabIndex = 0;
             this.groupBox5.TabStop = false;
             this.groupBox5.Text = "Danh Sách";
@@ -188,10 +189,10 @@
             this.lsvDanhSach.FullRowSelect = true;
             this.lsvDanhSach.HideSelection = false;
             this.lsvDanhSach.Items.AddRange(new System.Windows.Forms.ListViewItem[] {
-            listViewItem2});
+            listViewItem1});
             this.lsvDanhSach.Location = new System.Drawing.Point(0, 22);
             this.lsvDanhSach.Name = "lsvDanhSach";
-            this.lsvDanhSach.Size = new System.Drawing.Size(561, 123);
+            this.lsvDanhSach.Size = new System.Drawing.Size(561, 141);
             this.lsvDanhSach.TabIndex = 0;
             this.lsvDanhSach.UseCompatibleStateImageBehavior = false;
             this.lsvDanhSach.SelectedIndexChanged += new System.EventHandler(this.lsvDanhSach_SelectedIndexChanged);
@@ -329,9 +330,9 @@
             this.lsbLoaiSach.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lsbLoaiSach.FormattingEnabled = true;
             this.lsbLoaiSach.ItemHeight = 19;
-            this.lsbLoaiSach.Location = new System.Drawing.Point(-6, 31);
+            this.lsbLoaiSach.Location = new System.Drawing.Point(0, 22);
             this.lsbLoaiSach.Name = "lsbLoaiSach";
-            this.lsbLoaiSach.Size = new System.Drawing.Size(198, 156);
+            this.lsbLoaiSach.Size = new System.Drawing.Size(198, 175);
             this.lsbLoaiSach.TabIndex = 0;
             this.lsbLoaiSach.SelectedIndexChanged += new System.EventHandler(this.lsbLoaiSach_SelectedIndexChanged);
             // 

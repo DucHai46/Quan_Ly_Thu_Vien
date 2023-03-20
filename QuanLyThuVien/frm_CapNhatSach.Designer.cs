@@ -65,7 +65,7 @@
             this.groupBox1.Font = new System.Drawing.Font("Times New Roman", 14.25F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.groupBox1.Location = new System.Drawing.Point(1, 2);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(798, 167);
+            this.groupBox1.Size = new System.Drawing.Size(784, 167);
             this.groupBox1.TabIndex = 0;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Chi Tiết Sách";
@@ -168,7 +168,7 @@
             this.groupBox2.Font = new System.Drawing.Font("Times New Roman", 14.25F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.groupBox2.Location = new System.Drawing.Point(1, 236);
             this.groupBox2.Name = "groupBox2";
-            this.groupBox2.Size = new System.Drawing.Size(798, 211);
+            this.groupBox2.Size = new System.Drawing.Size(784, 211);
             this.groupBox2.TabIndex = 0;
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "Danh Sách Các Loại Sách";
@@ -180,7 +180,7 @@
             this.lsvCacLoaiSach.HideSelection = false;
             this.lsvCacLoaiSach.Location = new System.Drawing.Point(3, 25);
             this.lsvCacLoaiSach.Name = "lsvCacLoaiSach";
-            this.lsvCacLoaiSach.Size = new System.Drawing.Size(792, 183);
+            this.lsvCacLoaiSach.Size = new System.Drawing.Size(778, 183);
             this.lsvCacLoaiSach.TabIndex = 0;
             this.lsvCacLoaiSach.UseCompatibleStateImageBehavior = false;
             // 
@@ -229,7 +229,7 @@
             this.btnThoat.Font = new System.Drawing.Font("Times New Roman", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnThoat.Location = new System.Drawing.Point(659, 175);
             this.btnThoat.Name = "btnThoat";
-            this.btnThoat.Size = new System.Drawing.Size(129, 55);
+            this.btnThoat.Size = new System.Drawing.Size(115, 55);
             this.btnThoat.TabIndex = 1;
             this.btnThoat.Text = "Thoát";
             this.btnThoat.UseVisualStyleBackColor = true;
@@ -239,7 +239,7 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(192)))), ((int)(((byte)(0)))));
-            this.ClientSize = new System.Drawing.Size(800, 450);
+            this.ClientSize = new System.Drawing.Size(803, 450);
             this.Controls.Add(this.btnThoat);
             this.Controls.Add(this.btnXoa);
             this.Controls.Add(this.btnSua);

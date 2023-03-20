@@ -71,7 +71,6 @@ namespace QuanLyThuVien
 
         private void btnXoa_Click(object sender, EventArgs e)
         {
-            String File_LoaiSach = currentDirectory + "/LoaiSach.txt";
             if (lsv_DanhSachLoaiSach.SelectedItems.Count > 0)
             {
                 if (MessageBox.Show("Bạn có chắc muốn xóa không?", "Thông báo", MessageBoxButtons.YesNo, MessageBoxIcon.Error) == DialogResult.Yes)
@@ -84,6 +83,38 @@ namespace QuanLyThuVien
                     loaiSach.Add(new LoaiSach() { maLoaiSach = lsv_DanhSachLoaiSach.Items[i].SubItems[0].Text, tenLoaiSach = lsv_DanhSachLoaiSach.Items[i].SubItems[1].Text, kieuSach = lsv_DanhSachLoaiSach.Items[i].SubItems[2].Text });
                 }
             }
+        }
+
+        private void btnSua_Click(object sender, EventArgs e)
+        {
+            if (lsv_DanhSachLoaiSach.SelectedItems.Count > 0)
+            {
+                lsv_DanhSachLoaiSach.SelectedItems[0].SubItems[0].Text = null;
+                lsv_DanhSachLoaiSach.SelectedItems[0].SubItems[1].Text = null;
+                lsv_DanhSachLoaiSach.SelectedItems[0].SubItems[2].Text = null;
+                lsv_DanhSachLoaiSach.SelectedItems[0].SubItems[0].Text = txtMaLoaiSach.Text;
+                lsv_DanhSachLoaiSach.SelectedItems[0].SubItems[1].Text = txtTenLoaiSach.Text;
+                lsv_DanhSachLoaiSach.SelectedItems[0].SubItems[2].Text = txtKieuSach.Text;
+                loaiSach.Clear();
+                for (int i = 0; i < lsv_DanhSachLoaiSach.Items.Count; i++)
+                {
+                    loaiSach.Add(new LoaiSach() { maLoaiSach = lsv_DanhSachLoaiSach.Items[i].SubItems[0].Text, tenLoaiSach = lsv_DanhSachLoaiSach.Items[i].SubItems[1].Text, kieuSach = lsv_DanhSachLoaiSach.Items[i].SubItems[2].Text });
+                }
+            }
+        }
+
+        private void btnThem_Click(object sender, EventArgs e)
+        {
+            loaiSach.Add(new LoaiSach() { maLoaiSach = txtMaLoaiSach.Text, tenLoaiSach = txtTenLoaiSach.Text, kieuSach = txtKieuSach.Text }); 
+            ListViewItem item = new ListViewItem(txtMaLoaiSach.Text);
+            item.SubItems.Add(txtTenLoaiSach.Text);
+            item.SubItems.Add(txtKieuSach.Text);
+            lsv_DanhSachLoaiSach.Items.Add(item);
+        }
+
+        private void btnLuu_Click(object sender, EventArgs e)
+        {
+            String File_LoaiSach = currentDirectory + "/LoaiSach.txt";
             String[] str = new string[loaiSach.Count];
             for (int i = 0; i < loaiSach.Count; i++)
             {
@@ -91,6 +122,5 @@ namespace QuanLyThuVien
             }
             File.WriteAllLines(File_LoaiSach, str);
         }
-
     }
 }
