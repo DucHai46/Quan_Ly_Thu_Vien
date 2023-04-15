@@ -39,7 +39,6 @@
             this.btnThoat = new System.Windows.Forms.Button();
             this.btnXoa = new System.Windows.Forms.Button();
             this.btnSua = new System.Windows.Forms.Button();
-            this.btnLuu = new System.Windows.Forms.Button();
             this.txtTenDG = new System.Windows.Forms.TextBox();
             this.label4 = new System.Windows.Forms.Label();
             this.txtDiaChi = new System.Windows.Forms.TextBox();
@@ -52,6 +51,7 @@
             this.groupBox2 = new System.Windows.Forms.GroupBox();
             this.label1 = new System.Windows.Forms.Label();
             this.grbChiTietDG = new System.Windows.Forms.GroupBox();
+            this.btnLuu = new System.Windows.Forms.Button();
             this.groupBox3.SuspendLayout();
             this.groupBox2.SuspendLayout();
             this.grbChiTietDG.SuspendLayout();
@@ -167,19 +167,6 @@
             this.btnSua.Text = "Sửa";
             this.btnSua.UseVisualStyleBackColor = true;
             this.btnSua.Click += new System.EventHandler(this.btnSua_Click);
-            // 
-            // btnLuu
-            // 
-            this.btnLuu.Font = new System.Drawing.Font("Times New Roman", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnLuu.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnLuu.Location = new System.Drawing.Point(218, 220);
-            this.btnLuu.Margin = new System.Windows.Forms.Padding(4);
-            this.btnLuu.Name = "btnLuu";
-            this.btnLuu.Size = new System.Drawing.Size(183, 69);
-            this.btnLuu.TabIndex = 15;
-            this.btnLuu.Text = "Lưu";
-            this.btnLuu.UseVisualStyleBackColor = true;
-            this.btnLuu.Click += new System.EventHandler(this.btnLuu_Click);
             // 
             // txtTenDG
             // 
@@ -323,6 +310,19 @@
             this.grbChiTietDG.TabStop = false;
             this.grbChiTietDG.Text = "Chi Tiết Độc Giả";
             // 
+            // btnLuu
+            // 
+            this.btnLuu.Font = new System.Drawing.Font("Times New Roman", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnLuu.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnLuu.Location = new System.Drawing.Point(218, 220);
+            this.btnLuu.Margin = new System.Windows.Forms.Padding(4);
+            this.btnLuu.Name = "btnLuu";
+            this.btnLuu.Size = new System.Drawing.Size(183, 69);
+            this.btnLuu.TabIndex = 15;
+            this.btnLuu.Text = "Lưu";
+            this.btnLuu.UseVisualStyleBackColor = true;
+            this.btnLuu.Click += new System.EventHandler(this.btnLuu_Click);
+            // 
             // Form_Doc_Gia
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -362,7 +362,6 @@
         private System.Windows.Forms.Button btnThoat;
         private System.Windows.Forms.Button btnXoa;
         private System.Windows.Forms.Button btnSua;
-        private System.Windows.Forms.Button btnLuu;
         private System.Windows.Forms.TextBox txtTenDG;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.TextBox txtDiaChi;
@@ -375,5 +374,6 @@
         private System.Windows.Forms.GroupBox groupBox2;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.GroupBox grbChiTietDG;
+        private System.Windows.Forms.Button btnLuu;
     }
 }

@@ -21,25 +21,23 @@ namespace QuanLyThuVien
 
         private void Form_Doc_Gia_Load(object sender, EventArgs e)
         {
+            NapListViewDSDocGia();
 
         }
 
+        // NapListViewDSDocGia load từ sql để cập nhật tất cả dữ liệu lên bảng 
+
+        /* Mã độc giả
+         * Tên độc giả
+         * Giới tính
+         * Địa chỉ 
+         * Ngày mượn
+         */
         private void NapListViewDSDocGia()
         {
-            /*dtDocGia = objDocGia.getTableDocGia();*/
             lvwDanhSachDG.Items.Clear();
-            /*foreach (DataRow dr in dtDocGia.Rows)*/
-            /*{
-                ListViewItem li = lvwDanhSachDG.Items.Add(dr["MaDG"].ToString());
-                li.Tag = dr["MaDG"].ToString();
-                li.SubItems.Add(dr["TenDG"].ToString());
-                li.SubItems.Add((bool)dr["GioiTinh"] == false ? "Nam" : "Nữ");
-                string ngaymuon = Convert.ToDateTime(dr["NgayMuon"].ToString()).ToShortDateString();
-                li.SubItems.Add(ngaymuon);
-                li.SubItems.Add(dr["DiaChi"].ToString());
-                li.ImageIndex = 0;
+            // Viết tại đây
 
-            }*/
         }
 
         private void lvwDanhSachDG_SelectedIndexChanged(object sender, EventArgs e)
@@ -96,19 +94,17 @@ namespace QuanLyThuVien
             }
         }
 
+        /* Thao tác
+         * click thêm -> Điền đầy đủ thông tin -> click lưu 
+         */
+
+        // Thêm độc giả vào sql 
         private void LuuThemDG()
         {
             try
             {
-                lvwDanhSachDG.Items.Clear();
-                /*DataRow dr = dtDocGia.NewRow();
-                dr["MaDG"] = txtMaDG.Text;
-                dr["TenDG"] = txtTenDG.Text;
-                dr["GioiTinh"] = radNu.Checked ? true : false;
-                dr["NgayMuon"] = dtNgayMuon.Value;
-                dr["DiaChi"] = txtDiaChi.Text;
-                dtDocGia.Rows.Add(dr);
-                objDocGia.CapNhatTable_DocGia(dtDocGia);*/
+                // Viết tại đây
+
                 setButton();
                 NapListViewDSDocGia();
                 MessageBox.Show("Lưu dữ liệu thành công!");
@@ -120,17 +116,26 @@ namespace QuanLyThuVien
             }
         }
 
+        /* Thao tác
+         * Chọn vào ô cần sửa -> click vào sửa -> click lưu 
+         */
+
+        // Lưu sự thay đổi lại vào sql
+        /* Tìm mã độc giả tương ứng từ đó lưu sự thay đổi */
         private void LuuSuaDG()
         {
             try
             {
-               /* dtDocGia = objDocGia.getTableDocGia_Theo_MaDG(lvwDanhSachDG.SelectedItems[0].Text);
+                // Code mẫu
+                /*dtDocGia = objDocGia.getTableDocGia_Theo_MaDG(lvwDanhSachDG.SelectedItems[0].Text);
                 dtDocGia.Rows[0]["MaDG"] = txtMaDG.Text;
                 dtDocGia.Rows[0]["TenDG"] = txtTenDG.Text;
                 dtDocGia.Rows[0]["GioiTinh"] = radNu.Checked ? true : false;
                 dtDocGia.Rows[0]["NgayMuon"] = dtNgayMuon.Value;
                 dtDocGia.Rows[0]["DiaChi"] = txtDiaChi.Text;
                 objDocGia.CapNhatTable_DocGia(dtDocGia);*/
+
+
                 MessageBox.Show("Lưu sửa dữ liệu thành công!");
                 NapListViewDSDocGia();
             }
@@ -153,6 +158,7 @@ namespace QuanLyThuVien
                 e.Cancel = true;
         }
 
+        // Xóa dữ liệu tương ứng đã chọn trên sql
         private void btnXoa_Click(object sender, EventArgs e)
         {
             if (lvwDanhSachDG.SelectedItems.Count > 0)
@@ -160,9 +166,12 @@ namespace QuanLyThuVien
                 DialogResult dl = MessageBox.Show("Bạn có chắc muốn xóa dữ liệu này?", "Warning", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
                 if (dl == DialogResult.Yes)
                 {
+                    // Code mẫu viết code tại đây
                     /*DataRow[] dr = dtDocGia.Select("MaDG='" + txtMaDG.Text + "'");
                     dr[0].Delete();
                     objDocGia.CapNhatTable_DocGia(dtDocGia);*/
+
+
                     // clear text
                     txtMaDG.Text = "";
                     txtTenDG.Text = "";
@@ -184,25 +193,7 @@ namespace QuanLyThuVien
         {
             if (lvwDanhSachDG.SelectedItems.Count > 0)
             {
-                if (btnSua.Text == "Sửa")
-                {
-                    btnSua.Text = "Hủy";
-                    grbChiTietDG.Enabled = true;
-                    btnThem.Enabled = false;
-                    btnXoa.Enabled = false;
-                    btnLuu.Enabled = true;
-                    dtNgayMuon.Text = "";
-                    txtMaDG.Focus();
-                }
-                else
-                {
-                    btnSua.Text = "Sửa";
-                    grbChiTietDG.Enabled = false;
-                    btnThem.Enabled = true;
-                    btnXoa.Enabled = true;
-                    btnLuu.Enabled = false;
-                    dtNgayMuon.Text = "";
-                }
+                txtMaDG.Focus();
             }
             else
             {
@@ -230,7 +221,10 @@ namespace QuanLyThuVien
             else
             {
                 if (lvwDanhSachDG.SelectedItems.Count == 0)
+                {
                     LuuThemDG();
+                }    
+                    
                 else
                     LuuSuaDG();
             }
