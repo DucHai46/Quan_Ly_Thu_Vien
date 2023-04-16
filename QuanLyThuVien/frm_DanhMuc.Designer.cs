@@ -28,7 +28,6 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.ListViewItem listViewItem1 = new System.Windows.Forms.ListViewItem("");
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.label1 = new System.Windows.Forms.Label();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
@@ -39,7 +38,7 @@
             this.btnQlDocGia = new System.Windows.Forms.Button();
             this.btnCapNhap = new System.Windows.Forms.Button();
             this.groupBox5 = new System.Windows.Forms.GroupBox();
-            this.lsvDanhSach = new System.Windows.Forms.ListView();
+            this.dgvSach = new System.Windows.Forms.DataGridView();
             this.groupBox4 = new System.Windows.Forms.GroupBox();
             this.txtMaTacGia = new System.Windows.Forms.TextBox();
             this.txtSoLuong = new System.Windows.Forms.TextBox();
@@ -52,12 +51,14 @@
             this.label3 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.groupBox3 = new System.Windows.Forms.GroupBox();
-            this.lsbLoaiSach = new System.Windows.Forms.ListBox();
+            this.dgvLoaiSach = new System.Windows.Forms.DataGridView();
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
             this.groupBox5.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvSach)).BeginInit();
             this.groupBox4.SuspendLayout();
             this.groupBox3.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvLoaiSach)).BeginInit();
             this.SuspendLayout();
             // 
             // groupBox1
@@ -107,7 +108,7 @@
             this.btnKetThuc.Location = new System.Drawing.Point(591, 282);
             this.btnKetThuc.Name = "btnKetThuc";
             this.btnKetThuc.Size = new System.Drawing.Size(195, 46);
-            this.btnKetThuc.TabIndex = 1;
+            this.btnKetThuc.TabIndex = 5;
             this.btnKetThuc.Text = "Kết Thúc";
             this.btnKetThuc.UseVisualStyleBackColor = false;
             this.btnKetThuc.Click += new System.EventHandler(this.btnKetThuc_Click);
@@ -120,7 +121,7 @@
             this.btnTimKiem.Location = new System.Drawing.Point(591, 230);
             this.btnTimKiem.Name = "btnTimKiem";
             this.btnTimKiem.Size = new System.Drawing.Size(195, 46);
-            this.btnTimKiem.TabIndex = 1;
+            this.btnTimKiem.TabIndex = 4;
             this.btnTimKiem.Text = "Tìm Kiếm";
             this.btnTimKiem.UseVisualStyleBackColor = false;
             // 
@@ -131,7 +132,7 @@
             this.btnMuonTra.Location = new System.Drawing.Point(591, 178);
             this.btnMuonTra.Name = "btnMuonTra";
             this.btnMuonTra.Size = new System.Drawing.Size(195, 46);
-            this.btnMuonTra.TabIndex = 1;
+            this.btnMuonTra.TabIndex = 3;
             this.btnMuonTra.Text = "Quản Lý Mượn Trả";
             this.btnMuonTra.UseVisualStyleBackColor = false;
             this.btnMuonTra.Click += new System.EventHandler(this.btnMuonTra_Click);
@@ -143,7 +144,7 @@
             this.btnQlTacGia.Location = new System.Drawing.Point(591, 126);
             this.btnQlTacGia.Name = "btnQlTacGia";
             this.btnQlTacGia.Size = new System.Drawing.Size(195, 46);
-            this.btnQlTacGia.TabIndex = 1;
+            this.btnQlTacGia.TabIndex = 2;
             this.btnQlTacGia.Text = "Quản Lý Tác Giả";
             this.btnQlTacGia.UseVisualStyleBackColor = false;
             // 
@@ -166,7 +167,7 @@
             this.btnCapNhap.Location = new System.Drawing.Point(591, 22);
             this.btnCapNhap.Name = "btnCapNhap";
             this.btnCapNhap.Size = new System.Drawing.Size(195, 46);
-            this.btnCapNhap.TabIndex = 1;
+            this.btnCapNhap.TabIndex = 0;
             this.btnCapNhap.Text = "Cập Nhật";
             this.btnCapNhap.UseVisualStyleBackColor = false;
             this.btnCapNhap.Click += new System.EventHandler(this.btnCapNhat_Click);
@@ -174,7 +175,7 @@
             // groupBox5
             // 
             this.groupBox5.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(192)))), ((int)(((byte)(0)))));
-            this.groupBox5.Controls.Add(this.lsvDanhSach);
+            this.groupBox5.Controls.Add(this.dgvSach);
             this.groupBox5.Font = new System.Drawing.Font("Times New Roman", 15.75F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.groupBox5.Location = new System.Drawing.Point(6, 213);
             this.groupBox5.Name = "groupBox5";
@@ -183,19 +184,16 @@
             this.groupBox5.TabStop = false;
             this.groupBox5.Text = "Danh Sách";
             // 
-            // lsvDanhSach
+            // dgvSach
             // 
-            this.lsvDanhSach.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lsvDanhSach.FullRowSelect = true;
-            this.lsvDanhSach.HideSelection = false;
-            this.lsvDanhSach.Items.AddRange(new System.Windows.Forms.ListViewItem[] {
-            listViewItem1});
-            this.lsvDanhSach.Location = new System.Drawing.Point(0, 22);
-            this.lsvDanhSach.Name = "lsvDanhSach";
-            this.lsvDanhSach.Size = new System.Drawing.Size(561, 141);
-            this.lsvDanhSach.TabIndex = 0;
-            this.lsvDanhSach.UseCompatibleStateImageBehavior = false;
-            this.lsvDanhSach.SelectedIndexChanged += new System.EventHandler(this.lsvDanhSach_SelectedIndexChanged);
+            this.dgvSach.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgvSach.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.dgvSach.Location = new System.Drawing.Point(3, 28);
+            this.dgvSach.Name = "dgvSach";
+            this.dgvSach.ReadOnly = true;
+            this.dgvSach.Size = new System.Drawing.Size(555, 132);
+            this.dgvSach.TabIndex = 0;
+            this.dgvSach.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvSach_CellContentClick);
             // 
             // groupBox4
             // 
@@ -225,7 +223,7 @@
             this.txtMaTacGia.Multiline = true;
             this.txtMaTacGia.Name = "txtMaTacGia";
             this.txtMaTacGia.Size = new System.Drawing.Size(202, 25);
-            this.txtMaTacGia.TabIndex = 1;
+            this.txtMaTacGia.TabIndex = 4;
             // 
             // txtSoLuong
             // 
@@ -234,7 +232,7 @@
             this.txtSoLuong.Multiline = true;
             this.txtSoLuong.Name = "txtSoLuong";
             this.txtSoLuong.Size = new System.Drawing.Size(202, 25);
-            this.txtSoLuong.TabIndex = 1;
+            this.txtSoLuong.TabIndex = 3;
             // 
             // txtMaLoai
             // 
@@ -243,7 +241,7 @@
             this.txtMaLoai.Multiline = true;
             this.txtMaLoai.Name = "txtMaLoai";
             this.txtMaLoai.Size = new System.Drawing.Size(202, 25);
-            this.txtMaLoai.TabIndex = 1;
+            this.txtMaLoai.TabIndex = 2;
             // 
             // txtTenSach
             // 
@@ -261,7 +259,7 @@
             this.txtMaSach.Multiline = true;
             this.txtMaSach.Name = "txtMaSach";
             this.txtMaSach.Size = new System.Drawing.Size(202, 25);
-            this.txtMaSach.TabIndex = 1;
+            this.txtMaSach.TabIndex = 0;
             // 
             // label6
             // 
@@ -316,7 +314,7 @@
             // groupBox3
             // 
             this.groupBox3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(192)))), ((int)(((byte)(0)))));
-            this.groupBox3.Controls.Add(this.lsbLoaiSach);
+            this.groupBox3.Controls.Add(this.dgvLoaiSach);
             this.groupBox3.Font = new System.Drawing.Font("Times New Roman", 15.75F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.groupBox3.Location = new System.Drawing.Point(6, 10);
             this.groupBox3.Name = "groupBox3";
@@ -325,16 +323,16 @@
             this.groupBox3.TabStop = false;
             this.groupBox3.Text = "Loại Sách";
             // 
-            // lsbLoaiSach
+            // dgvLoaiSach
             // 
-            this.lsbLoaiSach.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lsbLoaiSach.FormattingEnabled = true;
-            this.lsbLoaiSach.ItemHeight = 19;
-            this.lsbLoaiSach.Location = new System.Drawing.Point(0, 22);
-            this.lsbLoaiSach.Name = "lsbLoaiSach";
-            this.lsbLoaiSach.Size = new System.Drawing.Size(198, 175);
-            this.lsbLoaiSach.TabIndex = 0;
-            this.lsbLoaiSach.SelectedIndexChanged += new System.EventHandler(this.lsbLoaiSach_SelectedIndexChanged);
+            this.dgvLoaiSach.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgvLoaiSach.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.dgvLoaiSach.Location = new System.Drawing.Point(3, 28);
+            this.dgvLoaiSach.Name = "dgvLoaiSach";
+            this.dgvLoaiSach.ReadOnly = true;
+            this.dgvLoaiSach.Size = new System.Drawing.Size(192, 166);
+            this.dgvLoaiSach.TabIndex = 0;
+            this.dgvLoaiSach.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvLoaiSach_CellContentClick);
             // 
             // frm_DanhMuc
             // 
@@ -349,9 +347,11 @@
             this.groupBox1.PerformLayout();
             this.groupBox2.ResumeLayout(false);
             this.groupBox5.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.dgvSach)).EndInit();
             this.groupBox4.ResumeLayout(false);
             this.groupBox4.PerformLayout();
             this.groupBox3.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.dgvLoaiSach)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -364,7 +364,6 @@
         private System.Windows.Forms.GroupBox groupBox5;
         private System.Windows.Forms.GroupBox groupBox4;
         private System.Windows.Forms.GroupBox groupBox3;
-        private System.Windows.Forms.ListBox lsbLoaiSach;
         private System.Windows.Forms.Button btnKetThuc;
         private System.Windows.Forms.Button btnTimKiem;
         private System.Windows.Forms.Button btnMuonTra;
@@ -381,7 +380,8 @@
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.ListView lsvDanhSach;
+        private System.Windows.Forms.DataGridView dgvSach;
+        private System.Windows.Forms.DataGridView dgvLoaiSach;
     }
 }
 

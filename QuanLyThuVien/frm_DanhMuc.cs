@@ -9,121 +9,58 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using static System.Windows.Forms.VisualStyles.VisualStyleElement;
 using System.IO;
+using System.Runtime.CompilerServices;
+using System.Data.SqlClient;
+
 namespace QuanLyThuVien
 {
     public partial class frm_DanhMuc : Form
     {
-        string currentDirectory = System.IO.Directory.GetCurrentDirectory() + "/Data";
+        SqlConnection conn;
+        SqlCommand cmd;
+        String str = @"Data Source=ADMIN\DUCHAI;Initial Catalog=QuanLyThuVien;Integrated Security=True";
+        SqlDataAdapter adapter = new SqlDataAdapter();
+        SqlDataAdapter adapter1 = new SqlDataAdapter();
+        DataTable table= new DataTable();
+        DataTable table1= new DataTable();
+
+        void LoadLoaiSach()
+        {
+            cmd = conn.CreateCommand();
+            cmd.CommandText = "select TenLoaiSach as 'Tên loại sách' from LoaiSach";
+            adapter1.SelectCommand= cmd;
+            table1.Clear();
+            adapter1.Fill(table1); 
+            dgvLoaiSach.DataSource = table1;
+        }
+        void LoadSach(String TruyVan)
+        {
+            cmd = conn.CreateCommand();
+            cmd.CommandText = TruyVan;
+            adapter.SelectCommand= cmd;
+            table.Clear();
+            adapter.Fill(table);
+            dgvSach.DataSource = table;
+        }
+
         public frm_DanhMuc()
         {
             InitializeComponent();
         }
         private void frm_DanhMuc_Load(object sender, EventArgs e)
         {
-            KhoiTaoLsv_DanhSach();
-            KhoiTao_Sach();
-            lsbLoaiSach.DataSource = KhoiTaoLsv_LoaiSach();
-            lsbLoaiSach.DisplayMember = "tenLoaiSach";
-            lsbLoaiSach.ValueMember = "maLoaiSach";
-        }
+            Font currentFont = dgvSach.Font;
+            Font newFont = new Font(currentFont.FontFamily, 12, FontStyle.Bold);
+            dgvSach.Font = newFont;
+            dgvLoaiSach.Font = newFont;
+            dgvSach.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.AllCells;
+            dgvLoaiSach.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.AllCells;
+            
 
-        private List<Sach> sachTH = new List<Sach>();
-        private List<Sach> sachTC = new List<Sach>();
-        private List<Sach> sachGK = new List<Sach>();
-        private List<Sach> sachTT = new List<Sach>();
-        private List<Sach> sachKT = new List<Sach>();
-
-        private List<LoaiSach> loaiSach = new List<LoaiSach>();
-        public List<LoaiSach> KhoiTaoLsv_LoaiSach()
-        {
-            List<LoaiSach> loaiSach = new List<LoaiSach>();
-            String File_LoaiSach = currentDirectory + "/LoaiSach.txt";
-            String[] str = File.ReadAllLines(File_LoaiSach);
-            foreach (String str2 in str)
-            {
-                loaiSach.Add(new LoaiSach() { maLoaiSach = str2.Split(',')[0], tenLoaiSach = str2.Split(',')[1], kieuSach = str2.Split(',')[2] });
-            }
-            this.loaiSach = loaiSach;
-            return loaiSach;
-        }
- 
-        public void KhoiTaoLsv_DanhSach()
-        {
-            lsvDanhSach.Columns.Add("Mã Sách", 100);
-            lsvDanhSach.Columns.Add("Tên Sách", 125);
-            lsvDanhSach.Columns.Add("Mã Loại Sách", 130);
-            lsvDanhSach.Columns.Add("Số Lượng", 100);
-            lsvDanhSach.Columns.Add("Mã Tác Giả", 100);
-            lsvDanhSach.View = View.Details;
-        }
-        public void KhoiTao_Sach()
-        {
-            String File_Sach = currentDirectory + "/Sach.txt";
-
-            String[] str = File.ReadAllLines(File_Sach);
-            foreach (String str1 in str)
-            {
-                switch (str1.Split(',')[2])
-                {
-                    case "TH":
-                        sachTH.Add(new Sach() { maSach = str1.Split(',')[0], tenSach = str1.Split(',')[1], maLoaiSach = str1.Split(',')[2], soLuong = Convert.ToInt32(str1.Split(',')[3]), maTacGia = str1.Split(',')[4] }); break;
-                    case "TC":
-                        sachTC.Add(new Sach() { maSach = str1.Split(',')[0], tenSach = str1.Split(',')[1], maLoaiSach = str1.Split(',')[2], soLuong = Convert.ToInt32(str1.Split(',')[3]), maTacGia = str1.Split(',')[4] }); break;
-                    case "SGK":
-                        sachGK.Add(new Sach() { maSach = str1.Split(',')[0], tenSach = str1.Split(',')[1], maLoaiSach = str1.Split(',')[2], soLuong = Convert.ToInt32(str1.Split(',')[3]), maTacGia = str1.Split(',')[4] }); break;
-                    case "TT":
-                        sachTT.Add(new Sach() { maSach = str1.Split(',')[0], tenSach = str1.Split(',')[1], maLoaiSach = str1.Split(',')[2], soLuong = Convert.ToInt32(str1.Split(',')[3]), maTacGia = str1.Split(',')[4] }); break;
-                    case "KT":
-                        sachKT.Add(new Sach() { maSach = str1.Split(',')[0], tenSach = str1.Split(',')[1], maLoaiSach = str1.Split(',')[2], soLuong = Convert.ToInt32(str1.Split(',')[3]), maTacGia = str1.Split(',')[4] }); break;
-                }
-            }
-        }
-        private void Add_lsv(List<Sach> saches)
-        {
-            lsvDanhSach.Clear();
-            KhoiTaoLsv_DanhSach();
-            foreach (Sach sach in saches)
-            {
-                ListViewItem item = new ListViewItem(sach.maSach);
-                item.SubItems.Add(sach.tenSach);
-                item.SubItems.Add(sach.maLoaiSach);
-                item.SubItems.Add(sach.soLuong.ToString());
-                item.SubItems.Add(sach.maTacGia);
-                lsvDanhSach.Items.Add(item);
-            }
-        }
-        private void lsbLoaiSach_SelectedIndexChanged(object sender, EventArgs e)
-        {
-
-            switch (lsbLoaiSach.SelectedValue.ToString())
-            {
-                case "TH":
-
-                    Add_lsv(sachTH); break;
-                case "TC":
-
-                    Add_lsv(sachTC); break;
-                case "SGK":
-
-                    Add_lsv(sachGK); break;
-                case "TT":
-
-                    Add_lsv(sachTT); break;
-                case "KT":
-
-                    Add_lsv(sachKT); break;
-            }
-        }
-        private void lsvDanhSach_SelectedIndexChanged(object sender, EventArgs e)
-        {
-            if(lsvDanhSach.SelectedItems.Count > 0)
-            {
-                txtMaSach.Text = lsvDanhSach.SelectedItems[0].SubItems[0].Text;
-                txtTenSach.Text = lsvDanhSach.SelectedItems[0].SubItems[1].Text;
-                txtMaLoai.Text = lsvDanhSach.SelectedItems[0].SubItems[2].Text;
-                txtSoLuong.Text = lsvDanhSach.SelectedItems[0].SubItems[3].Text;
-                txtMaTacGia.Text = lsvDanhSach.SelectedItems[0].SubItems[4].Text;
-            }
+            conn = new SqlConnection(str);
+            conn.Open();
+            LoadSach("select MaSach as 'Mã sách', TenSach as 'Tên sách', MaLoaiSach as 'Mã loại sách', SoLuong as 'Số lượng', MaTacGia as 'Mã tác giả' from Sach");
+            LoadLoaiSach();
         }
 
         private void btnCapNhat_Click(object sender, EventArgs e)
@@ -148,5 +85,27 @@ namespace QuanLyThuVien
         {
             this.Close();
         }
+
+        private void dgvSach_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+            int i;
+            i = dgvSach.CurrentRow.Index;
+            txtMaSach.Text = dgvSach.Rows[i].Cells[0].Value.ToString();
+            txtTenSach.Text = dgvSach.Rows[i].Cells[1].Value.ToString();
+            txtMaLoai.Text = dgvSach.Rows[i].Cells[2].Value.ToString();
+            txtSoLuong.Text = dgvSach.Rows[i].Cells[3].Value.ToString();
+            txtMaTacGia.Text = dgvSach.Rows[i].Cells[4].Value.ToString();
+        }
+
+        private void dgvLoaiSach_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+            int i;
+            i = dgvLoaiSach.CurrentRow.Index;
+            cmd = conn.CreateCommand();
+            String TenLoaiSach = dgvLoaiSach.Rows[i].Cells[0].Value.ToString();
+
+            LoadSach("select S.MaSach as 'Mã sách', S.TenSach as 'Tên sách', S.MaLoaiSach as 'Mã loại sách', S.SoLuong as 'Số lượng', S.MaTacGia as 'Mã tác giả' from Sach as S inner join LoaiSach as LS on S.MaLoaiSach = LS.MaLoaiSach where LS.TenLoaiSach = N'" + TenLoaiSach + "'");
+        }
+
     }
 }
