@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
+using System.Data.SqlClient;
 using System.Drawing;
 using System.Globalization;
 using System.IO;
@@ -15,90 +16,91 @@ namespace QuanLyThuVien
 {
     public partial class Form_MuonTra : Form
     {
-        string currentDirectory = System.IO.Directory.GetCurrentDirectory() + "/Data";
+        SqlConnection conn;
+        SqlCommand cmd;
+        String str = @"Data Source=ADMIN\DUCHAI;Initial Catalog=QuanLyThuVien;Integrated Security=True";
+        SqlDataAdapter adapter = new SqlDataAdapter();
+        SqlDataAdapter adapter1 = new SqlDataAdapter();
+        DataTable tableMuon = new DataTable();
+        DataTable tableTra = new DataTable();
+
+        void LoadDgvChoMuon()
+        {
+            cmd = conn.CreateCommand();
+            cmd.CommandText = "select MaDocGia as 'Mã độc giả', MaSach as 'Mã sách', SoLuong as 'Số lượng', NgayMuon as 'Ngày mượn', NgayHenTra as 'Ngày hẹn trả' from MuonSach";
+            adapter.SelectCommand = cmd;
+            tableMuon.Clear();
+            adapter.Fill(tableMuon);
+            dgvChoMuon.DataSource = tableMuon;
+        }
+        void LoadDgvTraSach()
+        {
+            cmd = conn.CreateCommand();
+            cmd.CommandText = "select MaDocGia as 'Mã độc giả', MaSach as 'Mã sách', SoLuong as 'Số lượng', NgayMuon as 'Ngày mượn', NgayHenTra as 'Ngày hẹn trả', NgayTra as 'Ngày Trả' from TraSach";
+            adapter1.SelectCommand = cmd;
+            tableTra.Clear();
+            adapter1.Fill(tableTra);
+            dgvTraSach.DataSource = tableTra;
+        }
+
+        void LoadCb()
+        {
+            DataTable dt = new DataTable();
+            DataTable dt1 = new DataTable();
+            DataTable dt2 = new DataTable();
+            try
+            {
+                SqlDataAdapter da = new SqlDataAdapter("Select MaSach From Sach", conn);
+                SqlDataAdapter da1 = new SqlDataAdapter("Select MaDocGia From DocGia", conn);
+                SqlDataAdapter da2 = new SqlDataAdapter("SELECT DISTINCT MuonSach.MaDocGia FROM dbo.MuonSach INNER JOIN dbo.DocGia ON DocGia.MaDocGia = MuonSach.MaDocGia", conn);
+                da.Fill(dt);
+                da1.Fill(dt1);
+                da2.Fill(dt2);
+            }
+            catch (Exception ex)
+            {
+                throw new Exception("Error " + ex.ToString());
+            }
+            
+            try
+            {
+                cbChonMaSach.DataSource = dt;
+                cbChonMaSach.DisplayMember = "MaSach";
+                cbChonMaSach.ValueMember = "MaSach";
+
+                cbMaDG.DataSource = dt1;
+                cbMaDG.DisplayMember = "MaDocGia";
+                cbMaDG.ValueMember = "MaDocGia";
+
+                cbMaDG_TraSach.DataSource = dt2; ;
+                cbMaDG_TraSach.DisplayMember = "MaDocGia";
+                cbMaDG_TraSach.ValueMember = "MaDocGia";
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Có lỗi khi load dữ liệu!\n", ex.ToString());
+            }
+        }
+
+
         public Form_MuonTra()
         {
             InitializeComponent();
         }
-
-        // Load 2 comboBox ở page1 và 1 comboBox ở page2
-        private void LoadComboBox()
-        {
-            cbMaDG_TraSach.Items.Clear();
-            cbMaDG.Items.Clear();
-            cbChonMaSach.Items.Clear();
-
-            string File_Sach = currentDirectory + "/Sach.txt";
-            string File_Doc_Gia = currentDirectory + "/Doc_gia.txt";
-
-            string[] lines_Sach = File.ReadAllLines(File_Sach);
-            string[] lines_Doc_Gia = File.ReadAllLines(File_Doc_Gia);
-
-            foreach (string line in lines_Sach)
-                cbChonMaSach.Items.Add(line.Split(',')[1]);
-            foreach (string line in lines_Doc_Gia)
-            {
-                cbMaDG.Items.Add(line.Split(',')[0]);
-                cbMaDG_TraSach.Items.Add(line.Split(',')[0]);
-            }
-                
-            
-        }
-        //---------------------------------------//
-        // Load listViewTable ở lvwDanhSach
-        private void Load_lvwDanhSach()
-        {
-            string File_Muon_Sach = currentDirectory + "/Muon_Sach.txt";
-            string[] lines_Muon_Sach = File.ReadAllLines(File_Muon_Sach);
-            foreach (string line in lines_Muon_Sach)
-            {
-                ListViewItem li = new ListViewItem();
-                li.Text = line.Split(',')[0];
-                li.SubItems.Add(line.Split(',')[1]);
-                li.SubItems.Add(line.Split(',')[2]);
-                string ngaymuon = Convert.ToDateTime(line.Split(',')[3]).ToShortDateString();
-                li.SubItems.Add(ngaymuon);
-                string ngayhentra = Convert.ToDateTime(line.Split(',')[4]).ToShortDateString();
-                li.SubItems.Add(ngayhentra);
-                lvwDanhSach.Items.Add(li);
-            }
-
-            // Load lại cbMaDG_TraSach ở Trả sách
-            cbMaDG_TraSach.Items.Clear();
-            foreach (string line in lines_Muon_Sach)
-                cbMaDG_TraSach.Items.Add(line.Split(',')[0]);
-
-        }
-
-        // Load listViewTable ở lvwDanhSach
-        private void Load_lvwDanhSachTra()
-        {
-            string File_Tra_Sach = currentDirectory + "/Tra_Sach.txt";
-            string[] lines_Tra_Sach = File.ReadAllLines(File_Tra_Sach);
-            foreach (string line in lines_Tra_Sach)
-            {
-                ListViewItem li = new ListViewItem();
-                li.Text = line.Split(',')[0];
-                li.SubItems.Add(line.Split(',')[1]);
-                li.SubItems.Add(line.Split(',')[2]);
-                string ngaymuon = Convert.ToDateTime(line.Split(',')[3]).ToShortDateString();
-                li.SubItems.Add(ngaymuon);
-
-                string ngayhentra = Convert.ToDateTime(line.Split(',')[4]).ToShortDateString();
-                li.SubItems.Add(ngayhentra);
-
-                string ngaytra = Convert.ToDateTime(line.Split(',')[5]).ToShortDateString();
-                li.SubItems.Add(ngaytra);
-                lvwDanhSachTra.Items.Add(li);
-            }
-        }
-
         // Load toàn bộ dữ liệu khi mở form lên
         private void Form_MuonTra_Load(object sender, EventArgs e)
         {
-            Load_lvwDanhSach();
-            Load_lvwDanhSachTra();
-            LoadComboBox();
+            Font currentFont = dgvChoMuon.Font;
+            Font newFont = new Font(currentFont.FontFamily, 12, FontStyle.Bold);
+            dgvTraSach.Font = newFont;
+            dgvTraSach.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.AllCells;
+
+            conn = new SqlConnection(str);
+            conn.Open();
+            LoadDgvChoMuon();
+            LoadDgvTraSach();
+            LoadCb();
+
         }
 
         //===========================================================//
@@ -121,7 +123,7 @@ namespace QuanLyThuVien
 
             //============= Thông tin sách ============//
             cbChonMaSach.Text = "";
-            lblMaSach.Text = "";
+            lblTenSach.Text = "";
             lblSoLuong.Text = "";
             lblMaLoai.Text = "";
             lblMaTG.Text = "";
@@ -131,70 +133,41 @@ namespace QuanLyThuVien
         //============= Cho Mượn button ============//
         private void btnChoMuon_Click(object sender, EventArgs e)
         {
-            bool exists = false;
-            int so_luong_Sach_Muon = 0;
-            int so_luong_Sach = 0;
 
-            string File_Muon_Sach = currentDirectory + "/Muon_Sach.txt";
+            DataTable tb = new DataTable();
+            SqlDataAdapter da = new SqlDataAdapter("select * from Sach ", conn);
+            tb.Clear();
+            da.Fill(tb);
+            cmd = conn.CreateCommand();
 
-            string File_Sach = currentDirectory + "/Sach.txt";
-            string[] lines_Sach = File.ReadAllLines(File_Sach);
-            string[] lines_Muon_Sach = File.ReadAllLines(File_Muon_Sach);
-
-            string noiDung = cbMaDG.Text + ","
-                                + txtMaSach.Text + ","
-                                + txtSoLuong.Text + ","
-                                + dtNgayMuon.Text + ","
-                                + dtNgayHenTra.Text + "\n";
-
-            //===========================================================//
-            // Kiểm tra mã sách đúng không
-            foreach (string line in lines_Sach)
-                if (txtMaSach.Text == line.Split(',')[0])
+            if (cbMaDG.Text == "" || txtSoLuong.Text == "" || txtSoLuong.Text == "0")
+            {
+                MessageBox.Show("Hãy nhập đầy đủ dữ liệu!", "Thông Báo");
+            }
+            else
+            {
+                for (int i = 0; i < tb.Rows.Count; i++)
                 {
-                    so_luong_Sach = int.Parse(line.Split(',')[3]);
-                    exists = true;
-                    break;
+                    if (tb.Rows[i][0].ToString() == txtMaSach.Text)
+                    {
+                        if (int.Parse(txtSoLuong.Text) > int.Parse(tb.Rows[i][3].ToString()))
+                        {
+                            MessageBox.Show("Vượt quá số lượng sách trong kho!! Kho: " + tb.Rows[i][3].ToString(), "Thông báo");
+                            return;
+                        }
+                        else
+                        {
+                            int soluong = int.Parse(tb.Rows[i][3].ToString()) - int.Parse(txtSoLuong.Text);
+                            cmd.CommandText = "update Sach set SoLuong = '" + soluong.ToString() + "' where MaSach = '"+ txtMaSach.Text + "' ";
+                            cmd.ExecuteNonQuery();
+                            break;
+                        }
+                    }
                 }
-
-            if (!exists)
-            {
-                MessageBox.Show("Không tồn tại mã sách như vậy");
-                txtMaSach.Focus();
-                return;
+                cmd.CommandText = "insert into MuonSach values('" + cbMaDG.Text + "','" + txtMaSach.Text + "','" + txtSoLuong.Text + "', '"+dtNgayMuon.Text+"','"+dtNgayHenTra.Text+"' )";
+                cmd.ExecuteNonQuery();
+                LoadDgvChoMuon();
             }
-
-            //===========================================================//
-            // Kiểm tra đã điền độc giả chưa
-            if (cbMaDG.Text == "")
-            {
-                MessageBox.Show("Chưa điền độc giả");
-                cbMaDG.Focus();
-                return;
-            }
-
-            if (txtSoLuong.Text == "" || int.Parse(txtSoLuong.Text) == 0)
-            {
-                MessageBox.Show("Chưa điền số lượng");
-                return;
-            }
-
-            foreach (string line in lines_Muon_Sach)
-            {
-                if (txtMaSach.Text == line.Split(',')[1])
-                    so_luong_Sach_Muon += int.Parse(line.Split(',')[2]);
-            }
-                
-
-            if (int.Parse(txtSoLuong.Text) > (so_luong_Sach - so_luong_Sach_Muon))
-            {
-                MessageBox.Show(string.Format("Số sách còn lại {0} < {1}", so_luong_Sach - so_luong_Sach_Muon, txtSoLuong.Text));
-                txtSoLuong.Focus();
-                return;
-            }
-            File.AppendAllText(File_Muon_Sach, noiDung);
-            lvwDanhSach.Items.Clear();
-            Load_lvwDanhSach();
 
         }
 
@@ -202,152 +175,83 @@ namespace QuanLyThuVien
         // Nhận sự kiện thay đổi text để update các thuộc tính của sách
         private void cbChonMaSach_TextChanged(object sender, EventArgs e)
         {
-            string textFile = currentDirectory + "/Sach.txt";
-            string[] lines = File.ReadAllLines(textFile);
-            foreach (string line in lines)
+            DataTable tb = new DataTable();
+            SqlDataAdapter da = new SqlDataAdapter("select * from Sach ", conn);
+            tb.Clear();
+            da.Fill(tb);
+
+            for(int i = 0; i < tb.Rows.Count; i++)
             {
-                if (line.Split(',')[1] == cbChonMaSach.Text)
+                if (tb.Rows[i][0].ToString() == cbChonMaSach.Text)
                 {
-                    lblMaSach.Text = line.Split(',')[0];
-                    lblMaLoai.Text = line.Split(',')[2];
-                    lblSoLuong.Text = line.Split(',')[3];
-                    lblMaTG.Text = line.Split(',')[4];
-                    txtMaSach.Text = line.Split(',')[0];
+                    txtMaSach.Text = tb.Rows[i][0].ToString();
+                    lblTenSach.Text = tb.Rows[i][1].ToString();
+                    lblMaLoai.Text = tb.Rows[i][2].ToString();
+                    lblSoLuong.Text = tb.Rows[i][3].ToString();
+                    lblMaTG.Text = tb.Rows[i][4].ToString();
                 }
             }
-        }
 
+        }
         private void cbMaDG_TraSach_TextChanged(object sender, EventArgs e)
         {
-            bool is_Borrow = false;
-            string File_Muon_Sach = currentDirectory + "/Muon_Sach.txt";
-            string[] lines_Muon_Sach = File.ReadAllLines(File_Muon_Sach);
+            DataTable tb = new DataTable();
+            SqlDataAdapter da = new SqlDataAdapter("SELECT MaSach FROM dbo.MuonSach WHERE MaDocGia = '"+cbMaDG_TraSach.Text+"' ", conn);
+            tb.Clear();
+            da.Fill(tb);
 
-            // Clear ALL infor to set new value with name MaDG
-            txtMaSach_TraSach.SelectedIndex = -1;
-            txtMaSach_TraSach.Items.Clear();
-            txtSoLuong_TraSach.Text = "";
-            lblTinhTrangTraSach.Text = "";
-            
-            // Add all infor 
-            foreach (string line in lines_Muon_Sach)
-            {
-
-                if (line.Split(',')[0] == cbMaDG_TraSach.Text)
-                {
-                    txtMaSach_TraSach.Items.Add(line.Split(',')[1]);
-                    is_Borrow = true;
-                }
-            }
-            if (!is_Borrow) 
-            {
-                MessageBox.Show(String.Format("Độc giả {0} chưa mượn cuốn nào", cbMaDG_TraSach.Text));
-            }
+            txtMaSach_TraSach.DataSource = tb;
+            txtMaSach_TraSach.DisplayMember = "MaSach";
+            txtMaSach_TraSach.ValueMember = "MaSach";
         }
 
         private void txtMaSach_TraSach_TextChanged(object sender, EventArgs e)
         {
-            if (txtMaSach_TraSach.Text == "")
-            {
-                return;
-            }
-            string File_Muon_Sach = currentDirectory + "/Muon_Sach.txt";
-            string[] lines_Muon_Sach = File.ReadAllLines(File_Muon_Sach);
-
-            dtNgayMuon_TraSach.Text = "";
-            dtNgayHenTra_TraSach.Text = "";
-            dtNgayTra.Text = "";
-
-            foreach (string line in lines_Muon_Sach)
-            {
-
-                if (line.Split(',')[0] == cbMaDG_TraSach.Text && line.Split(',')[1] == txtMaSach_TraSach.Text)
-                {
-
-                    txtSoLuong_TraSach.Text = line.Split(',')[2];
-
-                    string ngaymuontra = Convert.ToDateTime(line.Split(',')[3]).ToShortDateString();
-                    dtNgayMuon_TraSach.Text = ngaymuontra;
-
-                    string ngayhentra = Convert.ToDateTime(line.Split(',')[4]).ToShortDateString();
-                    dtNgayHenTra_TraSach.Text = ngayhentra;
-                }
-            }
+            DataTable tb = new DataTable();
+            SqlDataAdapter da = new SqlDataAdapter("SELECT * FROM dbo.MuonSach WHERE MaDocGia = '" + cbMaDG_TraSach.Text + "' " +
+                                                                                      "and MaSach = '"+txtMaSach_TraSach.Text+"' ", conn);
+            tb.Clear();
+            da.Fill(tb);
+            txtSoLuong_TraSach.Text = tb.Rows[0][2].ToString();
+            dtNgayMuon_TraSach.Text = tb.Rows[0][3].ToString();
+            dtNgayHenTra_TraSach.Text = tb.Rows[0][4].ToString();
         }
 
         private void btnTraSach_Click(object sender, EventArgs e)
         {
-            dtNgayTra.Text = Convert.ToDateTime(dtNgayTra.Text).ToShortDateString();
-            DateTime ngayhentra = dtNgayHenTra_TraSach.Value;
-            DateTime ngaytra = dtNgayTra.Value;
-            //lblTinhTrangTraSach.Text = ngayhentra.ToString();
-
-            if (ngaytra <= ngayhentra)
+            TimeSpan time = Convert.ToDateTime(dtNgayHenTra_TraSach.Text) - Convert.ToDateTime(dtNgayTra.Text);
+            if((int)time.Days >= 0)
             {
-                lblTinhTrangTraSach.Text = "Đúng hạn";
-                lblTinhTrangTraSach.ForeColor = Color.Green;
+                lblTinhTrangTraSach.Text = "Đúng hạn!";
             }
             else
             {
-                lblTinhTrangTraSach.Text = "Quá hạn";
-                lblTinhTrangTraSach.ForeColor = Color.Red;
+                lblTinhTrangTraSach.Text = "Quá hạn!";
             }
         }
 
         private void btnLuu_Click(object sender, EventArgs e)
         {
-            int index = -1;
-            string File_Tra_Sach = currentDirectory + "/Tra_Sach.txt";
-            string File_Muon_Sach = currentDirectory + "/Muon_Sach.txt";
-            
-            string[] lines_Muon_Sach = File.ReadAllLines(File_Muon_Sach);
+            cmd = conn.CreateCommand();
+            cmd.CommandText = "insert into TraSach values('" + cbMaDG_TraSach.Text + "','" + txtMaSach_TraSach.Text + "'," +
+                                                         "'" + txtSoLuong_TraSach.Text + "', '"+dtNgayMuon_TraSach.Text+"'," +
+                                                         "'" +dtNgayHenTra_TraSach.Text+"', '"+dtNgayTra.Text+"' )";
+            cmd.ExecuteNonQuery();
 
-            string noiDung = cbMaDG_TraSach.Text + ","
-                                + txtMaSach_TraSach.Text + ","
-                                + txtSoLuong_TraSach.Text + ","
-                                + dtNgayMuon_TraSach.Text + ","
-                                + dtNgayHenTra_TraSach.Text + ","
-                                + dtNgayTra.Text + "\n";
+            cmd.CommandText = "DELETE FROM dbo.MuonSach WHERE MaDocGia = '" + cbMaDG_TraSach.Text + "' AND MaSach = '" + txtMaSach_TraSach.Text + "'";
+            cmd.ExecuteNonQuery();
 
-            for (int i = 0; i < lines_Muon_Sach.Length; i++)
-            {
-                if (lines_Muon_Sach[i].Split(',')[0] == cbMaDG_TraSach.Text 
-                    && lines_Muon_Sach[i].Split(',')[1] == txtMaSach_TraSach.Text)
-                {
-                    index = i; break;
-                }
-            }
+            cmd.CommandText = "UPDATE dbo.Sach SET SoLuong += '" + int.Parse(txtSoLuong_TraSach.Text) + "'  WHERE MaSach = '"+ txtMaSach_TraSach.Text + "'";
+            cmd.ExecuteNonQuery();
 
-            if(index != -1)
-            {
-                int index_line = Array.IndexOf(lines_Muon_Sach, lines_Muon_Sach[index]);
-                if (index_line >= 0)
-                {
-                    // xóa dòng
-                    string[] newLines = new string[lines_Muon_Sach.Length - 1];
-                    Array.Copy(lines_Muon_Sach, 0, newLines, 0, index_line);
-                    Array.Copy(lines_Muon_Sach, index_line + 1, newLines, index_line, lines_Muon_Sach.Length - index - 1);
-
-                    // ghi lại mảng các chuỗi đã xóa vào tập tin văn bản
-                    File.WriteAllLines(File_Muon_Sach, newLines);
-                    File.AppendAllText(File_Tra_Sach, noiDung);
-
-                    lvwDanhSachTra.Items.Clear();
-                    lvwDanhSach.Items.Clear();
-
-                    Load_lvwDanhSach();
-                    Load_lvwDanhSachTra();
-
-                    MessageBox.Show("Đã trả!");
-                }
-            }
-            
-            
+            LoadDgvTraSach();
+            LoadDgvChoMuon();
         }
 
         private void btnThoat_Click(object sender, EventArgs e)
         {
             this.Close();
         }
+
     }
 }

@@ -137,7 +137,7 @@ namespace QuanLyThuVien
         }
 
 
-        //button lưu sau khi thay đổi
+        //button reset để thêm mới
         private void btnReset_Click(object sender, EventArgs e)
         {
             txtMaLoaiSach.ReadOnly = false;
@@ -156,10 +156,10 @@ namespace QuanLyThuVien
         }
 
 
-        //button thêm vào listview
+        //button thêm vào datagridview
         private void btnThem_Click(object sender, EventArgs e)
         {
-            if(txtMaLoaiSach.Text == "" || txtTenLoaiSach.Text == "" || txtKieuSach.Text == " ")
+            if(txtMaLoaiSach.Text == "" || txtTenLoaiSach.Text == "" || txtKieuSach.Text == "")
             {
                 MessageBox.Show("Hãy nhập dữ liệu!", "Thông Báo");
             }

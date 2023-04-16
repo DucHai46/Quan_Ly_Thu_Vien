@@ -341,6 +341,7 @@
             this.ClientSize = new System.Drawing.Size(800, 455);
             this.Controls.Add(this.groupBox1);
             this.Name = "frm_DanhMuc";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Danh Mục Sách";
             this.Load += new System.EventHandler(this.frm_DanhMuc_Load);
             this.groupBox1.ResumeLayout(false);

@@ -53,6 +53,7 @@
             this.groupBox4 = new System.Windows.Forms.GroupBox();
             this.dgvSach = new System.Windows.Forms.DataGridView();
             this.groupBox3 = new System.Windows.Forms.GroupBox();
+            this.cmbMaLoaiSach = new System.Windows.Forms.ComboBox();
             this.txtSoLuong = new System.Windows.Forms.TextBox();
             this.txtMaTacGia = new System.Windows.Forms.TextBox();
             this.txtTenSach = new System.Windows.Forms.TextBox();
@@ -62,7 +63,6 @@
             this.label6 = new System.Windows.Forms.Label();
             this.label7 = new System.Windows.Forms.Label();
             this.label8 = new System.Windows.Forms.Label();
-            this.cmbMaLoaiSach = new System.Windows.Forms.ComboBox();
             this.tctCapNhat.SuspendLayout();
             this.tpg1.SuspendLayout();
             this.groupBox2.SuspendLayout();
@@ -365,6 +365,16 @@
             this.groupBox3.TabStop = false;
             this.groupBox3.Text = "Chi Tiết Sách";
             // 
+            // cmbMaLoaiSach
+            // 
+            this.cmbMaLoaiSach.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cmbMaLoaiSach.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.cmbMaLoaiSach.FormattingEnabled = true;
+            this.cmbMaLoaiSach.Location = new System.Drawing.Point(155, 107);
+            this.cmbMaLoaiSach.Name = "cmbMaLoaiSach";
+            this.cmbMaLoaiSach.Size = new System.Drawing.Size(193, 27);
+            this.cmbMaLoaiSach.TabIndex = 2;
+            // 
             // txtSoLuong
             // 
             this.txtSoLuong.Font = new System.Drawing.Font("Times New Roman", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -447,16 +457,6 @@
             this.label8.TabIndex = 0;
             this.label8.Text = "Mã Sách:";
             // 
-            // cmbMaLoaiSach
-            // 
-            this.cmbMaLoaiSach.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.cmbMaLoaiSach.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.cmbMaLoaiSach.FormattingEnabled = true;
-            this.cmbMaLoaiSach.Location = new System.Drawing.Point(155, 107);
-            this.cmbMaLoaiSach.Name = "cmbMaLoaiSach";
-            this.cmbMaLoaiSach.Size = new System.Drawing.Size(193, 27);
-            this.cmbMaLoaiSach.TabIndex = 2;
-            // 
             // frm_CapNhat
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -465,6 +465,7 @@
             this.ClientSize = new System.Drawing.Size(800, 450);
             this.Controls.Add(this.tctCapNhat);
             this.Name = "frm_CapNhat";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
             this.Text = "Cập Nhật Thông Tin Sách";
             this.Load += new System.EventHandler(this.frm_CapNhat_Load);
             this.tctCapNhat.ResumeLayout(false);

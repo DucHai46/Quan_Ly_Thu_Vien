@@ -72,7 +72,10 @@ namespace QuanLyThuVien
         private void btnMuonTra_Click(object sender, EventArgs e)
         {
             Form_MuonTra frmMuonTra = new Form_MuonTra();
-            frmMuonTra.ShowDialog();
+            if(frmMuonTra.ShowDialog() == DialogResult.Cancel)
+            {
+                LoadSach("select MaSach as 'Mã sách', TenSach as 'Tên sách', MaLoaiSach as 'Mã loại sách', SoLuong as 'Số lượng', MaTacGia as 'Mã tác giả' from Sach");
+            }
         }
 
         private void btnQlDocGia_Click(object sender, EventArgs e)
