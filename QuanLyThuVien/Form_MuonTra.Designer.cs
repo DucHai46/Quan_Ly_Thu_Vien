@@ -336,6 +336,7 @@ namespace QuanLyThuVien
             // 
             // groupBox4
             // 
+            this.groupBox4.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(192)))), ((int)(((byte)(0)))));
             this.groupBox4.Controls.Add(this.txtMaSach_TraSach);
             this.groupBox4.Controls.Add(this.dtNgayTra);
             this.groupBox4.Controls.Add(this.label17);
@@ -383,7 +384,7 @@ namespace QuanLyThuVien
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.BackColor = System.Drawing.Color.DarkSeaGreen;
+            this.label2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(192)))), ((int)(((byte)(0)))));
             this.label2.Location = new System.Drawing.Point(12, 86);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(92, 22);
@@ -406,7 +407,7 @@ namespace QuanLyThuVien
             // 
             // tabmuon
             // 
-            this.tabmuon.BackColor = System.Drawing.Color.DarkSeaGreen;
+            this.tabmuon.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(192)))), ((int)(((byte)(0)))));
             this.tabmuon.Controls.Add(this.groupBox3);
             this.tabmuon.Controls.Add(this.btnKetThuc);
             this.tabmuon.Controls.Add(this.btnChoMuon);
@@ -615,7 +616,7 @@ namespace QuanLyThuVien
             // 
             // tabtra
             // 
-            this.tabtra.BackColor = System.Drawing.Color.DarkSeaGreen;
+            this.tabtra.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(192)))), ((int)(((byte)(0)))));
             this.tabtra.Controls.Add(this.lblTinhTrangTraSach);
             this.tabtra.Controls.Add(this.label18);
             this.tabtra.Controls.Add(this.btnThoat);

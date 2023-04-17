@@ -19,9 +19,11 @@ namespace QuanLyThuVien
 {
     public partial class frm_CapNhat : Form
     {
+        static string startupPath = Application.StartupPath;
+
         SqlConnection conn;
         SqlCommand cmd;
-        String str = @"Data Source=ADMIN\DUCHAI;Initial Catalog=QuanLyThuVien;Integrated Security=True";
+        String str = @"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=" + startupPath + @"\QuanLyThuVien.mdf;Integrated Security=True;Connect Timeout=30";
         SqlDataAdapter adapter = new SqlDataAdapter();
         SqlDataAdapter adapter1 = new SqlDataAdapter();
         DataTable table = new DataTable();
