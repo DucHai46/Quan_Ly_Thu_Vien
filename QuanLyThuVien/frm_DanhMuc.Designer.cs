@@ -340,6 +340,8 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 455);
             this.Controls.Add(this.groupBox1);
+            this.MaximumSize = new System.Drawing.Size(816, 494);
+            this.MinimumSize = new System.Drawing.Size(816, 494);
             this.Name = "frm_DanhMuc";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Danh Mục Sách";

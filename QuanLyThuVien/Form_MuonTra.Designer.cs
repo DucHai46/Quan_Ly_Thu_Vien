@@ -650,6 +650,8 @@ namespace QuanLyThuVien
             this.Controls.Add(this.tabControl1);
             this.ForeColor = System.Drawing.SystemColors.ControlText;
             this.Margin = new System.Windows.Forms.Padding(2);
+            this.MaximumSize = new System.Drawing.Size(873, 533);
+            this.MinimumSize = new System.Drawing.Size(873, 533);
             this.Name = "Form_MuonTra";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
             this.Text = "Mượn Trả Sách";
