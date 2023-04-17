@@ -20,7 +20,6 @@ namespace QuanLyThuVien
         SqlCommand cmd;
         String str = @"Data Source=ADMIN\DUCHAI;Initial Catalog=QuanLyThuVien;Integrated Security=True";
         SqlDataAdapter adapter = new SqlDataAdapter();
-        SqlDataAdapter adapter1 = new SqlDataAdapter();
         DataTable table= new DataTable();
         DataTable table1= new DataTable();
 
@@ -28,9 +27,9 @@ namespace QuanLyThuVien
         {
             cmd = conn.CreateCommand();
             cmd.CommandText = "select TenLoaiSach as 'Tên loại sách' from LoaiSach";
-            adapter1.SelectCommand= cmd;
+            adapter.SelectCommand= cmd;
             table1.Clear();
-            adapter1.Fill(table1); 
+            adapter.Fill(table1); 
             dgvLoaiSach.DataSource = table1;
         }
         void LoadSach(String TruyVan)
@@ -66,7 +65,10 @@ namespace QuanLyThuVien
         private void btnCapNhat_Click(object sender, EventArgs e)
         {
             frm_CapNhat frmCapNhat = new frm_CapNhat();
-            frmCapNhat.ShowDialog();
+            if (frmCapNhat.ShowDialog() == DialogResult.Cancel)
+            {
+                LoadSach("select MaSach as 'Mã sách', TenSach as 'Tên sách', MaLoaiSach as 'Mã loại sách', SoLuong as 'Số lượng', MaTacGia as 'Mã tác giả' from Sach");
+            }
         }
 
         private void btnMuonTra_Click(object sender, EventArgs e)
