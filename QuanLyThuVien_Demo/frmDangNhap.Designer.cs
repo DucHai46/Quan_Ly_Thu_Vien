@@ -45,23 +45,26 @@
             // label1
             // 
             this.label1.AutoSize = true;
+            this.label1.Font = new System.Drawing.Font("Times New Roman", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label1.Location = new System.Drawing.Point(79, 27);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(58, 13);
+            this.label1.Size = new System.Drawing.Size(58, 14);
             this.label1.TabIndex = 0;
             this.label1.Text = "Tài khoản:";
             // 
             // label2
             // 
             this.label2.AutoSize = true;
+            this.label2.Font = new System.Drawing.Font("Times New Roman", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label2.Location = new System.Drawing.Point(79, 75);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(55, 13);
+            this.label2.Size = new System.Drawing.Size(54, 14);
             this.label2.TabIndex = 0;
             this.label2.Text = "Mật khẩu:";
             // 
             // txtTenDangNhap
             // 
+            this.txtTenDangNhap.Font = new System.Drawing.Font("Times New Roman", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtTenDangNhap.Location = new System.Drawing.Point(163, 24);
             this.txtTenDangNhap.Name = "txtTenDangNhap";
             this.txtTenDangNhap.Size = new System.Drawing.Size(100, 20);
@@ -69,6 +72,7 @@
             // 
             // txtMatKhau
             // 
+            this.txtMatKhau.Font = new System.Drawing.Font("Times New Roman", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtMatKhau.Location = new System.Drawing.Point(163, 72);
             this.txtMatKhau.Name = "txtMatKhau";
             this.txtMatKhau.Size = new System.Drawing.Size(100, 20);
@@ -77,11 +81,11 @@
             // lblQuenMk
             // 
             this.lblQuenMk.AutoSize = true;
-            this.lblQuenMk.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Underline, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblQuenMk.Font = new System.Drawing.Font("Times New Roman", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblQuenMk.ForeColor = System.Drawing.Color.Blue;
             this.lblQuenMk.Location = new System.Drawing.Point(82, 113);
             this.lblQuenMk.Name = "lblQuenMk";
-            this.lblQuenMk.Size = new System.Drawing.Size(86, 13);
+            this.lblQuenMk.Size = new System.Drawing.Size(82, 14);
             this.lblQuenMk.TabIndex = 0;
             this.lblQuenMk.Text = "Quên mật khẩu?";
             this.lblQuenMk.MouseLeave += new System.EventHandler(this.lblQuenMk_MouseLeave);
@@ -90,11 +94,11 @@
             // lblDangKy
             // 
             this.lblDangKy.AutoSize = true;
-            this.lblDangKy.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Underline, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblDangKy.Font = new System.Drawing.Font("Times New Roman", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblDangKy.ForeColor = System.Drawing.Color.Blue;
             this.lblDangKy.Location = new System.Drawing.Point(208, 113);
             this.lblDangKy.Name = "lblDangKy";
-            this.lblDangKy.Size = new System.Drawing.Size(53, 13);
+            this.lblDangKy.Size = new System.Drawing.Size(51, 14);
             this.lblDangKy.TabIndex = 0;
             this.lblDangKy.Text = "Đăng ký?";
             this.lblDangKy.MouseLeave += new System.EventHandler(this.lblDangKy_MouseLeave);
@@ -102,6 +106,7 @@
             // 
             // btnLogin
             // 
+            this.btnLogin.Font = new System.Drawing.Font("Times New Roman", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnLogin.Location = new System.Drawing.Point(85, 154);
             this.btnLogin.Name = "btnLogin";
             this.btnLogin.Size = new System.Drawing.Size(75, 23);
@@ -112,6 +117,7 @@
             // 
             // btnThoat
             // 
+            this.btnThoat.Font = new System.Drawing.Font("Times New Roman", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnThoat.Location = new System.Drawing.Point(188, 154);
             this.btnThoat.Name = "btnThoat";
             this.btnThoat.Size = new System.Drawing.Size(75, 23);

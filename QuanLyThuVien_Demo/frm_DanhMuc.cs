@@ -114,5 +114,11 @@ namespace QuanLyThuVien_Demo
 
             LoadSach("select S.MaSach as 'Mã sách', S.TenSach as 'Tên sách', S.MaLoaiSach as 'Mã loại sách', S.SoLuong as 'Số lượng', S.MaTacGia as 'Mã tác giả' from Sach as S inner join LoaiSach as LS on S.MaLoaiSach = LS.MaLoaiSach where LS.TenLoaiSach = N'" + TenLoaiSach + "'");
         }
+
+        private void btnTimKiem_Click(object sender, EventArgs e)
+        {
+            frmTimKiemSach frmTimKiemSach = new frmTimKiemSach();
+            frmTimKiemSach.ShowDialog();
+        }
     }
 }

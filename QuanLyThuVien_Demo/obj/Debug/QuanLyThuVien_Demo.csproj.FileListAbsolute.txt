@@ -22,3 +22,4 @@ E:\Quan_Ly_Thu_Vien\QuanLyThuVien_Demo\obj\Debug\QuanLyThuVien_Demo.csproj.Gener
 E:\Quan_Ly_Thu_Vien\QuanLyThuVien_Demo\obj\Debug\QuanLyThuVien_Demo.csproj.CoreCompileInputs.cache
 E:\Quan_Ly_Thu_Vien\QuanLyThuVien_Demo\obj\Debug\QuanLyThuVien_Demo.exe
 E:\Quan_Ly_Thu_Vien\QuanLyThuVien_Demo\obj\Debug\QuanLyThuVien_Demo.pdb
+E:\Quan_Ly_Thu_Vien\QuanLyThuVien_Demo\obj\Debug\QuanLyThuVien_Demo.frmTimKiemSach.resources
