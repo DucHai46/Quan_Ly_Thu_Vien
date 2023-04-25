@@ -1,6 +1,0 @@
-TH,Tin Học,Sách
-TC,Tạp Chí,Báo
-SGK,Sách Giáo Khoa,Sách
-TT,Truyện Tranh,Truyện Tranh
-KT,Kinh Tế,Sách
-,,

@@ -1,0 +1,12 @@
+E:\tailieu\winform\baitap\QuanLyThuVien_Demo\QuanLyThuVien_Demo\bin\Debug\QuanLyThuVien_Demo.exe.config
+E:\tailieu\winform\baitap\QuanLyThuVien_Demo\QuanLyThuVien_Demo\bin\Debug\QuanLyThuVien_Demo.exe
+E:\tailieu\winform\baitap\QuanLyThuVien_Demo\QuanLyThuVien_Demo\bin\Debug\QuanLyThuVien_Demo.pdb
+E:\tailieu\winform\baitap\QuanLyThuVien_Demo\QuanLyThuVien_Demo\obj\Debug\QuanLyThuVien_Demo.csproj.AssemblyReference.cache
+E:\tailieu\winform\baitap\QuanLyThuVien_Demo\QuanLyThuVien_Demo\obj\Debug\QuanLyThuVien_Demo.csproj.SuggestedBindingRedirects.cache
+E:\tailieu\winform\baitap\QuanLyThuVien_Demo\QuanLyThuVien_Demo\obj\Debug\QuanLyThuVien_Demo.Properties.Resources.resources
+E:\tailieu\winform\baitap\QuanLyThuVien_Demo\QuanLyThuVien_Demo\obj\Debug\QuanLyThuVien_Demo.csproj.GenerateResource.cache
+E:\tailieu\winform\baitap\QuanLyThuVien_Demo\QuanLyThuVien_Demo\obj\Debug\QuanLyThuVien_Demo.csproj.CoreCompileInputs.cache
+E:\tailieu\winform\baitap\QuanLyThuVien_Demo\QuanLyThuVien_Demo\obj\Debug\QuanLyThuVien_Demo.exe
+E:\tailieu\winform\baitap\QuanLyThuVien_Demo\QuanLyThuVien_Demo\obj\Debug\QuanLyThuVien_Demo.pdb
+E:\tailieu\winform\baitap\QuanLyThuVien_Demo\QuanLyThuVien_Demo\obj\Debug\QuanLyThuVien_Demo.frm_DanhMuc.resources
+E:\tailieu\winform\baitap\QuanLyThuVien_Demo\QuanLyThuVien_Demo\obj\Debug\QuanLyThuVien_Demo.frmDangNhap.resources
