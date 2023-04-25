@@ -70,10 +70,8 @@
     <Compile Include="frm_DanhMuc.Designer.cs">
       <DependentUpon>frm_DanhMuc.cs</DependentUpon>
     </Compile>
-    <Compile Include="LoaiSach.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Sach.cs" />
     <EmbeddedResource Include="frm_DocGia.resx">
       <DependentUpon>frm_DocGia.cs</DependentUpon>
     </EmbeddedResource>
