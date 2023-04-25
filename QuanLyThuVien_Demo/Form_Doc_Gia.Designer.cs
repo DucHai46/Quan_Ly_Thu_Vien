@@ -281,7 +281,6 @@
             this.Name = "Form_Doc_Gia";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
             this.Text = "Quản lý độc giả";
-            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.Form_Doc_Gia_FormClosing);
             this.Load += new System.EventHandler(this.Form_Doc_Gia_Load);
             this.groupBox3.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.dgvDocGia)).EndInit();

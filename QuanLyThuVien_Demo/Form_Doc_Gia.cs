@@ -127,13 +127,6 @@ namespace QuanLyThuVien_Demo
             this.Close();
         }
 
-        private void Form_Doc_Gia_FormClosing(object sender, FormClosingEventArgs e)
-        {
-            DialogResult dl = MessageBox.Show("Bạn có muốn đóng chương trình không?", "Warning", MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
-            if (dl == DialogResult.No)
-                e.Cancel = true;
-        }
-
         private void btnXoa_Click(object sender, EventArgs e)
         {
             cmd = conn.CreateCommand();
