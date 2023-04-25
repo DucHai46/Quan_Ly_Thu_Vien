@@ -25,7 +25,6 @@ namespace QuanLyThuVien_Demo
         SqlCommand cmd;
         String str = @"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=" + startupPath + @"\QuanLyThuVien.mdf;Integrated Security=True;Connect Timeout=30";
         SqlDataAdapter adapter = new SqlDataAdapter();
-        SqlDataAdapter adapter1 = new SqlDataAdapter();
         DataTable table = new DataTable();
         DataTable table1 = new DataTable();
 
@@ -42,9 +41,9 @@ namespace QuanLyThuVien_Demo
         {
             cmd = conn.CreateCommand();
             cmd.CommandText = "select MaSach as 'Mã sách', TenSach as 'Tên sách', MaLoaiSach as 'Mã loại sách', SoLuong as 'Số lượng', MaTacGia as 'Mã tác giả' from Sach";
-            adapter1.SelectCommand = cmd;
+            adapter.SelectCommand = cmd;
             table1.Clear();
-            adapter1.Fill(table1);
+            adapter.Fill(table1);
             dgvSach.DataSource = table1;
         }
 

@@ -82,6 +82,7 @@ namespace QuanLyThuVien_Demo
             this.btn_search.TabIndex = 1;
             this.btn_search.Text = "Tìm Kiếm";
             this.btn_search.UseVisualStyleBackColor = true;
+            this.btn_search.Click += new System.EventHandler(this.btn_search_Click);
             // 
             // txt_TimSach
             // 
@@ -119,6 +120,7 @@ namespace QuanLyThuVien_Demo
             // rbtn_MaSach
             // 
             this.rbtn_MaSach.AutoSize = true;
+            this.rbtn_MaSach.Checked = true;
             this.rbtn_MaSach.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.rbtn_MaSach.ForeColor = System.Drawing.Color.Firebrick;
             this.rbtn_MaSach.Location = new System.Drawing.Point(9, 32);
@@ -154,6 +156,7 @@ namespace QuanLyThuVien_Demo
             this.txt_MaSach.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txt_MaSach.Location = new System.Drawing.Point(90, 29);
             this.txt_MaSach.Name = "txt_MaSach";
+            this.txt_MaSach.ReadOnly = true;
             this.txt_MaSach.Size = new System.Drawing.Size(196, 26);
             this.txt_MaSach.TabIndex = 3;
             // 
@@ -162,6 +165,7 @@ namespace QuanLyThuVien_Demo
             this.txt_TenSach.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txt_TenSach.Location = new System.Drawing.Point(91, 63);
             this.txt_TenSach.Name = "txt_TenSach";
+            this.txt_TenSach.ReadOnly = true;
             this.txt_TenSach.Size = new System.Drawing.Size(196, 26);
             this.txt_TenSach.TabIndex = 4;
             // 
@@ -170,6 +174,7 @@ namespace QuanLyThuVien_Demo
             this.txt_SoLuong.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txt_SoLuong.Location = new System.Drawing.Point(90, 96);
             this.txt_SoLuong.Name = "txt_SoLuong";
+            this.txt_SoLuong.ReadOnly = true;
             this.txt_SoLuong.Size = new System.Drawing.Size(196, 26);
             this.txt_SoLuong.TabIndex = 5;
             // 
@@ -178,6 +183,7 @@ namespace QuanLyThuVien_Demo
             this.txt_MaTG.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txt_MaTG.Location = new System.Drawing.Point(381, 33);
             this.txt_MaTG.Name = "txt_MaTG";
+            this.txt_MaTG.ReadOnly = true;
             this.txt_MaTG.Size = new System.Drawing.Size(196, 26);
             this.txt_MaTG.TabIndex = 6;
             // 
@@ -186,6 +192,7 @@ namespace QuanLyThuVien_Demo
             this.txt_MaLoaiSach.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txt_MaLoaiSach.Location = new System.Drawing.Point(381, 66);
             this.txt_MaLoaiSach.Name = "txt_MaLoaiSach";
+            this.txt_MaLoaiSach.ReadOnly = true;
             this.txt_MaLoaiSach.Size = new System.Drawing.Size(196, 26);
             this.txt_MaLoaiSach.TabIndex = 7;
             // 
@@ -249,11 +256,12 @@ namespace QuanLyThuVien_Demo
             this.lbl_TTTimKiem.AutoSize = true;
             this.lbl_TTTimKiem.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lbl_TTTimKiem.ForeColor = System.Drawing.Color.Firebrick;
-            this.lbl_TTTimKiem.Location = new System.Drawing.Point(200, 151);
+            this.lbl_TTTimKiem.Location = new System.Drawing.Point(268, 152);
             this.lbl_TTTimKiem.Name = "lbl_TTTimKiem";
-            this.lbl_TTTimKiem.Size = new System.Drawing.Size(253, 19);
+            this.lbl_TTTimKiem.Size = new System.Drawing.Size(196, 19);
             this.lbl_TTTimKiem.TabIndex = 0;
-            this.lbl_TTTimKiem.Text = "Mời Bạn Nhập Thông Tin Cần Tìn Kiếm";
+            this.lbl_TTTimKiem.Text = "Nhập Thông Tin Cần Tìn Kiếm";
+            this.lbl_TTTimKiem.Visible = false;
             // 
             // btn_exit
             // 
@@ -265,6 +273,7 @@ namespace QuanLyThuVien_Demo
             this.btn_exit.TabIndex = 2;
             this.btn_exit.Text = "Thoát";
             this.btn_exit.UseVisualStyleBackColor = true;
+            this.btn_exit.Click += new System.EventHandler(this.btn_exit_Click);
             // 
             // Column1
             // 
@@ -288,6 +297,7 @@ namespace QuanLyThuVien_Demo
             // 
             // frmTimKiemSach
             // 
+            this.AcceptButton = this.btn_search;
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 17F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(192)))), ((int)(((byte)(0)))));
@@ -301,6 +311,7 @@ namespace QuanLyThuVien_Demo
             this.Name = "frmTimKiemSach";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
             this.Text = "Tìm Kiếm Sách";
+            this.Load += new System.EventHandler(this.frmTimKiemSach_Load);
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
             this.groupBox2.ResumeLayout(false);
