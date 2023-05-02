@@ -106,12 +106,14 @@ namespace QuanLyThuVien_Demo
 
         private void lblDangKy_Click(object sender, EventArgs e)
         {
-
+            frmDangKy frmDangKy = new frmDangKy();
+            frmDangKy.ShowDialog();
         }
 
         private void lblQuenMk_Click(object sender, EventArgs e)
         {
-
+            frmQuenMatKhau frmQuenMatKhau = new frmQuenMatKhau();
+            frmQuenMatKhau.ShowDialog();
         }
     }
 }
