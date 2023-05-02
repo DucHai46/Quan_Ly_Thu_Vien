@@ -68,17 +68,18 @@
             // 
             this.txtTenDangNhap.Font = new System.Drawing.Font("Times New Roman", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtTenDangNhap.Location = new System.Drawing.Point(217, 30);
-            this.txtTenDangNhap.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.txtTenDangNhap.Margin = new System.Windows.Forms.Padding(4);
             this.txtTenDangNhap.Name = "txtTenDangNhap";
             this.txtTenDangNhap.Size = new System.Drawing.Size(132, 23);
-            this.txtTenDangNhap.TabIndex = 1;
+            this.txtTenDangNhap.TabIndex = 0;
             // 
             // txtMatKhau
             // 
             this.txtMatKhau.Font = new System.Drawing.Font("Times New Roman", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtMatKhau.Location = new System.Drawing.Point(217, 89);
-            this.txtMatKhau.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.txtMatKhau.Margin = new System.Windows.Forms.Padding(4);
             this.txtMatKhau.Name = "txtMatKhau";
+            this.txtMatKhau.PasswordChar = '*';
             this.txtMatKhau.Size = new System.Drawing.Size(132, 23);
             this.txtMatKhau.TabIndex = 1;
             // 
@@ -91,7 +92,7 @@
             this.lblQuenMk.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lblQuenMk.Name = "lblQuenMk";
             this.lblQuenMk.Size = new System.Drawing.Size(99, 16);
-            this.lblQuenMk.TabIndex = 0;
+            this.lblQuenMk.TabIndex = 2;
             this.lblQuenMk.Text = "Quên mật khẩu?";
             this.lblQuenMk.Click += new System.EventHandler(this.lblQuenMk_Click);
             this.lblQuenMk.MouseLeave += new System.EventHandler(this.lblQuenMk_MouseLeave);
@@ -106,7 +107,7 @@
             this.lblDangKy.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lblDangKy.Name = "lblDangKy";
             this.lblDangKy.Size = new System.Drawing.Size(61, 16);
-            this.lblDangKy.TabIndex = 0;
+            this.lblDangKy.TabIndex = 3;
             this.lblDangKy.Text = "Đăng ký?";
             this.lblDangKy.Click += new System.EventHandler(this.lblDangKy_Click);
             this.lblDangKy.MouseLeave += new System.EventHandler(this.lblDangKy_MouseLeave);
@@ -116,10 +117,10 @@
             // 
             this.btnLogin.Font = new System.Drawing.Font("Times New Roman", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnLogin.Location = new System.Drawing.Point(113, 190);
-            this.btnLogin.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.btnLogin.Margin = new System.Windows.Forms.Padding(4);
             this.btnLogin.Name = "btnLogin";
             this.btnLogin.Size = new System.Drawing.Size(100, 28);
-            this.btnLogin.TabIndex = 2;
+            this.btnLogin.TabIndex = 4;
             this.btnLogin.Text = "Đăng nhập";
             this.btnLogin.UseVisualStyleBackColor = true;
             this.btnLogin.Click += new System.EventHandler(this.btnLogin_Click);
@@ -128,10 +129,10 @@
             // 
             this.btnThoat.Font = new System.Drawing.Font("Times New Roman", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnThoat.Location = new System.Drawing.Point(251, 190);
-            this.btnThoat.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.btnThoat.Margin = new System.Windows.Forms.Padding(4);
             this.btnThoat.Name = "btnThoat";
             this.btnThoat.Size = new System.Drawing.Size(100, 28);
-            this.btnThoat.TabIndex = 2;
+            this.btnThoat.TabIndex = 5;
             this.btnThoat.Text = "Thoát";
             this.btnThoat.UseVisualStyleBackColor = true;
             this.btnThoat.Click += new System.EventHandler(this.btnThoat_Click);
@@ -142,7 +143,7 @@
             this.panel1.Controls.Add(this.groupBox1);
             this.panel1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panel1.Location = new System.Drawing.Point(0, 0);
-            this.panel1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.panel1.Margin = new System.Windows.Forms.Padding(4);
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(1067, 554);
             this.panel1.TabIndex = 3;
@@ -159,9 +160,9 @@
             this.groupBox1.Controls.Add(this.btnLogin);
             this.groupBox1.Controls.Add(this.label2);
             this.groupBox1.Location = new System.Drawing.Point(292, 150);
-            this.groupBox1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.groupBox1.Margin = new System.Windows.Forms.Padding(4);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Padding = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.groupBox1.Padding = new System.Windows.Forms.Padding(4);
             this.groupBox1.Size = new System.Drawing.Size(460, 249);
             this.groupBox1.TabIndex = 3;
             this.groupBox1.TabStop = false;
@@ -173,7 +174,7 @@
             this.BackColor = System.Drawing.Color.Silver;
             this.ClientSize = new System.Drawing.Size(1067, 554);
             this.Controls.Add(this.panel1);
-            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "frmDangNhap";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Đăng nhập";

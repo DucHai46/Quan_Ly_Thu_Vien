@@ -120,5 +120,14 @@ namespace QuanLyThuVien_Demo
             frmTimKiemSach frmTimKiemSach = new frmTimKiemSach();
             frmTimKiemSach.ShowDialog();
         }
+
+        private void btnQlTacGia_Click(object sender, EventArgs e)
+        {
+            frmTacGia frmTacGia = new frmTacGia();
+            if (frmTacGia.ShowDialog() == DialogResult.Cancel)
+            {
+                LoadSach("select MaSach as 'Mã sách', TenSach as 'Tên sách', MaLoaiSach as 'Mã loại sách', SoLuong as 'Số lượng', MaTacGia as 'Mã tác giả' from Sach");
+            }
+        }
     }
 }
