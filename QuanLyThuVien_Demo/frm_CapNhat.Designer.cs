@@ -55,7 +55,6 @@
             this.groupBox3 = new System.Windows.Forms.GroupBox();
             this.cmbMaLoaiSach = new System.Windows.Forms.ComboBox();
             this.txtSoLuong = new System.Windows.Forms.TextBox();
-            this.txtMaTacGia = new System.Windows.Forms.TextBox();
             this.txtTenSach = new System.Windows.Forms.TextBox();
             this.txtMaSach = new System.Windows.Forms.TextBox();
             this.label5 = new System.Windows.Forms.Label();
@@ -63,6 +62,7 @@
             this.label6 = new System.Windows.Forms.Label();
             this.label7 = new System.Windows.Forms.Label();
             this.label8 = new System.Windows.Forms.Label();
+            this.cmbTacGia = new System.Windows.Forms.ComboBox();
             this.tctCapNhat.SuspendLayout();
             this.tpg1.SuspendLayout();
             this.groupBox2.SuspendLayout();
@@ -347,9 +347,9 @@
             // 
             // groupBox3
             // 
+            this.groupBox3.Controls.Add(this.cmbTacGia);
             this.groupBox3.Controls.Add(this.cmbMaLoaiSach);
             this.groupBox3.Controls.Add(this.txtSoLuong);
-            this.groupBox3.Controls.Add(this.txtMaTacGia);
             this.groupBox3.Controls.Add(this.txtTenSach);
             this.groupBox3.Controls.Add(this.txtMaSach);
             this.groupBox3.Controls.Add(this.label5);
@@ -382,14 +382,6 @@
             this.txtSoLuong.Name = "txtSoLuong";
             this.txtSoLuong.Size = new System.Drawing.Size(193, 25);
             this.txtSoLuong.TabIndex = 1;
-            // 
-            // txtMaTacGia
-            // 
-            this.txtMaTacGia.Font = new System.Drawing.Font("Times New Roman", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtMaTacGia.Location = new System.Drawing.Point(482, 36);
-            this.txtMaTacGia.Name = "txtMaTacGia";
-            this.txtMaTacGia.Size = new System.Drawing.Size(193, 25);
-            this.txtMaTacGia.TabIndex = 1;
             // 
             // txtTenSach
             // 
@@ -457,6 +449,16 @@
             this.label8.TabIndex = 0;
             this.label8.Text = "Mã Sách:";
             // 
+            // cmbTacGia
+            // 
+            this.cmbTacGia.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cmbTacGia.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.cmbTacGia.FormattingEnabled = true;
+            this.cmbTacGia.Location = new System.Drawing.Point(482, 34);
+            this.cmbTacGia.Name = "cmbTacGia";
+            this.cmbTacGia.Size = new System.Drawing.Size(193, 27);
+            this.cmbTacGia.TabIndex = 3;
+            // 
             // frm_CapNhat
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -520,7 +522,7 @@
         private System.Windows.Forms.Button btnReset1;
         private System.Windows.Forms.DataGridView dgvLoaiSach;
         private System.Windows.Forms.DataGridView dgvSach;
-        private System.Windows.Forms.TextBox txtMaTacGia;
         private System.Windows.Forms.ComboBox cmbMaLoaiSach;
+        private System.Windows.Forms.ComboBox cmbTacGia;
     }
 }

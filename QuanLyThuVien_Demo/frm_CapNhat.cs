@@ -50,10 +50,13 @@ namespace QuanLyThuVien_Demo
         void LoadComboBox()
         {
             DataTable dt = new DataTable();
+            DataTable dt1 = new DataTable();
             try
             {
                 SqlDataAdapter da = new SqlDataAdapter("Select MaLoaiSach From LoaiSach", conn);
                 da.Fill(dt);
+                SqlDataAdapter da1 = new SqlDataAdapter("Select MaTacGia From TacGia", conn);
+                da1.Fill(dt1);
             }
             catch (Exception ex)
             {
@@ -65,6 +68,9 @@ namespace QuanLyThuVien_Demo
                 cmbMaLoaiSach.DataSource = dt;
                 cmbMaLoaiSach.DisplayMember = "MaLoaiSach";
                 cmbMaLoaiSach.ValueMember = "MaLoaiSach";
+                cmbTacGia.DataSource = dt1;
+                cmbTacGia.DisplayMember = "MaTacGia";
+                cmbTacGia.ValueMember = "MaTacGia";
             }
             catch (Exception ex)
             {
@@ -132,7 +138,7 @@ namespace QuanLyThuVien_Demo
         private void btnSua1_Click(object sender, EventArgs e)
         {
             cmd = conn.CreateCommand();
-            cmd.CommandText = "update Sach set TenSach = N'" + txtTenSach.Text + "', MaLoaiSach = N'" + cmbMaLoaiSach.Text + "', SoLuong = '" + txtSoLuong.Text + "', MaTacGia = '" + txtMaTacGia.Text + "' where MaSach = '" + txtMaSach.Text + "'";
+            cmd.CommandText = "update Sach set TenSach = N'" + txtTenSach.Text + "', MaLoaiSach = N'" + cmbTacGia.Text + "', SoLuong = '" + txtSoLuong.Text + "', MaTacGia = '" + cmbTacGia.Text + "' where MaSach = '" + txtMaSach.Text + "'";
             cmd.ExecuteNonQuery();
             LoadDgvSach();
         }
@@ -153,7 +159,7 @@ namespace QuanLyThuVien_Demo
             txtTenSach.Clear();
             cmbMaLoaiSach.ResetText();
             txtSoLuong.Clear();
-            txtMaTacGia.Clear();
+            /*cmbTacGia.Clear();*/
         }
 
 
@@ -166,24 +172,59 @@ namespace QuanLyThuVien_Demo
             }
             else
             {
-                cmd = conn.CreateCommand();
-                cmd.CommandText = "insert into LoaiSach values('" + txtMaLoaiSach.Text + "',N'" + txtTenLoaiSach.Text + "',N'" + txtKieuSach.Text + "' )";
-                cmd.ExecuteNonQuery();
-                LoadDgvLoaiSach();
+                int count = 0;
+                for (int i = 0; i < table.Rows.Count; i++)
+                {
+                    if (table.Rows[i][0].ToString() == txtMaLoaiSach.Text)
+                    {
+                        count++;
+                        break;
+                    }
+                }
+                if (count == 0)
+                {
+                    cmd = conn.CreateCommand();
+                    cmd.CommandText = "insert into LoaiSach values('" + txtMaLoaiSach.Text + "',N'" + txtTenLoaiSach.Text + "',N'" + txtKieuSach.Text + "' )";
+                    cmd.ExecuteNonQuery();
+                    LoadDgvLoaiSach();
+                    LoadComboBox();
+                }
+                else
+                {
+                    MessageBox.Show("Mã Loại Sách đã tồn tại!", "Thông báo");
+                    txtMaLoaiSach.Focus();
+                }
             }
         }
         private void btnThem1_Click(object sender, EventArgs e)
         {
-            if (txtMaSach.Text == "" || txtTenSach.Text == "" || cmbMaLoaiSach.Text == "" || txtSoLuong.Text == "" || txtSoLuong.Text == "0" || txtMaTacGia.Text == "")
+            if (txtMaSach.Text == "" || txtTenSach.Text == "" || txtSoLuong.Text == "" || txtSoLuong.Text == "0")
             {
                 MessageBox.Show("Hãy nhập dữ liệu!", "Thông Báo");
             }
             else
             {
-                cmd = conn.CreateCommand();
-                cmd.CommandText = "insert into Sach values('" + txtMaSach.Text + "',N'" + txtTenSach.Text + "','" + cmbMaLoaiSach.Text + "', '" + txtSoLuong.Text + "', '" + txtMaTacGia.Text + "' )";
-                cmd.ExecuteNonQuery();
-                LoadDgvSach();
+                int count = 0;
+                for (int j = 0; j < table1.Rows.Count; j++)
+                {
+                    if (table1.Rows[j][0].ToString().Trim() == txtMaSach.Text)
+                    {
+                        count++;
+                        break;
+                    }
+                }
+                if (count == 0)
+                {
+                    cmd = conn.CreateCommand();
+                    cmd.CommandText = "insert into Sach values('" + txtMaSach.Text + "',N'" + txtTenSach.Text + "','" + cmbMaLoaiSach.Text + "', '" + txtSoLuong.Text + "', '" + cmbTacGia.Text + "' )";
+                    cmd.ExecuteNonQuery();
+                    LoadDgvSach();
+                }
+                else
+                {
+                    MessageBox.Show("Mã Sách đã tồn tại!", "Thông báo");
+                    txtMaSach.Focus();
+                }
             }
         }
 
@@ -206,7 +247,7 @@ namespace QuanLyThuVien_Demo
             txtTenSach.Text = dgvSach.Rows[i].Cells[1].Value.ToString();
             cmbMaLoaiSach.Text = dgvSach.Rows[i].Cells[2].Value.ToString();
             txtSoLuong.Text = dgvSach.Rows[i].Cells[3].Value.ToString();
-            txtMaTacGia.Text = dgvSach.Rows[i].Cells[4].Value.ToString();
+            cmbTacGia.Text = dgvSach.Rows[i].Cells[4].Value.ToString();
         }
 
     }

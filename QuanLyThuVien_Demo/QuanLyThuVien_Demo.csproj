@@ -117,6 +117,9 @@
     <EmbeddedResource Include="frmTimKiemSach.resx">
       <DependentUpon>frmTimKiemSach.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="frm_CapNhat.resx">
+      <DependentUpon>frm_CapNhat.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="frm_DanhMuc.resx">
       <DependentUpon>frm_DanhMuc.cs</DependentUpon>
     </EmbeddedResource>

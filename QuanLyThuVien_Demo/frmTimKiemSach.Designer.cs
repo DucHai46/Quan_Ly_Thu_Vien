@@ -75,7 +75,7 @@ namespace QuanLyThuVien_Demo
             // btn_search
             // 
             this.btn_search.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btn_search.ForeColor = System.Drawing.Color.Firebrick;
+            this.btn_search.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
             this.btn_search.Location = new System.Drawing.Point(249, 33);
             this.btn_search.Name = "btn_search";
             this.btn_search.Size = new System.Drawing.Size(86, 26);
@@ -108,7 +108,7 @@ namespace QuanLyThuVien_Demo
             // 
             this.rbtn_TenSach.AutoSize = true;
             this.rbtn_TenSach.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.rbtn_TenSach.ForeColor = System.Drawing.Color.Firebrick;
+            this.rbtn_TenSach.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
             this.rbtn_TenSach.Location = new System.Drawing.Point(101, 33);
             this.rbtn_TenSach.Name = "rbtn_TenSach";
             this.rbtn_TenSach.Size = new System.Drawing.Size(84, 23);
@@ -122,7 +122,7 @@ namespace QuanLyThuVien_Demo
             this.rbtn_MaSach.AutoSize = true;
             this.rbtn_MaSach.Checked = true;
             this.rbtn_MaSach.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.rbtn_MaSach.ForeColor = System.Drawing.Color.Firebrick;
+            this.rbtn_MaSach.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
             this.rbtn_MaSach.Location = new System.Drawing.Point(9, 32);
             this.rbtn_MaSach.Name = "rbtn_MaSach";
             this.rbtn_MaSach.Size = new System.Drawing.Size(82, 23);
@@ -144,6 +144,7 @@ namespace QuanLyThuVien_Demo
             this.groupBox3.Controls.Add(this.label4);
             this.groupBox3.Controls.Add(this.label3);
             this.groupBox3.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.groupBox3.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
             this.groupBox3.Location = new System.Drawing.Point(23, 205);
             this.groupBox3.Name = "groupBox3";
             this.groupBox3.Size = new System.Drawing.Size(593, 152);
@@ -200,7 +201,7 @@ namespace QuanLyThuVien_Demo
             // 
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.ForeColor = System.Drawing.Color.Firebrick;
+            this.label2.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
             this.label2.Location = new System.Drawing.Point(9, 33);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(67, 19);
@@ -211,7 +212,7 @@ namespace QuanLyThuVien_Demo
             // 
             this.label5.AutoSize = true;
             this.label5.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label5.ForeColor = System.Drawing.Color.Firebrick;
+            this.label5.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
             this.label5.Location = new System.Drawing.Point(295, 36);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(85, 19);
@@ -222,7 +223,7 @@ namespace QuanLyThuVien_Demo
             // 
             this.label6.AutoSize = true;
             this.label6.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label6.ForeColor = System.Drawing.Color.Firebrick;
+            this.label6.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
             this.label6.Location = new System.Drawing.Point(295, 66);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(64, 19);
@@ -233,7 +234,7 @@ namespace QuanLyThuVien_Demo
             // 
             this.label4.AutoSize = true;
             this.label4.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label4.ForeColor = System.Drawing.Color.Firebrick;
+            this.label4.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
             this.label4.Location = new System.Drawing.Point(9, 98);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(73, 19);
@@ -244,7 +245,7 @@ namespace QuanLyThuVien_Demo
             // 
             this.label3.AutoSize = true;
             this.label3.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label3.ForeColor = System.Drawing.Color.Firebrick;
+            this.label3.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
             this.label3.Location = new System.Drawing.Point(9, 64);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(69, 19);
@@ -266,7 +267,7 @@ namespace QuanLyThuVien_Demo
             // btn_exit
             // 
             this.btn_exit.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btn_exit.ForeColor = System.Drawing.Color.Firebrick;
+            this.btn_exit.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
             this.btn_exit.Location = new System.Drawing.Point(528, 145);
             this.btn_exit.Name = "btn_exit";
             this.btn_exit.Size = new System.Drawing.Size(86, 33);

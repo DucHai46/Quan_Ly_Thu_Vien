@@ -65,6 +65,27 @@ namespace QuanLyThuVien_Demo
             LoadLoaiSach();
         }
 
+
+        private void dgvSach_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+            int i;
+            i = dgvSach.CurrentRow.Index;
+            txtMaSach.Text = dgvSach.Rows[i].Cells[0].Value.ToString();
+            txtTenSach.Text = dgvSach.Rows[i].Cells[1].Value.ToString();
+            txtMaLoai.Text = dgvSach.Rows[i].Cells[2].Value.ToString();
+            txtSoLuong.Text = dgvSach.Rows[i].Cells[3].Value.ToString();
+            txtMaTacGia.Text = dgvSach.Rows[i].Cells[4].Value.ToString();
+        }
+
+        private void dgvLoaiSach_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+            int i;
+            i = dgvLoaiSach.CurrentRow.Index;
+            cmd = conn.CreateCommand();
+            String TenLoaiSach = dgvLoaiSach.Rows[i].Cells[0].Value.ToString();
+
+            LoadSach("select S.MaSach as 'Mã sách', S.TenSach as 'Tên sách', S.MaLoaiSach as 'Mã loại sách', S.SoLuong as 'Số lượng', S.MaTacGia as 'Mã tác giả' from Sach as S inner join LoaiSach as LS on S.MaLoaiSach = LS.MaLoaiSach where LS.TenLoaiSach = N'" + TenLoaiSach + "'");
+        }
         private void btnCapNhat_Click(object sender, EventArgs e)
         {
             frm_CapNhat frmCapNhat = new frm_CapNhat();
@@ -92,27 +113,6 @@ namespace QuanLyThuVien_Demo
         private void btnKetThuc_Click(object sender, EventArgs e)
         {
             Application.Exit();
-        }
-
-        private void dgvSach_CellContentClick(object sender, DataGridViewCellEventArgs e)
-        {
-            int i;
-            i = dgvSach.CurrentRow.Index;
-            txtMaSach.Text = dgvSach.Rows[i].Cells[0].Value.ToString();
-            txtTenSach.Text = dgvSach.Rows[i].Cells[1].Value.ToString();
-            txtMaLoai.Text = dgvSach.Rows[i].Cells[2].Value.ToString();
-            txtSoLuong.Text = dgvSach.Rows[i].Cells[3].Value.ToString();
-            txtMaTacGia.Text = dgvSach.Rows[i].Cells[4].Value.ToString();
-        }
-
-        private void dgvLoaiSach_CellContentClick(object sender, DataGridViewCellEventArgs e)
-        {
-            int i;
-            i = dgvLoaiSach.CurrentRow.Index;
-            cmd = conn.CreateCommand();
-            String TenLoaiSach = dgvLoaiSach.Rows[i].Cells[0].Value.ToString();
-
-            LoadSach("select S.MaSach as 'Mã sách', S.TenSach as 'Tên sách', S.MaLoaiSach as 'Mã loại sách', S.SoLuong as 'Số lượng', S.MaTacGia as 'Mã tác giả' from Sach as S inner join LoaiSach as LS on S.MaLoaiSach = LS.MaLoaiSach where LS.TenLoaiSach = N'" + TenLoaiSach + "'");
         }
 
         private void btnTimKiem_Click(object sender, EventArgs e)
