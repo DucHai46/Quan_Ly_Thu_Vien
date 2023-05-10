@@ -359,8 +359,13 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 453);
             this.Controls.Add(this.groupBox1);
+<<<<<<< HEAD:QuanLyThuVien_Demo/frm_DanhMuc.Designer.cs
             this.MaximumSize = new System.Drawing.Size(816, 492);
             this.MinimumSize = new System.Drawing.Size(816, 492);
+=======
+            this.MaximumSize = new System.Drawing.Size(816, 494);
+            this.MinimumSize = new System.Drawing.Size(816, 494);
+>>>>>>> 9d401599f2005f5ebf35d814c4de54da6054b545:QuanLyThuVien/frm_DanhMuc.Designer.cs
             this.Name = "frm_DanhMuc";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Danh Mục Sách";

@@ -19,9 +19,11 @@ namespace QuanLyThuVien
 {
     public partial class frm_CapNhat : Form
     {
+        static string startupPath = Application.StartupPath;
+
         SqlConnection conn;
         SqlCommand cmd;
-        String str = @"Data Source=ADMIN\DUCHAI;Initial Catalog=QuanLyThuVien;Integrated Security=True";
+        String str = @"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=" + startupPath + @"\QuanLyThuVien.mdf;Integrated Security=True;Connect Timeout=30";
         SqlDataAdapter adapter = new SqlDataAdapter();
         SqlDataAdapter adapter1 = new SqlDataAdapter();
         DataTable table = new DataTable();
@@ -137,7 +139,7 @@ namespace QuanLyThuVien
         }
 
 
-        //button lưu sau khi thay đổi
+        //button reset để thêm mới
         private void btnReset_Click(object sender, EventArgs e)
         {
             txtMaLoaiSach.ReadOnly = false;
@@ -156,10 +158,10 @@ namespace QuanLyThuVien
         }
 
 
-        //button thêm vào listview
+        //button thêm vào datagridview
         private void btnThem_Click(object sender, EventArgs e)
         {
-            if(txtMaLoaiSach.Text == "" || txtTenLoaiSach.Text == "" || txtKieuSach.Text == " ")
+            if(txtMaLoaiSach.Text == "" || txtTenLoaiSach.Text == "" || txtKieuSach.Text == "")
             {
                 MessageBox.Show("Hãy nhập dữ liệu!", "Thông Báo");
             }

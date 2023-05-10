@@ -66,6 +66,7 @@
             // 
             // dgvDocGia
             // 
+<<<<<<< HEAD:QuanLyThuVien_Demo/Form_Doc_Gia.Designer.cs
 <<<<<<< HEAD:QuanLyThuVien/frm_DocGia.Designer.cs
             this.lvwDanhSachDG.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
             this.columnHeader1,
@@ -111,6 +112,8 @@
             this.columnHeader5.Text = "Địa Chỉ";
             this.columnHeader5.Width = 197;
 =======
+=======
+>>>>>>> 9d401599f2005f5ebf35d814c4de54da6054b545:QuanLyThuVien/frm_DocGia.Designer.cs
             this.dgvDocGia.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvDocGia.Dock = System.Windows.Forms.DockStyle.Fill;
             this.dgvDocGia.Location = new System.Drawing.Point(3, 35);
@@ -118,7 +121,10 @@
             this.dgvDocGia.Size = new System.Drawing.Size(787, 232);
             this.dgvDocGia.TabIndex = 1;
             this.dgvDocGia.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvDocGia_CellContentClick);
+<<<<<<< HEAD:QuanLyThuVien_Demo/Form_Doc_Gia.Designer.cs
 >>>>>>> haicode:QuanLyThuVien_Demo/Form_Doc_Gia.Designer.cs
+=======
+>>>>>>> 9d401599f2005f5ebf35d814c4de54da6054b545:QuanLyThuVien/frm_DocGia.Designer.cs
             // 
             // btnThem
             // 
@@ -170,6 +176,7 @@
             // 
             // btnReset
             // 
+<<<<<<< HEAD:QuanLyThuVien_Demo/Form_Doc_Gia.Designer.cs
 <<<<<<< HEAD:QuanLyThuVien/frm_DocGia.Designer.cs
             this.btnLuu.Font = new System.Drawing.Font("Times New Roman", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnLuu.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -182,6 +189,8 @@
             this.btnLuu.UseVisualStyleBackColor = true;
             this.btnLuu.Click += new System.EventHandler(this.btnLuu_Click);
 =======
+=======
+>>>>>>> 9d401599f2005f5ebf35d814c4de54da6054b545:QuanLyThuVien/frm_DocGia.Designer.cs
             this.btnReset.Font = new System.Drawing.Font("Times New Roman", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnReset.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.btnReset.Location = new System.Drawing.Point(164, 179);
@@ -191,7 +200,10 @@
             this.btnReset.Text = "Reset";
             this.btnReset.UseVisualStyleBackColor = true;
             this.btnReset.Click += new System.EventHandler(this.btnReset_Click);
+<<<<<<< HEAD:QuanLyThuVien_Demo/Form_Doc_Gia.Designer.cs
 >>>>>>> haicode:QuanLyThuVien_Demo/Form_Doc_Gia.Designer.cs
+=======
+>>>>>>> 9d401599f2005f5ebf35d814c4de54da6054b545:QuanLyThuVien/frm_DocGia.Designer.cs
             // 
             // txtTenDG
             // 

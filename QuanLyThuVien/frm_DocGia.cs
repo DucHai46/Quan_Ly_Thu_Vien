@@ -2,7 +2,9 @@
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
+using System.Data.SqlClient;
 using System.Drawing;
+using System.Globalization;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -12,205 +14,64 @@ namespace QuanLyThuVien
 {
     public partial class Form_Doc_Gia : Form
     {
+        static string startupPath = Application.StartupPath;
+
+        SqlConnection conn;
+        SqlCommand cmd;
+        String str = @"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=" + startupPath + @"\QuanLyThuVien.mdf;Integrated Security=True;Connect Timeout=30";
+        SqlDataAdapter adapter = new SqlDataAdapter();
+        DataTable table = new DataTable();
+
+        public void LoadDgvDocGia()
+        {
+            cmd = conn.CreateCommand();
+            cmd.CommandText = "select MaDocGia as 'Mã Độc Giả', TenDocGia as 'Tên Độc Giả'," +
+                                    " GioiTinh as 'Giới Tính', NgaySinh as 'Ngày Sinh', DiaChi as 'Địa Chỉ' from DocGia ";
+            adapter.SelectCommand = cmd;
+            table.Clear();
+            adapter.Fill(table);
+            dgvDocGia.DataSource = table;
+        }
+
         public Form_Doc_Gia()
         {
             InitializeComponent();
         }
 
-        
 
         private void Form_Doc_Gia_Load(object sender, EventArgs e)
         {
+            Font currentFont = dgvDocGia.Font;
+            Font newFont = new Font(currentFont.FontFamily, 12, FontStyle.Bold);
+            dgvDocGia.Font = newFont;
+            dgvDocGia.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.AllCells;
 
+            conn = new SqlConnection(str);
+            conn.Open();
+            LoadDgvDocGia();
         }
 
-        private void NapListViewDSDocGia()
+        private void dgvDocGia_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
-            /*dtDocGia = objDocGia.getTableDocGia();*/
-            lvwDanhSachDG.Items.Clear();
-            /*foreach (DataRow dr in dtDocGia.Rows)*/
-            /*{
-                ListViewItem li = lvwDanhSachDG.Items.Add(dr["MaDG"].ToString());
-                li.Tag = dr["MaDG"].ToString();
-                li.SubItems.Add(dr["TenDG"].ToString());
-                li.SubItems.Add((bool)dr["GioiTinh"] == false ? "Nam" : "Nữ");
-                string ngaymuon = Convert.ToDateTime(dr["NgayMuon"].ToString()).ToShortDateString();
-                li.SubItems.Add(ngaymuon);
-                li.SubItems.Add(dr["DiaChi"].ToString());
-                li.ImageIndex = 0;
-
-            }*/
-        }
-
-        private void lvwDanhSachDG_SelectedIndexChanged(object sender, EventArgs e)
-        {
-            if (lvwDanhSachDG.SelectedItems.Count > 0)
+            txtMaDG.ReadOnly = true;
+            int i = dgvDocGia.CurrentRow.Index;
+            txtMaDG.Text = dgvDocGia.Rows[i].Cells[0].Value.ToString();
+            txtTenDG.Text = dgvDocGia.Rows[i].Cells[1].Value.ToString();
+            String gioitinh = dgvDocGia.Rows[i].Cells[2].Value.ToString();
+            if (gioitinh == "Nam")
             {
-                ListViewItem li = lvwDanhSachDG.SelectedItems[lvwDanhSachDG.SelectedItems.Count - 1];
-                foreach (ListViewItem lvw in lvwDanhSachDG.SelectedItems)
-                {
-                    txtMaDG.Text = lvw.SubItems[0].Text;
-                    txtTenDG.Text = lvw.SubItems[1].Text;
-                    dtNgayMuon.Text = lvw.SubItems[3].Text;
-                    if (lvw.SubItems[2].Text == "Nam")
-                        radNam.Checked = true;
-                    else
-                        radNu.Checked = true;
-                    txtDiaChi.Text = lvw.SubItems[4].Text;
-                }
+                radNam.Checked = true;
             }
-        }
-
-        private void setButton()
-        {
-            btnThem.Text = "Thêm";
-            txtMaDG.Text = "";
-            txtTenDG.Text = "";
-            radNam.Checked = true;
-            dtNgayMuon.Text = "";
-            txtDiaChi.Text = "";
-            btnXoa.Enabled = true;
-            btnSua.Enabled = true;
-            lvwDanhSachDG.Enabled = true;
+            else
+            {
+                radNu.Checked = true;
+            }
+            dtNgaySinh.Text = dgvDocGia.Rows[i].Cells[3].Value.ToString();
+            txtDiaChi.Text = dgvDocGia.Rows[i].Cells[4].Value.ToString();
         }
 
 
         private void btnThem_Click(object sender, EventArgs e)
-        {
-            if (btnThem.Text == "Thêm")
-            {
-                btnThem.Text = "Hủy";
-                grbChiTietDG.Enabled = true;
-                txtMaDG.Text = "";
-                txtTenDG.Text = "";
-                dtNgayMuon.Text = "";
-                txtDiaChi.Text = "";
-                txtMaDG.Focus();
-                btnXoa.Enabled = false;
-                btnSua.Enabled = false;
-                lvwDanhSachDG.Enabled = false;
-            }
-            else
-            {
-                setButton();
-            }
-        }
-
-        private void LuuThemDG()
-        {
-            try
-            {
-                lvwDanhSachDG.Items.Clear();
-                /*DataRow dr = dtDocGia.NewRow();
-                dr["MaDG"] = txtMaDG.Text;
-                dr["TenDG"] = txtTenDG.Text;
-                dr["GioiTinh"] = radNu.Checked ? true : false;
-                dr["NgayMuon"] = dtNgayMuon.Value;
-                dr["DiaChi"] = txtDiaChi.Text;
-                dtDocGia.Rows.Add(dr);
-                objDocGia.CapNhatTable_DocGia(dtDocGia);*/
-                setButton();
-                NapListViewDSDocGia();
-                MessageBox.Show("Lưu dữ liệu thành công!");
-            }
-            catch (Exception)
-            {
-                NapListViewDSDocGia();
-                MessageBox.Show("Lưu dữ liệu thất bại!");
-            }
-        }
-
-        private void LuuSuaDG()
-        {
-            try
-            {
-               /* dtDocGia = objDocGia.getTableDocGia_Theo_MaDG(lvwDanhSachDG.SelectedItems[0].Text);
-                dtDocGia.Rows[0]["MaDG"] = txtMaDG.Text;
-                dtDocGia.Rows[0]["TenDG"] = txtTenDG.Text;
-                dtDocGia.Rows[0]["GioiTinh"] = radNu.Checked ? true : false;
-                dtDocGia.Rows[0]["NgayMuon"] = dtNgayMuon.Value;
-                dtDocGia.Rows[0]["DiaChi"] = txtDiaChi.Text;
-                objDocGia.CapNhatTable_DocGia(dtDocGia);*/
-                MessageBox.Show("Lưu sửa dữ liệu thành công!");
-                NapListViewDSDocGia();
-            }
-            catch (Exception)
-            {
-
-                MessageBox.Show("Thất bại!", "Error");
-            }
-        }
-
-        private void btnThoat_Click(object sender, EventArgs e)
-        {
-            this.Close();
-        }
-
-        private void Form_Doc_Gia_FormClosing(object sender, FormClosingEventArgs e)
-        {
-            DialogResult dl = MessageBox.Show("Bạn có muốn đóng chương trình không?", "Warning", MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
-            if (dl == DialogResult.No)
-                e.Cancel = true;
-        }
-
-        private void btnXoa_Click(object sender, EventArgs e)
-        {
-            if (lvwDanhSachDG.SelectedItems.Count > 0)
-            {
-                DialogResult dl = MessageBox.Show("Bạn có chắc muốn xóa dữ liệu này?", "Warning", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
-                if (dl == DialogResult.Yes)
-                {
-                    /*DataRow[] dr = dtDocGia.Select("MaDG='" + txtMaDG.Text + "'");
-                    dr[0].Delete();
-                    objDocGia.CapNhatTable_DocGia(dtDocGia);*/
-                    // clear text
-                    txtMaDG.Text = "";
-                    txtTenDG.Text = "";
-                    radNam.Checked = true;
-                    dtNgayMuon.Text = "";
-                    txtDiaChi.Text = "";
-                    grbChiTietDG.Enabled = false;
-                    NapListViewDSDocGia();
-                    MessageBox.Show("Xóa dữ liệu thành công!", "Thông báo");
-                }
-            }
-            else
-            {
-                MessageBox.Show("Hãy chọn dữ liệu cần xóa!", "Thông báo");
-            }
-        }
-
-        private void btnSua_Click(object sender, EventArgs e)
-        {
-            if (lvwDanhSachDG.SelectedItems.Count > 0)
-            {
-                if (btnSua.Text == "Sửa")
-                {
-                    btnSua.Text = "Hủy";
-                    grbChiTietDG.Enabled = true;
-                    btnThem.Enabled = false;
-                    btnXoa.Enabled = false;
-                    btnLuu.Enabled = true;
-                    dtNgayMuon.Text = "";
-                    txtMaDG.Focus();
-                }
-                else
-                {
-                    btnSua.Text = "Sửa";
-                    grbChiTietDG.Enabled = false;
-                    btnThem.Enabled = true;
-                    btnXoa.Enabled = true;
-                    btnLuu.Enabled = false;
-                    dtNgayMuon.Text = "";
-                }
-            }
-            else
-            {
-                MessageBox.Show("Bạn hãy chọn dữ liệu cần sửa!", "Thông báo");
-            }
-        }
-
-        private void btnLuu_Click(object sender, EventArgs e)
         {
             if (txtMaDG.Text == "")
             {
@@ -229,11 +90,82 @@ namespace QuanLyThuVien
             }
             else
             {
-                if (lvwDanhSachDG.SelectedItems.Count == 0)
-                    LuuThemDG();
+                String gioitinh = radNam.Text;
+                if (radNu.Checked)
+                {
+                    gioitinh = "Nữ";
+                }
+                int count = 0;
+                for (int i = 0; i < table.Rows.Count; i++)
+                {
+                    if (table.Rows[i][0].ToString() == txtMaDG.Text)
+                    {
+                        count++;
+                        break;
+                    }
+                }
+                if(count == 0)
+                {
+                    cmd = conn.CreateCommand();
+                    cmd.CommandText = "insert into DocGia values ('" + txtMaDG.Text + "', N'" + txtTenDG.Text + "', " +
+                                                                 "N'"+gioitinh+"', '"+dtNgaySinh.Text+ "', N'"+txtDiaChi.Text+"'  )";
+                    cmd.ExecuteNonQuery();
+                    LoadDgvDocGia();
+                }
                 else
-                    LuuSuaDG();
+                {
+                    MessageBox.Show("Mã Độc Giả đã tồn tại!");
+                    txtMaDG.Clear();
+                    txtMaDG.Focus();
+                }
             }
         }
+
+
+        private void btnThoat_Click(object sender, EventArgs e)
+        {
+            this.Close();
+        }
+
+        private void Form_Doc_Gia_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            DialogResult dl = MessageBox.Show("Bạn có muốn đóng chương trình không?", "Warning", MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
+            if (dl == DialogResult.No)
+                e.Cancel = true;
+        }
+
+        private void btnXoa_Click(object sender, EventArgs e)
+        {
+            cmd = conn.CreateCommand();
+            cmd.CommandText = "delete from DocGia where MaDocGia = '"+txtMaDG.Text+"'";
+            cmd.ExecuteNonQuery();
+            LoadDgvDocGia();
+        }
+        private void btnSua_Click(object sender, EventArgs e)
+        {
+            String gioitinh = radNam.Text;
+            if (radNu.Checked)
+            {
+                gioitinh = "Nữ";
+            }
+            cmd = conn.CreateCommand();
+            cmd.CommandText = "update DocGia set TenDocGia = N'" + txtTenDG.Text + "', GioiTinh = N'"+gioitinh+"', " +
+                                                 "NgaySinh = '"+dtNgaySinh.Text+"',DiaChi = '"+txtDiaChi.Text+"' " +
+                                                 "where MaDocGia = '"+txtMaDG.Text+"'";
+            cmd.ExecuteNonQuery();
+            LoadDgvDocGia();
+        }
+
+        private void btnReset_Click(object sender, EventArgs e)
+        {
+            txtMaDG.ReadOnly = false;
+            txtDiaChi.Clear();
+            txtMaDG.Clear();
+            txtTenDG.Clear();
+            radNam.Checked = true;
+            dtNgaySinh.Text = DateTime.Now.ToString();
+        }
+
+
     }
 }

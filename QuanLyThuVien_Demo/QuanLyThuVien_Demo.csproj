@@ -102,8 +102,13 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+<<<<<<< HEAD:QuanLyThuVien_Demo/QuanLyThuVien_Demo.csproj
     <EmbeddedResource Include="frmDangKy.resx">
       <DependentUpon>frmDangKy.cs</DependentUpon>
+=======
+    <EmbeddedResource Include="frm_DocGia.resx">
+      <DependentUpon>frm_DocGia.cs</DependentUpon>
+>>>>>>> 9d401599f2005f5ebf35d814c4de54da6054b545:QuanLyThuVien/QuanLyThuVien.csproj
     </EmbeddedResource>
     <EmbeddedResource Include="frmDangNhap.resx">
       <DependentUpon>frmDangNhap.cs</DependentUpon>
